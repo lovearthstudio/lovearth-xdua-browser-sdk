@@ -37,15 +37,16 @@ function lovearth({
     async function initialize() {
         //如果localstorage没有api_token,那一定要去获取api_token
         //如果localstorage由api_token,但是过期了,那也去要去获取api_token
-        let cur_time = Math.ceil((new Date()).getTime() / 1000);
-        let api_info = localStorage.getItem('api_info');
-        let api_token_expired = true;
-        if(api_info!=null) {
-            let api_token_expire_time = parseInt(api_info.token_expired_time);
-            if(api_token_expire_time < cur_time){
-                return
-            }
-        }
+        //下面的代码是原来用来验证token有效性的代码，是从本地localstorage的过期时间来检查的，这种机制以后要换掉,换成全是服务器端来做检查。
+        //let cur_time = Math.ceil((new Date()).getTime() / 1000);
+        //let api_info = localStorage.getItem('api_info');
+        //let api_token_expired = true;
+        //if(api_info!=null) {
+        //    let api_token_expire_time = parseInt(api_info.token_expired_time);
+        //    if(api_token_expire_time < cur_time){
+        //        return
+        //    }
+        //}
         let promiseList = [];
         promiseList.push(addToken());
         return Promise.all(promiseList);
@@ -102,8 +103,47 @@ function lovearth({
             return localToken;
         }
     }
-
-
+    /**
+     * 获取本地localstorage存储的token去后台解析里面的内容然后返回.
+     * 解析的内容里包含它的过期时间还剩下多少秒,客户端以此来判断
+     * fixme:测试本接口
+     * */
+    async function getToken() {
+        try{
+            let localToken = getLocalToken();
+            //let localToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MGIxZWZmZGMwMzVlMjg2OWI2YzQ1ZjMzYmRmNWQ3In0.eyJpYXQiOjE1NDI3ODMwNjcsIm5iZiI6MTU0Mjc4MzA2NywiZXhwIjoxNTQyNzg2NjY3LCJpc3MiOiJMb3ZlYXJ0aCBEVUEgU2VydmljZSIsImF1ZCI6IkxvdmVhcnRoIEluYyIsImR1YSI6IlU5Z2JhQk1yIiwiZGlkIjoiSmtkYks3YkUiLCJ1aWQiOiJEdDVtdnJ0VSIsImFpZCI6ImFIRVZZaEUxIn0.Rj8k4gpwN038Wn4geOmLiqsrICZtpBrsyCXrdX-AMbIQE1qCqo_2s3JmGEkAvB-tmDNEKL1nLXB_HebsYsA5fjgakfVLGXL8gBo7zg4Y7HTF2MhJqo1dFZQ93R4ZrbwkI65jnxOl_rSuKG-3PiZXdRSlLT2LYDGei-JT5f1dW7gfKGqBrElazkhE0nxPc5I2lFjXTthKeQOjAWwLhkarTqhV8nYyzmQvEMrfje6Pj7J-flCJmyPUqa82ZIoKilyNoMYOZTPXa34kiMkPnnferb4puen7vXBwQBPHIhZi5TfaNmCyDCeHFexNZ5INi75MH-VjzCyOYNv6dlBwmPftkw";
+            if (_.isNil(localToken) || localToken == ""){
+                console.log("fail to find local token turn to backend for anonymous token")
+                const res = await addToken();
+                const data = res.data;
+                if (data.error !== 0) {
+                    throw new Error('fail to get Token');
+                }
+                const {token} = data.result;
+                setLocalToken(token);
+                localToken = token;
+            }
+            
+            console.log(localToken);
+            const url = API_END_POINT + '/token/'+localToken; 
+            const headers = {
+                'accept'        : APPLICATION_JSON,
+                'content-type'  : APPLICATION_X_WWW_FORM_URLENCODED,
+                'Authorization' : localToken
+            };
+            let res = await aliYunClient.get({url,headers:headers,signHeaders: {'X-Ca-Stage': 'RELEASE'}});
+            const {data} = res;
+            if (data.error === 0) {
+                return data;
+            }else{
+                throw new Error('fail to get Token profile');
+                return null;
+            }         
+        }catch(e){
+            return {error:2,reason:e,result:{},debug:{}}; 
+        }
+    }
+    
     /**
      * Login Method
      *
@@ -1444,6 +1484,7 @@ function lovearth({
     return {
         initialize,
         addToken,
+        getTokenProfile,
         login,
         addUser,
         delUser,
