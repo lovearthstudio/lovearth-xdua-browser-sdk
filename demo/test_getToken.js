@@ -13,7 +13,7 @@ async function test_getToken() {
     //--------------------------------------------------
     let api_name = "令牌详情";
     await dua.initialize()
-    let res = await dua.getTokenProfile()
+    let res = await dua.getToken()
     
     console.log(res);
     console.log(JSON.stringify(res));

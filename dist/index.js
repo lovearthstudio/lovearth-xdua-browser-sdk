@@ -88,21 +88,6 @@ function lovearth({
 
     }
    
-    async function getToken() {
-        let localToken = getLocalToken();
-        if (_.isNil(localToken) || localToken == ""){
-            const res = await addToken();
-            const data = res.data;
-            if (data.error !== 0) {
-                throw new Error('fail to get Token');
-            }
-            const {token} = data.result;
-            setLocalToken(token);
-            return token;
-        }else{
-            return localToken;
-        }
-    }
     /**
      * 获取本地localstorage存储的token去后台解析里面的内容然后返回.
      * 解析的内容里包含它的过期时间还剩下多少秒,客户端以此来判断
@@ -124,7 +109,7 @@ function lovearth({
                 localToken = token;
             }
             
-            console.log(localToken);
+            //console.log(localToken);
             const url = API_END_POINT + '/token/'+localToken; 
             const headers = {
                 'accept'        : APPLICATION_JSON,
@@ -136,11 +121,12 @@ function lovearth({
             if (data.error === 0) {
                 return data;
             }else{
+                //console.log(data);
                 throw new Error('fail to get Token profile');
                 return null;
             }         
         }catch(e){
-            return {error:2,reason:e,result:{},debug:{}}; 
+            return {error:2,reason:String(e),result:{},debug:{}}; 
         }
     }
     
@@ -1484,7 +1470,7 @@ function lovearth({
     return {
         initialize,
         addToken,
-        getTokenProfile,
+        getToken,
         login,
         addUser,
         delUser,
