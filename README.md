@@ -16,6 +16,17 @@ Install with yarn:
 yarn add lovearth-xdua-browser-sdk --dev
 ```
 
+Publish to npmjs
+
+### 发布npm包,在package.json里修改版本号后,使用npm publish命令，可能会要求npm adduser 来添加用户.
+
+```bash
+npm publish
+```
+
+
+
+
 <h2>api用法</h2>
 
 - 参照 [地球号 API](http://doc.xdua.com)
