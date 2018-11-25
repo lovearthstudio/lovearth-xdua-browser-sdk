@@ -18,6 +18,7 @@ const {
     getAppSecret,
     getAppKey,
     setLocalToken,
+    delLocalToken,
     getLocalToken
 } = require('./constants');
 
@@ -125,6 +126,18 @@ function lovearth({
                 throw new Error('fail to get Token profile');
                 return null;
             }         
+        }catch(e){
+            return {error:2,reason:String(e),result:{},debug:{}}; 
+        }
+    }
+ 
+    /**
+     * 删除本地localstorage里的token就可以了
+     * fixme:测试本接口
+     * */
+    async function getToken() {
+        try{
+            let localToken = delLocalToken();
         }catch(e){
             return {error:2,reason:String(e),result:{},debug:{}}; 
         }

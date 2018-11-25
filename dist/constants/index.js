@@ -39,12 +39,18 @@ function getLocalToken() {
     return api_info.token;
 }
 
+function delLocalToken() {
+    localStorage.removeItem('api_info');
+    return true;
+}
+
 module.exports = {
   APIV,
   API_END_POINT,
   getAppKey,
   getAppSecret,
   getLocalToken,
+  delLocalToken,
   setAppKey,
   setAppSecret,
   setLocalToken
