@@ -135,9 +135,10 @@ function lovearth({
      * 删除本地localstorage里的token就可以了
      * fixme:测试本接口
      * */
-    async function getToken() {
+    async function logout() {
         try{
-            let localToken = delLocalToken();
+            delLocalToken();
+            return true;
         }catch(e){
             return {error:2,reason:String(e),result:{},debug:{}}; 
         }
@@ -1484,6 +1485,8 @@ function lovearth({
         initialize,
         addToken,
         getToken,
+        getTokenValidate,
+        logout,
         login,
         addUser,
         delUser,
