@@ -125,7 +125,7 @@ function lovearth({ APP_SECRET, APP_KEY }) {
   /**
    * 获取本地token，返回客户端登录状态
    */
-  async function getTokenValidate() {
+  async function isLogin() {
     try {
       let res = await getToken()
       let data = res.result.data
