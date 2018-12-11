@@ -1506,7 +1506,7 @@ function lovearth({ APP_SECRET, APP_KEY }) {
     initialize,
     addToken,
     getToken,
-    getTokenValidate,
+    isLogin,
     logout,
     login,
     addUser,
