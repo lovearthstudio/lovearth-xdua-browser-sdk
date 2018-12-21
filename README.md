@@ -26,7 +26,6 @@ npm publish
 
 
 
-
 <h2>api用法</h2>
 
 - 参照 [地球号 API](http://doc.xdua.com)
