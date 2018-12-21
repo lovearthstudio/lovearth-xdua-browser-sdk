@@ -7,41 +7,41 @@ let APP_KEY;
 let LOCAL_TOKEN;
 
 function setAppSecret(appSecret) {
-    APP_SECRET = appSecret;
+  APP_SECRET = appSecret;
 }
 
 function getAppSecret() {
-    return APP_SECRET;
+  return APP_SECRET;
 }
 
 function getAppKey() {
-    return APP_KEY;
+  return APP_KEY;
 }
 
 function setAppKey(appKey) {
-    APP_KEY = appKey;
+  APP_KEY = appKey;
 }
 
 function setLocalToken(token) {
-    let date = new Date();
-    let token_expire_time = parseInt(date.getTime()/1000) + 3600
-    let api_info = {
-        token:token,
-        token_expire_time: token_expire_time
-    }
-    localStorage.setItem('api_info',JSON.stringify(api_info));
-    LOCAL_TOKEN = token;
+  let date = new Date();
+  let token_expire_time = parseInt(date.getTime() / 1000) + 3600;
+  let api_info = {
+    token: token,
+    token_expire_time: token_expire_time
+  };
+  localStorage.setItem('api_info', JSON.stringify(api_info));
+  LOCAL_TOKEN = token;
 }
 
 function getLocalToken() {
-    let api_info = localStorage.getItem('api_info');
-    api_info = JSON.parse(api_info);
-    return api_info.token;
+  let api_info = localStorage.getItem('api_info');
+  api_info = JSON.parse(api_info);
+  return api_info.token;
 }
 
 function delLocalToken() {
-    localStorage.removeItem('api_info');
-    return true;
+  localStorage.removeItem('api_info');
+  return true;
 }
 
 module.exports = {

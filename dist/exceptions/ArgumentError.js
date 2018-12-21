@@ -1,8 +1,8 @@
 "use strict";
-
 /**
  * Attribution: https://github.com/ngonzalvez/rest-facade/blob/master/src/exceptions/ArgumentError.js
  */
+
 const util = require('util');
 
 const ArgumentError = function (message) {

@@ -7,7 +7,8 @@
     "lint": "./node_modules/.bin/eslint ./lib",
     "fix": "./node_modules/.bin/eslint ./lib ./config --fix",
     "prebuild": "rm -rf dist",
-    "build": "npm run prebuild && mkdir dist && babel lib --out-dir dist"
+    "babel": "./node_modules/.bin/babel lib --out-dir dist",
+    "build": "npm run prebuild && mkdir dist && npm run babel"
   },
   "repository": {
     "type": "git",
@@ -33,10 +34,10 @@
     "util": "^0.11.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.51",
-    "@babel/core": "^7.0.0-beta.51",
-    "@babel/node": "^7.0.0-beta.51",
-    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
     "babel-eslint": "^8.2.3",
     "eslint": "^4.19.1"
   }
