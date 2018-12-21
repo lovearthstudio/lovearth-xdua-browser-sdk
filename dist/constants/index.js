@@ -1,10 +1,10 @@
 "use strict";
 
-const APIV = '1.0.0';
-const API_END_POINT = 'http://api.xdua.com';
-let APP_SECRET;
-let APP_KEY;
-let LOCAL_TOKEN;
+var APIV = '1.0.0';
+var API_END_POINT = 'http://api.xdua.com';
+var APP_SECRET;
+var APP_KEY;
+var LOCAL_TOKEN;
 
 function setAppSecret(appSecret) {
   APP_SECRET = appSecret;
@@ -23,9 +23,9 @@ function setAppKey(appKey) {
 }
 
 function setLocalToken(token) {
-  let date = new Date();
-  let token_expire_time = parseInt(date.getTime() / 1000) + 3600;
-  let api_info = {
+  var date = new Date();
+  var token_expire_time = parseInt(date.getTime() / 1000) + 3600;
+  var api_info = {
     token: token,
     token_expire_time: token_expire_time
   };
@@ -34,7 +34,7 @@ function setLocalToken(token) {
 }
 
 function getLocalToken() {
-  let api_info = localStorage.getItem('api_info');
+  var api_info = localStorage.getItem('api_info');
   api_info = JSON.parse(api_info);
   return api_info.token;
 }
@@ -45,13 +45,13 @@ function delLocalToken() {
 }
 
 module.exports = {
-  APIV,
-  API_END_POINT,
-  getAppKey,
-  getAppSecret,
-  getLocalToken,
-  delLocalToken,
-  setAppKey,
-  setAppSecret,
-  setLocalToken
+  APIV: APIV,
+  API_END_POINT: API_END_POINT,
+  getAppKey: getAppKey,
+  getAppSecret: getAppSecret,
+  getLocalToken: getLocalToken,
+  delLocalToken: delLocalToken,
+  setAppKey: setAppKey,
+  setAppSecret: setAppSecret,
+  setLocalToken: setLocalToken
 };

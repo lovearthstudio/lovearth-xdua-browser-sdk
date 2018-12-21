@@ -3,9 +3,9 @@
  * Attribution: https://github.com/ngonzalvez/rest-facade/blob/master/src/exceptions/ArgumentError.js
  */
 
-const util = require('util');
+var util = require('util');
 
-const ArgumentError = function (message) {
+var ArgumentError = function ArgumentError(message) {
   this.name = 'ArgumentError';
   this.message = message || '';
   Error.captureStackTrace(this, this.constructor);

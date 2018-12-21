@@ -1,11 +1,11 @@
 "use strict";
 
-const md5 = require('./md5');
+var md5 = require('./md5');
 
-const _ = require('lodash');
+var _ = require('lodash');
 
 function Sign(nonce) {
-  let Nonce;
+  var Nonce;
 
   if (_.isNil(nonce)) {
     Nonce = md5(Math.random());
@@ -23,19 +23,18 @@ function Sign(nonce) {
    */
 
 
-  function generateSign({
-    method,
-    path,
-    appSecret,
-    appKey
-  }) {
-    const stringToSign = method + path + Nonce + appSecret;
-    const signedString = md5(stringToSign);
+  function generateSign(_ref) {
+    var method = _ref.method,
+        path = _ref.path,
+        appSecret = _ref.appSecret,
+        appKey = _ref.appKey;
+    var stringToSign = method + path + Nonce + appSecret;
+    var signedString = md5(stringToSign);
     return appKey + '|' + Nonce + '|' + signedString;
   }
 
   return {
-    generateSign
+    generateSign: generateSign
   };
 }
 
