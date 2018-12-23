@@ -52,28 +52,30 @@ function lovearth(_ref) {
     _initialize = _asyncToGenerator(
     /*#__PURE__*/
     regeneratorRuntime.mark(function _callee() {
-      var promiseList;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.prev = 0;
-              promiseList = [];
-              promiseList.push(addToken());
-              return _context.abrupt("return", Promise.all(promiseList));
+              _context.next = 3;
+              return addToken();
 
-            case 6:
-              _context.prev = 6;
+            case 3:
+              _context.next = 9;
+              break;
+
+            case 5:
+              _context.prev = 5;
               _context.t0 = _context["catch"](0);
               console.log(_context.t0);
               return _context.abrupt("return");
 
-            case 10:
+            case 9:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this, [[0, 6]]);
+      }, _callee, this, [[0, 5]]);
     }));
     return _initialize.apply(this, arguments);
   }
