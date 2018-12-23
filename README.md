@@ -24,7 +24,7 @@ Publish to npmjs
 npm publish
 ```
 
-
+lib里是ES6的语法，改动要改在lib里，运行npm run build会把lib的code转成es5存放到dist里。
 
 <h2>api用法</h2>
 

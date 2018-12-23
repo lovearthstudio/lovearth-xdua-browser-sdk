@@ -57,28 +57,23 @@ function lovearth(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              //如果localstorage没有api_token,那一定要去获取api_token
-              //如果localstorage由api_token,但是过期了,那也去要去获取api_token
-              //下面的代码是原来用来验证token有效性的代码，是从本地localstorage的过期时间来检查的，这种机制以后要换掉,换成全是服务器端来做检查。
-              //let cur_time = Math.ceil((new Date()).getTime() / 1000);
-              //let api_info = localStorage.getItem('api_info');
-              //let api_token_expired = true;
-              //if(api_info!=null) {
-              //    let api_token_expire_time = parseInt(api_info.token_expired_time);
-              //    if(api_token_expire_time < cur_time){
-              //        return
-              //    }
-              //}
+              _context.prev = 0;
               promiseList = [];
               promiseList.push(addToken());
               return _context.abrupt("return", Promise.all(promiseList));
 
-            case 3:
+            case 6:
+              _context.prev = 6;
+              _context.t0 = _context["catch"](0);
+              console.log(_context.t0);
+              return _context.abrupt("return");
+
+            case 10:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, this);
+      }, _callee, this, [[0, 6]]);
     }));
     return _initialize.apply(this, arguments);
   }
