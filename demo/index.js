@@ -1,18 +1,17 @@
-const lovearth = require('../dist')
+const lovearth = require('../lib')
 const {
     APP_SECRET,
     APP_KEY,
 } = require('./option')
 
-const dua = lovearth({
-    APP_KEY: "aHEVYhE1",
-    APP_SECRET: "f34b127abc7cca1862dac91db6256190",
-})
 
 async function demo() {
+    const dua = await lovearth({
+        APP_KEY: "aHEVYhE1",
+        APP_SECRET: "f34b127abc7cca1862dac91db6256190",
+    })
     //--------------------------------------------------
     let api_name = "用户登录";
-    await dua.initialize()
     res = await dua.login({
         by  :   "tel",
         ustr:   '+86-15810419011',

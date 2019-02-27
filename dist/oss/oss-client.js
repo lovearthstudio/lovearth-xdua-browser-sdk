@@ -4,10 +4,13 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-var _require = require('../../demo/option'),
-    OSS_INFO = _require.OSS_INFO;
-
 var OSS = require('ali-oss');
+
+var OSS_INFO = {
+  url: 'http://api.xdua.com/sts/osser',
+  region: 'oss-cn-beijing',
+  bucket: 'file-xdua-com'
+};
 
 function getClient() {
   return _getClient.apply(this, arguments);
