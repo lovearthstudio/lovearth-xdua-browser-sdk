@@ -1,37 +1,26 @@
 const lovearth = require('../lib')
-const {
-    APP_SECRET,
-    APP_KEY,
-} = require('./option')
-/*
-const dua = lovearth({
-    APP_KEY: "aHEVYhE1",
-    APP_SECRET: "f34b127abc7cca1862dac91db6256190",
-})
-*/
-const dua = lovearth({
-    APP_KEY: "EIxcPdpT",
-    APP_SECRET: "b8466f37b99bea6496b192be399cfbd2",
-})
-
 async function test_addUgrp() {
     //--------------------------------------------------
-    await dua.initialize()
+    const dua = await lovearth({
+        APP_KEY: "aHEVYhE1",
+        APP_SECRET: "f34b127abc7cca1862dac91db6256190",
+    })
+
     api_name = "创建户群";
     got_ugrp_id = "";
-    await dua.login({
+    const res_login = await dua.login({
         by  :   "tel",
         ustr:   '+86-15810419011',
         pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
-        ugrp:   "dua",
+        ugrp:   "XdUaXduA",
         role:   "none"
     })
-
+    console.log(res_login);
     const res = await dua.addUgrp({
-        code:"test_ugrp_rand2",
-        name:"测试用户组",
-        brief:"测试用户组简介", 
-        avatar:"测试用户组头像"
+        code:"testugrp2",
+        name:"测试户群2",
+        brief:"这是一个测试用的户群2", 
+        avatar:""
     })
     console.log(res);
     if(res.error == 0){

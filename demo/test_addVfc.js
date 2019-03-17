@@ -10,7 +10,8 @@ async function test_addVfcTel() {
         })
         
         api_name = "短信验码";
-        res = await dua.addVfcodeByTel("+86-1581041901x")
+        //res = await dua.addVfcodeByTel("+86-15810419011")
+        res = await dua.addVfcodeByTel("15810419011")
         if(res.error == 0){
             console.log(api_name+"成功");
         }else{
@@ -37,7 +38,8 @@ async function test_addVfcMail() {
     }
 }
 
-test_addVfcTel();
+//test_addVfcTel();
+test_addVfcMail();
     
     
     

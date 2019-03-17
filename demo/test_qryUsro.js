@@ -1,27 +1,22 @@
-const lovearth = require('../dist')
-const {
-    APP_SECRET,
-    APP_KEY,
-} = require('./option')
-
-const dua = lovearth({
-    APP_KEY: "aHEVYhE1",
-    APP_SECRET: "f34b127abc7cca1862dac91db6256190",
-})
+const lovearth = require('../lib')
 
 async function test_qryUsro() {
+    const dua = await lovearth({
+        APP_KEY: "aHEVYhE1",
+        APP_SECRET: "f34b127abc7cca1862dac91db6256190",
+    })
+
     //--------------------------------------------------
     let api_name = "户群查询";
-    await dua.initialize()
     await dua.login({
         by  :   "tel",
         ustr:   '+86-15810419011',
         pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
-        ugrp:   "dua",
+        ugrp:   "XdUaXduA",
         role:   "none"
     })
 
-    let res = await dua.qryUsro({ugrp_code:"wikicivi"})
+    let res = await dua.qryUsro({})
     console.log(res);
     console.log(JSON.stringify(res));
     if(res.error == 0){

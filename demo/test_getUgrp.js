@@ -1,4 +1,4 @@
-const lovearth = require('../dist')
+const lovearth = require('../lib')
 const {
     APP_SECRET,
     APP_KEY,
