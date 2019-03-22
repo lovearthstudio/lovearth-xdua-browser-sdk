@@ -29,3 +29,5 @@ lib里是ES6的语法，改动要改在lib里，运行npm run build会把lib的c
 <h2>api用法</h2>
 
 - 参照 [地球号 API](http://doc.xdua.com)
+
+github账号:lovearthhome@gmail.com h*2*b

@@ -17,10 +17,11 @@ async function test_addUgrp() {
     })
     console.log(res_login);
     const res = await dua.addUgrp({
-        code:"testugrp2",
-        name:"测试户群2",
-        brief:"这是一个测试用的户群2", 
-        avatar:""
+        code:"testugrp5",
+        name:"测试户群5",
+        brief:"这是一个测试用的户群5", 
+        avatar:"",
+        pid:"CfAiFnTR"
     })
     console.log(res);
     if(res.error == 0){

@@ -7,7 +7,7 @@ async function test_qryApp() {
         APP_SECRET: "f34b127abc7cca1862dac91db6256190",
     })
     //--------------------------------------------------
-    let api_name = "户群查询";
+    let api_name = "应用查询";
     await dua.login({
         by  :   "tel",
         ustr:   '+86-15810419011',
