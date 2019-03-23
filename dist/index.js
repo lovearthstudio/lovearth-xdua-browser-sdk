@@ -2941,14 +2941,26 @@ function _lovearth() {
                       case 12:
                         url = API_END_POINT + '/login';
                         localToken = getLocalToken();
-                        console.log(localToken);
+
+                        if (!_.isNil(localToken)) {
+                          _context6.next = 18;
+                          break;
+                        }
+
+                        _context6.next = 17;
+                        return addToken();
+
+                      case 17:
+                        localToken = getLocalToken();
+
+                      case 18:
                         headers = {
                           //'apiv'          : APIV,
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
                           Authorization: getLocalToken()
                         };
-                        _context6.next = 18;
+                        _context6.next = 21;
                         return aliYunClient.post({
                           url: url,
                           headers: headers,
@@ -2964,7 +2976,7 @@ function _lovearth() {
                           }
                         });
 
-                      case 18:
+                      case 21:
                         res = _context6.sent;
                         data = res.data;
 
@@ -2977,8 +2989,8 @@ function _lovearth() {
 
                         return _context6.abrupt("return", data);
 
-                      case 24:
-                        _context6.prev = 24;
+                      case 27:
+                        _context6.prev = 27;
                         _context6.t0 = _context6["catch"](1);
                         console.log(_context6.t0);
                         return _context6.abrupt("return", {
@@ -2988,12 +3000,12 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 28:
+                      case 31:
                       case "end":
                         return _context6.stop();
                     }
                   }
-                }, _callee6, this, [[1, 24]]);
+                }, _callee6, this, [[1, 27]]);
               }));
               return _login.apply(this, arguments);
             };
