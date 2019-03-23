@@ -23,6 +23,9 @@ Publish to npmjs
 ```bash
 npm publish
 ```
+我们发现一个问题，必须先要`npm run build`把dist文件夹建立起来，然后npm publish 才会把整个dist连同lib都发到库里，然后在www.xdua.com调用的时候调用的是npm发布的dist。
+
+为什么使用dist而不是lib,是因为SDK根目录的index.js里面直接引用了dist而不是lib.
 
 lib里是ES6的语法，改动要改在lib里，运行npm run build会把lib的code转成es5存放到dist里。
 

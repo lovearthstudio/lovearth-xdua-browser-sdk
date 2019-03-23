@@ -1,10 +1,12 @@
 "use strict";
 
+var _ = require('lodash');
+
 var APIV = '1.0.0';
 var API_END_POINT = 'http://api.xdua.com';
+var HAM_API_END_POINT = 'http://api.hannm.com';
 var APP_SECRET;
-var APP_KEY;
-var LOCAL_TOKEN; //我们用localStorage只能用于浏览器.于是使用store插件.可以兼容android,ios,nodejs,browser
+var APP_KEY; //我们用localStorage只能用于浏览器.于是使用store插件.可以兼容android,ios,nodejs,browser
 //https://github.com/marcuswestin/store.js
 
 var store = require('store');
@@ -33,31 +35,29 @@ function setLocalToken(token) {
     token_expire_time: token_expire_time
   };
   store.set('api_info', api_info);
-  console.log("在本地存储中存入:");
-  console.log(api_info); //localStorage.setItem('api_info',JSON.stringify(api_info));
-
-  LOCAL_TOKEN = token;
 }
 
 function getLocalToken() {
-  //let api_info = localStorage.getItem('api_info');
-  //api_info = JSON.parse(api_info);
-  var api_info = store.get('api_info');
-  console.log("在本地存储中读出:");
-  console.log(api_info);
-  return api_info.token;
+  var localtoken = undefined;
+
+  try {
+    var api_info = store.get('api_info');
+    localtoken = api_info.token;
+    return localtoken;
+  } catch (error) {
+    return null;
+  }
 }
 
 function delLocalToken() {
-  //localStorage.removeItem('api_info');
   store.remove('api_info');
-  console.log("在本地存储中删除:api_info");
   return true;
 }
 
 module.exports = {
   APIV: APIV,
   API_END_POINT: API_END_POINT,
+  HAM_API_END_POINT: HAM_API_END_POINT,
   getAppKey: getAppKey,
   getAppSecret: getAppSecret,
   getLocalToken: getLocalToken,

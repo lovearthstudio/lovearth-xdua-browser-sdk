@@ -20,11 +20,12 @@ var _require = require('./constants/contentType'),
 
 var _require2 = require('./oss/oss-client'),
     getClient = _require2.getClient,
-    upload = _require2.upload;
+    addfile = _require2.addfile;
 
 var _require3 = require('./constants'),
     APIV = _require3.APIV,
     API_END_POINT = _require3.API_END_POINT,
+    HAM_API_END_POINT = _require3.HAM_API_END_POINT,
     setAppSecret = _require3.setAppSecret,
     setAppKey = _require3.setAppKey,
     getAppSecret = _require3.getAppSecret,
@@ -45,14 +46,442 @@ function lovearth(_x) {
 function _lovearth() {
   _lovearth = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee40(_ref) {
-    var APP_SECRET, APP_KEY, initialize, _initialize, addToken, _addToken, getToken, _getToken, isLogin, _isLogin, logout, _logout, login, _login, addVfcodeByTel, _addVfcodeByTel, addVfcodeByMail, _addVfcodeByMail, rstPass, _rstPass, chgPass, _chgPass, addUser, _addUser, delUser, _delUser, putUser, _putUser, getUser, _getUser, qryUser, _qryUser, addUgrp, _addUgrp, delUgrp, _delUgrp, putUgrp, _putUgrp, getUgrp, _getUgrp, qryUgrp, _qryUgrp, addRole, _addRole, delRole, _delRole, putRole, _putRole, getRole, _getRole, qryRole, _qryRole, addUsro, _addUsro, delUsro, _delUsro, putUsro, _putUsro, getUsro, _getUsro, qryUsro, _qryUsro, delApp, _delApp, putApp, _putApp, getApp, _getApp, qryApp, _qryApp, addApp, _addApp, _delApp2, _putApp2, _getApp2, _qryApp2;
+  regeneratorRuntime.mark(function _callee46(_ref) {
+    var APP_SECRET, APP_KEY, initialize, _initialize, addToken, _addToken, getToken, _getToken, isLogin, _isLogin, logout, _logout, login, _login, addVfcodeByTel, _addVfcodeByTel, addVfcodeByMail, _addVfcodeByMail, rstPass, _rstPass, chgPass, _chgPass, addUser, _addUser, delUser, _delUser, putUser, _putUser, getUser, _getUser, qryUser, _qryUser, addUgrp, _addUgrp, delUgrp, _delUgrp, putUgrp, _putUgrp, getUgrp, _getUgrp, qryUgrp, _qryUgrp, addRole, _addRole, delRole, _delRole, putRole, _putRole, getRole, _getRole, qryRole, _qryRole, addUsro, _addUsro, delUsro, _delUsro, putUsro, _putUsro, getUsro, _getUsro, qryUsro, _qryUsro, delApp, _delApp, putApp, _putApp, getApp, _getApp, qryApp, _qryApp, addApp, _addApp, _delApp2, _putApp2, _getApp2, _qryApp2, addObj, _addObj, delObj, _delObj, putObj, _putObj, getObj, _getObj, qryObj, _qryObj, addUsrz, _addUsrz;
 
-    return regeneratorRuntime.wrap(function _callee40$(_context40) {
+    return regeneratorRuntime.wrap(function _callee46$(_context46) {
       while (1) {
-        switch (_context40.prev = _context40.next) {
+        switch (_context46.prev = _context46.next) {
           case 0:
-            _qryApp2 = function _ref87() {
+            _addUsrz = function _ref101() {
+              _addUsrz = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee45(_ref11) {
+                var towho, zone_id, API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee45$(_context45) {
+                  while (1) {
+                    switch (_context45.prev = _context45.next) {
+                      case 0:
+                        towho = _ref11.towho, zone_id = _ref11.zone_id;
+                        _context45.prev = 1;
+                        API_PATH = '/usrz';
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(towho) || typeof towho !== 'string')) {
+                          _context45.next = 8;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: code is required as string');
+
+                      case 8:
+                        if (!(_.isNil(zone_id) || typeof zone_id !== 'string')) {
+                          _context45.next = 10;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: name is required as string not ' + (typeof name === "undefined" ? "undefined" : _typeof(name)));
+
+                      case 10:
+                        _context45.next = 12;
+                        return aliYunClient.post({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          },
+                          params: {
+                            towho: towho,
+                            zone_id: zone_id
+                          }
+                        });
+
+                      case 12:
+                        res = _context45.sent;
+                        data = res.data;
+                        return _context45.abrupt("return", data);
+
+                      case 17:
+                        _context45.prev = 17;
+                        _context45.t0 = _context45["catch"](1);
+                        return _context45.abrupt("return", {
+                          error: 1,
+                          reason: _context45.t0,
+                          debug: _context45.t0
+                        });
+
+                      case 20:
+                      case "end":
+                        return _context45.stop();
+                    }
+                  }
+                }, _callee45, this, [[1, 17]]);
+              }));
+              return _addUsrz.apply(this, arguments);
+            };
+
+            addUsrz = function _ref100(_x50) {
+              return _addUsrz.apply(this, arguments);
+            };
+
+            _qryObj = function _ref99() {
+              _qryObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee44(param) {
+                var api_path, key, API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee44$(_context44) {
+                  while (1) {
+                    switch (_context44.prev = _context44.next) {
+                      case 0:
+                        _context44.prev = 0;
+                        api_path = '/obj';
+
+                        if (JSON.stringify(param) !== '{}') {
+                          api_path = '/obj?';
+                        }
+
+                        param["filter"] = JSON.stringify(param["filter"]);
+
+                        for (key in param) {
+                          api_path = api_path + '&' + key + '=' + param[key]; //console.log("key: " + key + " ,value: " + param[key]);
+                        }
+
+                        API_PATH = api_path;
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+                          //再调用get的时候,不要再opts参数里放置param,就是不要放置params={"user_id":"ufnfFJx"}
+
+                        };
+                        _context44.next = 11;
+                        return aliYunClient.get({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          }
+                        });
+
+                      case 11:
+                        res = _context44.sent;
+                        //console.log(res);
+                        data = res.data;
+                        return _context44.abrupt("return", data);
+
+                      case 16:
+                        _context44.prev = 16;
+                        _context44.t0 = _context44["catch"](0);
+                        return _context44.abrupt("return", {
+                          error: 2,
+                          reason: _context44.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 19:
+                      case "end":
+                        return _context44.stop();
+                    }
+                  }
+                }, _callee44, this, [[0, 16]]);
+              }));
+              return _qryObj.apply(this, arguments);
+            };
+
+            qryObj = function _ref98(_x49) {
+              return _qryObj.apply(this, arguments);
+            };
+
+            _getObj = function _ref97() {
+              _getObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee43(obj_key) {
+                var API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee43$(_context43) {
+                  while (1) {
+                    switch (_context43.prev = _context43.next) {
+                      case 0:
+                        API_PATH = '/obj/' + obj_key;
+                        url = encodeURI(API_END_POINT + API_PATH);
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(obj_key) || typeof obj_key !== 'string')) {
+                          _context43.next = 6;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: obj_key  is required as string');
+
+                      case 6:
+                        _context43.next = 8;
+                        return aliYunClient.get({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          }
+                        });
+
+                      case 8:
+                        res = _context43.sent;
+                        //console.log(res);
+                        data = res.data;
+                        return _context43.abrupt("return", data);
+
+                      case 11:
+                      case "end":
+                        return _context43.stop();
+                    }
+                  }
+                }, _callee43, this);
+              }));
+              return _getObj.apply(this, arguments);
+            };
+
+            getObj = function _ref96(_x48) {
+              return _getObj.apply(this, arguments);
+            };
+
+            _putObj = function _ref95() {
+              _putObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee42(obj_key, obj_value) {
+                var API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee42$(_context42) {
+                  while (1) {
+                    switch (_context42.prev = _context42.next) {
+                      case 0:
+                        _context42.prev = 0;
+                        API_PATH = '/obj/' + obj_key;
+                        url = encodeURI(API_END_POINT + API_PATH); //因为我们支持中文字符作为key，那么在修改和删除的时候,url上都与有中文,如果不用encodeURI,就会在aliyun.client这个SDK报 Reqeust Path contains unescaped characters 的错误 
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+                        console.log(url); //字符串,数字,对象都会成功字符串化.
+
+                        obj_value = JSON.stringify(obj_value);
+                        _context42.next = 9;
+                        return aliYunClient.put({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          },
+                          params: {
+                            value: obj_value
+                          }
+                        });
+
+                      case 9:
+                        res = _context42.sent;
+                        data = res.data;
+                        return _context42.abrupt("return", data);
+
+                      case 14:
+                        _context42.prev = 14;
+                        _context42.t0 = _context42["catch"](0);
+                        return _context42.abrupt("return", {
+                          error: 2,
+                          reason: _context42.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 17:
+                      case "end":
+                        return _context42.stop();
+                    }
+                  }
+                }, _callee42, this, [[0, 14]]);
+              }));
+              return _putObj.apply(this, arguments);
+            };
+
+            putObj = function _ref94(_x46, _x47) {
+              return _putObj.apply(this, arguments);
+            };
+
+            _delObj = function _ref93() {
+              _delObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee41(obj_key) {
+                var API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee41$(_context41) {
+                  while (1) {
+                    switch (_context41.prev = _context41.next) {
+                      case 0:
+                        _context41.prev = 0;
+                        API_PATH = '/obj/' + obj_key;
+                        url = encodeURI(API_END_POINT + API_PATH);
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(obj_key) || typeof obj_key !== 'string')) {
+                          _context41.next = 7;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: obj_key is required as string');
+
+                      case 7:
+                        _context41.next = 9;
+                        return aliYunClient.delete({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          }
+                        });
+
+                      case 9:
+                        res = _context41.sent;
+                        data = res.data;
+                        return _context41.abrupt("return", data);
+
+                      case 14:
+                        _context41.prev = 14;
+                        _context41.t0 = _context41["catch"](0);
+                        return _context41.abrupt("return", {
+                          error: 2,
+                          reason: _context41.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 17:
+                      case "end":
+                        return _context41.stop();
+                    }
+                  }
+                }, _callee41, this, [[0, 14]]);
+              }));
+              return _delObj.apply(this, arguments);
+            };
+
+            delObj = function _ref92(_x45) {
+              return _delObj.apply(this, arguments);
+            };
+
+            _addObj = function _ref91() {
+              _addObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee40(_ref10) {
+                var key, value, key2, key3, key4, readonly, API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee40$(_context40) {
+                  while (1) {
+                    switch (_context40.prev = _context40.next) {
+                      case 0:
+                        key = _ref10.key, value = _ref10.value, key2 = _ref10.key2, key3 = _ref10.key3, key4 = _ref10.key4, readonly = _ref10.readonly;
+                        _context40.prev = 1;
+                        API_PATH = '/obj';
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(key) || typeof key !== 'string')) {
+                          _context40.next = 8;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: key is required as string');
+
+                      case 8:
+                        //字符串,数字,对象都会成功字符串化.
+                        value = JSON.stringify(value);
+                        add_params = {
+                          key: key,
+                          value: value
+                        };
+
+                        if (!_.isNil(key2)) {
+                          add_params.key2 = key2;
+                        }
+
+                        if (!_.isNil(key3)) {
+                          add_params.key3 = key3;
+                        }
+
+                        if (!_.isNil(key4)) {
+                          add_params.key4 = key4;
+                        }
+
+                        if (!_.isNil(readonly)) {
+                          add_params.readonly = readonly;
+                        }
+
+                        _context40.next = 16;
+                        return aliYunClient.post({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          },
+                          params: add_params
+                        });
+
+                      case 16:
+                        res = _context40.sent;
+                        data = res.data;
+                        return _context40.abrupt("return", data);
+
+                      case 21:
+                        _context40.prev = 21;
+                        _context40.t0 = _context40["catch"](1);
+                        return _context40.abrupt("return", {
+                          error: 1,
+                          reason: _context40.t0,
+                          debug: _context40.t0
+                        });
+
+                      case 24:
+                      case "end":
+                        return _context40.stop();
+                    }
+                  }
+                }, _callee40, this, [[1, 21]]);
+              }));
+              return _addObj.apply(this, arguments);
+            };
+
+            addObj = function _ref90(_x44) {
+              return _addObj.apply(this, arguments);
+            };
+
+            _qryApp2 = function _ref89() {
               _qryApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee39(param) {
@@ -118,11 +547,11 @@ function _lovearth() {
               return _qryApp2.apply(this, arguments);
             };
 
-            qryApp = function _ref86(_x42) {
+            qryApp = function _ref88(_x43) {
               return _qryApp2.apply(this, arguments);
             };
 
-            _getApp2 = function _ref85() {
+            _getApp2 = function _ref87() {
               _getApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee38(app_id) {
@@ -175,11 +604,11 @@ function _lovearth() {
               return _getApp2.apply(this, arguments);
             };
 
-            getApp = function _ref84(_x41) {
+            getApp = function _ref86(_x42) {
               return _getApp2.apply(this, arguments);
             };
 
-            _putApp2 = function _ref83() {
+            _putApp2 = function _ref85() {
               _putApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee37(app_id, put_param) {
@@ -234,11 +663,11 @@ function _lovearth() {
               return _putApp2.apply(this, arguments);
             };
 
-            putApp = function _ref82(_x39, _x40) {
+            putApp = function _ref84(_x40, _x41) {
               return _putApp2.apply(this, arguments);
             };
 
-            _delApp2 = function _ref81() {
+            _delApp2 = function _ref83() {
               _delApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee36(app_id) {
@@ -301,11 +730,11 @@ function _lovearth() {
               return _delApp2.apply(this, arguments);
             };
 
-            delApp = function _ref80(_x38) {
+            delApp = function _ref82(_x39) {
               return _delApp2.apply(this, arguments);
             };
 
-            _addApp = function _ref79() {
+            _addApp = function _ref81() {
               _addApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee35(_ref9) {
@@ -400,11 +829,11 @@ function _lovearth() {
               return _addApp.apply(this, arguments);
             };
 
-            addApp = function _ref78(_x37) {
+            addApp = function _ref80(_x38) {
               return _addApp.apply(this, arguments);
             };
 
-            _qryApp = function _ref77() {
+            _qryApp = function _ref79() {
               _qryApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee34(param) {
@@ -422,7 +851,6 @@ function _lovearth() {
 
                         for (key in param) {
                           api_path = api_path + '&' + key + '=' + param[key];
-                          console.log('key: ' + key + ' ,value: ' + param[key]);
                         }
 
                         API_PATH = api_path;
@@ -471,11 +899,11 @@ function _lovearth() {
               return _qryApp.apply(this, arguments);
             };
 
-            qryApp = function _ref76(_x36) {
+            qryApp = function _ref78(_x37) {
               return _qryApp.apply(this, arguments);
             };
 
-            _getApp = function _ref75() {
+            _getApp = function _ref77() {
               _getApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee33(app_id) {
@@ -539,11 +967,11 @@ function _lovearth() {
               return _getApp.apply(this, arguments);
             };
 
-            getApp = function _ref74(_x35) {
+            getApp = function _ref76(_x36) {
               return _getApp.apply(this, arguments);
             };
 
-            _putApp = function _ref73() {
+            _putApp = function _ref75() {
               _putApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee32(app_id, put_param) {
@@ -598,11 +1026,11 @@ function _lovearth() {
               return _putApp.apply(this, arguments);
             };
 
-            putApp = function _ref72(_x33, _x34) {
+            putApp = function _ref74(_x34, _x35) {
               return _putApp.apply(this, arguments);
             };
 
-            _delApp = function _ref71() {
+            _delApp = function _ref73() {
               _delApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee31(app_id) {
@@ -665,11 +1093,11 @@ function _lovearth() {
               return _delApp.apply(this, arguments);
             };
 
-            delApp = function _ref70(_x32) {
+            delApp = function _ref72(_x33) {
               return _delApp.apply(this, arguments);
             };
 
-            _qryUsro = function _ref69() {
+            _qryUsro = function _ref71() {
               _qryUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee30(param) {
@@ -687,7 +1115,6 @@ function _lovearth() {
 
                         for (key in param) {
                           api_path = api_path + '&' + key + '=' + param[key];
-                          console.log('key: ' + key + ' ,value: ' + param[key]);
                         }
 
                         API_PATH = api_path;
@@ -736,11 +1163,11 @@ function _lovearth() {
               return _qryUsro.apply(this, arguments);
             };
 
-            qryUsro = function _ref68(_x31) {
+            qryUsro = function _ref70(_x32) {
               return _qryUsro.apply(this, arguments);
             };
 
-            _getUsro = function _ref67() {
+            _getUsro = function _ref69() {
               _getUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee29(usro_id) {
@@ -804,11 +1231,11 @@ function _lovearth() {
               return _getUsro.apply(this, arguments);
             };
 
-            getUsro = function _ref66(_x30) {
+            getUsro = function _ref68(_x31) {
               return _getUsro.apply(this, arguments);
             };
 
-            _putUsro = function _ref65() {
+            _putUsro = function _ref67() {
               _putUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee28(usro_id, put_param) {
@@ -864,11 +1291,11 @@ function _lovearth() {
               return _putUsro.apply(this, arguments);
             };
 
-            putUsro = function _ref64(_x28, _x29) {
+            putUsro = function _ref66(_x29, _x30) {
               return _putUsro.apply(this, arguments);
             };
 
-            _delUsro = function _ref63() {
+            _delUsro = function _ref65() {
               _delUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee27(usro_id) {
@@ -931,11 +1358,11 @@ function _lovearth() {
               return _delUsro.apply(this, arguments);
             };
 
-            delUsro = function _ref62(_x27) {
+            delUsro = function _ref64(_x28) {
               return _delUsro.apply(this, arguments);
             };
 
-            _addUsro = function _ref61() {
+            _addUsro = function _ref63() {
               _addUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee26(_ref8) {
@@ -1020,11 +1447,11 @@ function _lovearth() {
               return _addUsro.apply(this, arguments);
             };
 
-            addUsro = function _ref60(_x26) {
+            addUsro = function _ref62(_x27) {
               return _addUsro.apply(this, arguments);
             };
 
-            _qryRole = function _ref59() {
+            _qryRole = function _ref61() {
               _qryRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee25(param) {
@@ -1090,11 +1517,11 @@ function _lovearth() {
               return _qryRole.apply(this, arguments);
             };
 
-            qryRole = function _ref58(_x25) {
+            qryRole = function _ref60(_x26) {
               return _qryRole.apply(this, arguments);
             };
 
-            _getRole = function _ref57() {
+            _getRole = function _ref59() {
               _getRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee24(role_id) {
@@ -1158,11 +1585,11 @@ function _lovearth() {
               return _getRole.apply(this, arguments);
             };
 
-            getRole = function _ref56(_x24) {
+            getRole = function _ref58(_x25) {
               return _getRole.apply(this, arguments);
             };
 
-            _putRole = function _ref55() {
+            _putRole = function _ref57() {
               _putRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee23(role_id, put_param) {
@@ -1217,11 +1644,11 @@ function _lovearth() {
               return _putRole.apply(this, arguments);
             };
 
-            putRole = function _ref54(_x22, _x23) {
+            putRole = function _ref56(_x23, _x24) {
               return _putRole.apply(this, arguments);
             };
 
-            _delRole = function _ref53() {
+            _delRole = function _ref55() {
               _delRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee22(role_id) {
@@ -1285,11 +1712,11 @@ function _lovearth() {
               return _delRole.apply(this, arguments);
             };
 
-            delRole = function _ref52(_x21) {
+            delRole = function _ref54(_x22) {
               return _delRole.apply(this, arguments);
             };
 
-            _addRole = function _ref51() {
+            _addRole = function _ref53() {
               _addRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee21(_ref7) {
@@ -1376,11 +1803,11 @@ function _lovearth() {
               return _addRole.apply(this, arguments);
             };
 
-            addRole = function _ref50(_x20) {
+            addRole = function _ref52(_x21) {
               return _addRole.apply(this, arguments);
             };
 
-            _qryUgrp = function _ref49() {
+            _qryUgrp = function _ref51() {
               _qryUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee20(param) {
@@ -1398,7 +1825,6 @@ function _lovearth() {
 
                         for (key in param) {
                           api_path = api_path + '&' + key + '=' + param[key];
-                          console.log('key: ' + key + ' ,value: ' + param[key]);
                         }
 
                         API_PATH = api_path;
@@ -1446,11 +1872,11 @@ function _lovearth() {
               return _qryUgrp.apply(this, arguments);
             };
 
-            qryUgrp = function _ref48(_x19) {
+            qryUgrp = function _ref50(_x20) {
               return _qryUgrp.apply(this, arguments);
             };
 
-            _getUgrp = function _ref47() {
+            _getUgrp = function _ref49() {
               _getUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee19(ugrp_id) {
@@ -1514,11 +1940,11 @@ function _lovearth() {
               return _getUgrp.apply(this, arguments);
             };
 
-            getUgrp = function _ref46(_x18) {
+            getUgrp = function _ref48(_x19) {
               return _getUgrp.apply(this, arguments);
             };
 
-            _putUgrp = function _ref45() {
+            _putUgrp = function _ref47() {
               _putUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee18(ugrp_id, put_param) {
@@ -1573,11 +1999,11 @@ function _lovearth() {
               return _putUgrp.apply(this, arguments);
             };
 
-            putUgrp = function _ref44(_x16, _x17) {
+            putUgrp = function _ref46(_x17, _x18) {
               return _putUgrp.apply(this, arguments);
             };
 
-            _delUgrp = function _ref43() {
+            _delUgrp = function _ref45() {
               _delUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee17(ugrp_id) {
@@ -1640,20 +2066,20 @@ function _lovearth() {
               return _delUgrp.apply(this, arguments);
             };
 
-            delUgrp = function _ref42(_x15) {
+            delUgrp = function _ref44(_x16) {
               return _delUgrp.apply(this, arguments);
             };
 
-            _addUgrp = function _ref41() {
+            _addUgrp = function _ref43() {
               _addUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee16(_ref6) {
-                var code, name, brief, avatar, API_PATH, url, localToken, headers, res, data;
+                var code, name, brief, avatar, pid, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee16$(_context16) {
                   while (1) {
                     switch (_context16.prev = _context16.next) {
                       case 0:
-                        code = _ref6.code, name = _ref6.name, brief = _ref6.brief, avatar = _ref6.avatar;
+                        code = _ref6.code, name = _ref6.name, brief = _ref6.brief, avatar = _ref6.avatar, pid = _ref6.pid;
                         _context16.prev = 1;
                         API_PATH = '/ugrp';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -1701,7 +2127,8 @@ function _lovearth() {
                             code: code,
                             name: name,
                             brief: brief,
-                            avatar: avatar
+                            avatar: avatar,
+                            pid: pid
                           }
                         });
 
@@ -1729,11 +2156,11 @@ function _lovearth() {
               return _addUgrp.apply(this, arguments);
             };
 
-            addUgrp = function _ref40(_x14) {
+            addUgrp = function _ref42(_x15) {
               return _addUgrp.apply(this, arguments);
             };
 
-            _qryUser = function _ref39() {
+            _qryUser = function _ref41() {
               _qryUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee15(param) {
@@ -1750,7 +2177,7 @@ function _lovearth() {
                         }
 
                         for (key in param) {
-                          api_path = api_path + '&' + key + '=' + param[key]; //console.log("key: " + key + " ,value: " + param[key]);
+                          api_path = api_path + '&' + key + '=' + param[key];
                         }
 
                         API_PATH = api_path;
@@ -1798,11 +2225,11 @@ function _lovearth() {
               return _qryUser.apply(this, arguments);
             };
 
-            qryUser = function _ref38(_x13) {
+            qryUser = function _ref40(_x14) {
               return _qryUser.apply(this, arguments);
             };
 
-            _getUser = function _ref37() {
+            _getUser = function _ref39() {
               _getUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee14(user_id) {
@@ -1865,11 +2292,11 @@ function _lovearth() {
               return _getUser.apply(this, arguments);
             };
 
-            getUser = function _ref36(_x12) {
+            getUser = function _ref38(_x13) {
               return _getUser.apply(this, arguments);
             };
 
-            _putUser = function _ref35() {
+            _putUser = function _ref37() {
               _putUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee13(user_id, put_param) {
@@ -1923,11 +2350,11 @@ function _lovearth() {
               return _putUser.apply(this, arguments);
             };
 
-            putUser = function _ref34(_x10, _x11) {
+            putUser = function _ref36(_x11, _x12) {
               return _putUser.apply(this, arguments);
             };
 
-            _delUser = function _ref33() {
+            _delUser = function _ref35() {
               _delUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee12(user_id) {
@@ -1989,11 +2416,11 @@ function _lovearth() {
               return _delUser.apply(this, arguments);
             };
 
-            delUser = function _ref32(_x9) {
+            delUser = function _ref34(_x10) {
               return _delUser.apply(this, arguments);
             };
 
-            _addUser = function _ref31() {
+            _addUser = function _ref33() {
               _addUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee11(_ref5) {
@@ -2125,11 +2552,11 @@ function _lovearth() {
               return _addUser.apply(this, arguments);
             };
 
-            addUser = function _ref30(_x8) {
+            addUser = function _ref32(_x9) {
               return _addUser.apply(this, arguments);
             };
 
-            _chgPass = function _ref29() {
+            _chgPass = function _ref31() {
               _chgPass = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee10(user_id, _ref4) {
@@ -2212,11 +2639,11 @@ function _lovearth() {
               return _chgPass.apply(this, arguments);
             };
 
-            chgPass = function _ref28(_x6, _x7) {
+            chgPass = function _ref30(_x7, _x8) {
               return _chgPass.apply(this, arguments);
             };
 
-            _rstPass = function _ref27() {
+            _rstPass = function _ref29() {
               _rstPass = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee9(_ref3) {
@@ -2311,11 +2738,11 @@ function _lovearth() {
               return _rstPass.apply(this, arguments);
             };
 
-            rstPass = function _ref26(_x5) {
+            rstPass = function _ref28(_x6) {
               return _rstPass.apply(this, arguments);
             };
 
-            _addVfcodeByMail = function _ref25() {
+            _addVfcodeByMail = function _ref27() {
               _addVfcodeByMail = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee8(mail) {
@@ -2383,11 +2810,11 @@ function _lovearth() {
               return _addVfcodeByMail.apply(this, arguments);
             };
 
-            addVfcodeByMail = function _ref24(_x4) {
+            addVfcodeByMail = function _ref26(_x5) {
               return _addVfcodeByMail.apply(this, arguments);
             };
 
-            _addVfcodeByTel = function _ref23() {
+            _addVfcodeByTel = function _ref25() {
               _addVfcodeByTel = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee7(tel) {
@@ -2456,11 +2883,11 @@ function _lovearth() {
               return _addVfcodeByTel.apply(this, arguments);
             };
 
-            addVfcodeByTel = function _ref22(_x3) {
+            addVfcodeByTel = function _ref24(_x4) {
               return _addVfcodeByTel.apply(this, arguments);
             };
 
-            _login = function _ref21() {
+            _login = function _ref23() {
               _login = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee6(_ref2) {
@@ -2513,15 +2940,15 @@ function _lovearth() {
 
                       case 12:
                         url = API_END_POINT + '/login';
-                        localToken = getLocalToken(); // console.log(localToken)
-
+                        localToken = getLocalToken();
+                        console.log(localToken);
                         headers = {
                           //'apiv'          : APIV,
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
                           Authorization: getLocalToken()
                         };
-                        _context6.next = 17;
+                        _context6.next = 18;
                         return aliYunClient.post({
                           url: url,
                           headers: headers,
@@ -2537,19 +2964,21 @@ function _lovearth() {
                           }
                         });
 
-                      case 17:
+                      case 18:
                         res = _context6.sent;
                         data = res.data;
 
                         if (data.error === 0) {
                           token = data.result.token;
                           setLocalToken(token);
+                        } else {
+                          console.log(data);
                         }
 
                         return _context6.abrupt("return", data);
 
-                      case 23:
-                        _context6.prev = 23;
+                      case 24:
+                        _context6.prev = 24;
                         _context6.t0 = _context6["catch"](1);
                         console.log(_context6.t0);
                         return _context6.abrupt("return", {
@@ -2559,21 +2988,21 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 27:
+                      case 28:
                       case "end":
                         return _context6.stop();
                     }
                   }
-                }, _callee6, this, [[1, 23]]);
+                }, _callee6, this, [[1, 24]]);
               }));
               return _login.apply(this, arguments);
             };
 
-            login = function _ref20(_x2) {
+            login = function _ref22(_x3) {
               return _login.apply(this, arguments);
             };
 
-            _logout = function _ref19() {
+            _logout = function _ref21() {
               _logout = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee5() {
@@ -2605,33 +3034,46 @@ function _lovearth() {
               return _logout.apply(this, arguments);
             };
 
-            logout = function _ref18() {
+            logout = function _ref20() {
               return _logout.apply(this, arguments);
             };
 
-            _isLogin = function _ref17() {
+            _isLogin = function _ref19() {
               _isLogin = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee4() {
-                var res, data, _isLogin2;
+                var localToken, _isLogin2, res, data;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                   while (1) {
                     switch (_context4.prev = _context4.next) {
                       case 0:
                         _context4.prev = 0;
-                        _context4.next = 3;
-                        return getToken();
-
-                      case 3:
-                        res = _context4.sent;
-                        data = res.result.data;
+                        localToken = getLocalToken();
                         _isLogin2 = false;
 
-                        if (data.vtl > 0) {
+                        if (!(_.isNil(localToken) || localToken == '')) {
+                          _context4.next = 7;
+                          break;
+                        }
+
+                        _isLogin2 = false;
+                        _context4.next = 12;
+                        break;
+
+                      case 7:
+                        _context4.next = 9;
+                        return getToken(localToken);
+
+                      case 9:
+                        res = _context4.sent;
+                        data = res.result.data;
+
+                        if (data.vtl > 0 && data.uid != "anonymus") {
                           _isLogin2 = true;
                         }
 
+                      case 12:
                         return _context4.abrupt("return", {
                           error: 0,
                           result: {
@@ -2639,8 +3081,8 @@ function _lovearth() {
                           }
                         });
 
-                      case 10:
-                        _context4.prev = 10;
+                      case 15:
+                        _context4.prev = 15;
                         _context4.t0 = _context4["catch"](0);
                         return _context4.abrupt("return", {
                           error: 2,
@@ -2648,67 +3090,60 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 13:
+                      case 18:
                       case "end":
                         return _context4.stop();
                     }
                   }
-                }, _callee4, this, [[0, 10]]);
+                }, _callee4, this, [[0, 15]]);
               }));
               return _isLogin.apply(this, arguments);
             };
 
-            isLogin = function _ref16() {
+            isLogin = function _ref18() {
               return _isLogin.apply(this, arguments);
             };
 
-            _getToken = function _ref15() {
+            _getToken = function _ref17() {
               _getToken = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee3() {
-                var localToken, _res, _data, token, url, headers, res, data;
-
+              regeneratorRuntime.mark(function _callee3(token) {
+                var url, sign, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee3$(_context3) {
                   while (1) {
                     switch (_context3.prev = _context3.next) {
                       case 0:
                         _context3.prev = 0;
-                        localToken = getLocalToken(); //let localToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MGIxZWZmZGMwMzVlMjg2OWI2YzQ1ZjMzYmRmNWQ3In0.eyJpYXQiOjE1NDI3ODMwNjcsIm5iZiI6MTU0Mjc4MzA2NywiZXhwIjoxNTQyNzg2NjY3LCJpc3MiOiJMb3ZlYXJ0aCBEVUEgU2VydmljZSIsImF1ZCI6IkxvdmVhcnRoIEluYyIsImR1YSI6IlU5Z2JhQk1yIiwiZGlkIjoiSmtkYks3YkUiLCJ1aWQiOiJEdDVtdnJ0VSIsImFpZCI6ImFIRVZZaEUxIn0.Rj8k4gpwN038Wn4geOmLiqsrICZtpBrsyCXrdX-AMbIQE1qCqo_2s3JmGEkAvB-tmDNEKL1nLXB_HebsYsA5fjgakfVLGXL8gBo7zg4Y7HTF2MhJqo1dFZQ93R4ZrbwkI65jnxOl_rSuKG-3PiZXdRSlLT2LYDGei-JT5f1dW7gfKGqBrElazkhE0nxPc5I2lFjXTthKeQOjAWwLhkarTqhV8nYyzmQvEMrfje6Pj7J-flCJmyPUqa82ZIoKilyNoMYOZTPXa34kiMkPnnferb4puen7vXBwQBPHIhZi5TfaNmCyDCeHFexNZ5INi75MH-VjzCyOYNv6dlBwmPftkw";
+                        //解析token这个接口本身也需要一个自己的匿名令牌
+                        //gettoken的函数不需要token
 
-                        if (!(_.isNil(localToken) || localToken == '')) {
-                          _context3.next = 13;
-                          break;
+                        /*
+                        let localToken = getLocalToken()
+                        if (_.isNil(localToken) || localToken == '' || true) {
+                            console.log('fail to find local token turn to backend for anonymous token')
+                            const res = await addToken()
+                            console.log(res);
+                            if (res.error !== 0) {
+                                throw new Error('fail to get Token')
+                            }
+                            const { token } = res.result
+                            setLocalToken(token)
+                            localToken = token
                         }
-
-                        console.log('fail to find local token turn to backend for anonymous token');
-                        _context3.next = 6;
-                        return addToken();
-
-                      case 6:
-                        _res = _context3.sent;
-                        _data = _res.data;
-
-                        if (!(_data.error !== 0)) {
-                          _context3.next = 10;
-                          break;
-                        }
-
-                        throw new Error('fail to get Token');
-
-                      case 10:
-                        token = _data.result.token;
-                        setLocalToken(token);
-                        localToken = token;
-
-                      case 13:
-                        //console.log(localToken);
-                        url = API_END_POINT + '/token/' + localToken;
+                        */
+                        url = API_END_POINT + '/token/' + token;
+                        sign = generateSign({
+                          method: 'GET',
+                          path: '/token/' + token,
+                          appSecret: getAppSecret(),
+                          appKey: getAppKey()
+                        });
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: localToken
+                          Authorization: sign
                         };
-                        _context3.next = 17;
+                        _context3.next = 6;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -2717,26 +3152,26 @@ function _lovearth() {
                           }
                         });
 
-                      case 17:
+                      case 6:
                         res = _context3.sent;
                         data = res.data;
 
                         if (!(data.error === 0)) {
-                          _context3.next = 23;
+                          _context3.next = 12;
                           break;
                         }
 
                         return _context3.abrupt("return", data);
 
-                      case 23:
+                      case 12:
                         throw new Error('fail to get Token profile');
 
-                      case 25:
-                        _context3.next = 31;
+                      case 14:
+                        _context3.next = 20;
                         break;
 
-                      case 27:
-                        _context3.prev = 27;
+                      case 16:
+                        _context3.prev = 16;
                         _context3.t0 = _context3["catch"](0);
                         console.log(_context3.t0);
                         return _context3.abrupt("return", {
@@ -2746,21 +3181,21 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 31:
+                      case 20:
                       case "end":
                         return _context3.stop();
                     }
                   }
-                }, _callee3, this, [[0, 27]]);
+                }, _callee3, this, [[0, 16]]);
               }));
               return _getToken.apply(this, arguments);
             };
 
-            getToken = function _ref14() {
+            getToken = function _ref16(_x2) {
               return _getToken.apply(this, arguments);
             };
 
-            _addToken = function _ref13() {
+            _addToken = function _ref15() {
               _addToken = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee2() {
@@ -2769,8 +3204,7 @@ function _lovearth() {
                   while (1) {
                     switch (_context2.prev = _context2.next) {
                       case 0:
-                        console.log("addToken");
-                        _context2.prev = 1;
+                        _context2.prev = 0;
                         parser = new UAParser();
                         ua_info = parser.getResult();
                         params = {
@@ -2791,14 +3225,14 @@ function _lovearth() {
                           'Content-Type': APPLICATION_X_WWW_FORM_URLENCODED,
                           'Authorization': sign
                         };
-                        _context2.next = 9;
+                        _context2.next = 8;
                         return aliYunClient.post({
                           url: API_END_POINT + '/auth',
                           headers: headers,
                           params: params
                         });
 
-                      case 9:
+                      case 8:
                         res = _context2.sent;
                         data = res.data;
 
@@ -2807,14 +3241,14 @@ function _lovearth() {
                           setLocalToken(token);
                         } else {
                           console.log("addToken:失败");
+                          console.log(data);
                         }
 
-                        console.log(data);
                         return _context2.abrupt("return", data);
 
-                      case 16:
-                        _context2.prev = 16;
-                        _context2.t0 = _context2["catch"](1);
+                      case 14:
+                        _context2.prev = 14;
+                        _context2.t0 = _context2["catch"](0);
                         console.log(_context2.t0);
                         ret = {
                           error: 2,
@@ -2822,67 +3256,104 @@ function _lovearth() {
                           result: {},
                           debug: {}
                         };
-                        console.log(ret);
                         return _context2.abrupt("return", ret);
 
-                      case 22:
+                      case 19:
                       case "end":
                         return _context2.stop();
                     }
                   }
-                }, _callee2, this, [[1, 16]]);
+                }, _callee2, this, [[0, 14]]);
               }));
               return _addToken.apply(this, arguments);
             };
 
-            addToken = function _ref12() {
+            addToken = function _ref14() {
               return _addToken.apply(this, arguments);
             };
 
-            _initialize = function _ref11() {
+            _initialize = function _ref13() {
               _initialize = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee() {
+                var localToken, res, data;
                 return regeneratorRuntime.wrap(function _callee$(_context) {
                   while (1) {
                     switch (_context.prev = _context.next) {
                       case 0:
                         _context.prev = 0;
-                        _context.next = 3;
+                        localToken = getLocalToken();
+
+                        if (!_.isNil(localToken)) {
+                          _context.next = 7;
+                          break;
+                        }
+
+                        _context.next = 5;
                         return addToken();
 
-                      case 3:
-                        _context.next = 9;
+                      case 5:
+                        _context.next = 14;
                         break;
 
-                      case 5:
-                        _context.prev = 5;
-                        _context.t0 = _context["catch"](0);
-                        console.log(_context.t0);
-                        return _context.abrupt("return");
+                      case 7:
+                        _context.next = 9;
+                        return getToken(localToken);
 
                       case 9:
+                        res = _context.sent;
+                        data = res.result.data;
+
+                        if (!(data.vtl < 0)) {
+                          _context.next = 14;
+                          break;
+                        }
+
+                        _context.next = 14;
+                        return addToken();
+
+                      case 14:
+                        _context.next = 19;
+                        break;
+
+                      case 16:
+                        _context.prev = 16;
+                        _context.t0 = _context["catch"](0);
+                        console.log(_context.t0);
+
+                      case 19:
+                        return _context.abrupt("return", null);
+
+                      case 20:
                       case "end":
                         return _context.stop();
                     }
                   }
-                }, _callee, this, [[0, 5]]);
+                }, _callee, this, [[0, 16]]);
               }));
               return _initialize.apply(this, arguments);
             };
 
-            initialize = function _ref10() {
+            initialize = function _ref12() {
               return _initialize.apply(this, arguments);
             };
 
             APP_SECRET = _ref.APP_SECRET, APP_KEY = _ref.APP_KEY;
             setAppKey(APP_KEY);
             setAppSecret(APP_SECRET);
-            _context40.next = 83;
+            /**
+             * 如果本地已经有一个token了,那么要判断这个匿名token是否过期了，
+             * 地球号机制给所有的匿名token统一的24小时有效期。
+             * 用户创建应用的时候也可以制定自己这个应用的有效期是多久。
+             * 如果有效期已经过了，就需要重新申请匿名令牌。
+             * 如果令牌的本地存储被人删除了,就需要也需要重新申请匿名令牌。 
+             **/
+
+            _context46.next = 95;
             return initialize();
 
-          case 83:
-            return _context40.abrupt("return", {
+          case 95:
+            return _context46.abrupt("return", {
               initialize: initialize,
               addToken: addToken,
               getToken: getToken,
@@ -2909,24 +3380,30 @@ function _lovearth() {
               getUsro: getUsro,
               putUsro: putUsro,
               qryUsro: qryUsro,
+              addUsrz: addUsrz,
               addApp: addApp,
               delApp: delApp,
               getApp: getApp,
               putApp: putApp,
               qryApp: qryApp,
+              addObj: addObj,
+              delObj: delObj,
+              putObj: putObj,
+              getObj: getObj,
+              qryObj: qryObj,
               addVfcodeByTel: addVfcodeByTel,
               addVfcodeByMail: addVfcodeByMail,
               rstPass: rstPass,
               chgPass: chgPass,
-              upload: upload
+              addfile: addfile
             });
 
-          case 84:
+          case 96:
           case "end":
-            return _context40.stop();
+            return _context46.stop();
         }
       }
-    }, _callee40, this);
+    }, _callee46, this);
   }));
   return _lovearth.apply(this, arguments);
 }
