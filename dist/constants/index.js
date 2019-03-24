@@ -28,11 +28,8 @@ function setAppKey(appKey) {
 }
 
 function setLocalToken(token) {
-  var date = new Date();
-  var token_expire_time = parseInt(date.getTime() / 1000) + 3600;
   var api_info = {
-    token: token,
-    token_expire_time: token_expire_time
+    token: token
   };
   store.set('api_info', api_info);
 }
