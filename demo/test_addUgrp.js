@@ -23,7 +23,8 @@ async function test_addUgrp() {
         avatar:"",
         pid:"CfAiFnTR"
     })
-    console.log(res);
+    //console.log(res);
+    console.log(JSON.stringify(res));
     if(res.error == 0){
         got_ugrp_id = res.result.id;
         console.log(api_name+"成功 "+got_ugrp_id);
