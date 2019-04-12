@@ -46,102 +46,23 @@ function lovearth(_x) {
 function _lovearth() {
   _lovearth = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee46(_ref) {
-    var APP_SECRET, APP_KEY, initialize, _initialize, addToken, _addToken, getToken, _getToken, isLogin, _isLogin, logout, _logout, login, _login, addVfcodeByTel, _addVfcodeByTel, addVfcodeByMail, _addVfcodeByMail, rstPass, _rstPass, chgPass, _chgPass, addUser, _addUser, delUser, _delUser, putUser, _putUser, getUser, _getUser, qryUser, _qryUser, addUgrp, _addUgrp, delUgrp, _delUgrp, putUgrp, _putUgrp, getUgrp, _getUgrp, qryUgrp, _qryUgrp, addRole, _addRole, delRole, _delRole, putRole, _putRole, getRole, _getRole, qryRole, _qryRole, addUsro, _addUsro, delUsro, _delUsro, putUsro, _putUsro, getUsro, _getUsro, qryUsro, _qryUsro, delApp, _delApp, putApp, _putApp, getApp, _getApp, qryApp, _qryApp, addApp, _addApp, _delApp2, _putApp2, _getApp2, _qryApp2, addObj, _addObj, delObj, _delObj, putObj, _putObj, getObj, _getObj, qryObj, _qryObj, addUsrz, _addUsrz;
+  regeneratorRuntime.mark(function _callee50(_ref) {
+    var APP_SECRET, APP_KEY, initialize, _initialize, addToken, _addToken, getToken, _getToken, isLogin, _isLogin, logout, _logout, login, _login, addVfcodeByTel, _addVfcodeByTel, addVfcodeByMail, _addVfcodeByMail, rstPass, _rstPass, chgPass, _chgPass, addUser, _addUser, delUser, _delUser, putUser, _putUser, getUser, _getUser, qryUser, _qryUser, addUgrp, _addUgrp, delUgrp, _delUgrp, putUgrp, _putUgrp, getUgrp, _getUgrp, qryUgrp, _qryUgrp, addZone, _addZone, delZone, _delZone, putZone, _putZone, getZone, _getZone, qryZone, _qryZone, addRole, _addRole, delRole, _delRole, putRole, _putRole, getRole, _getRole, qryRole, _qryRole, addUsro, _addUsro, delUsro, _delUsro, putUsro, _putUsro, getUsro, _getUsro, qryUsro, _qryUsro, delApp, _delApp, putApp, _putApp, getApp, _getApp, qryApp, _qryApp, addApp, _addApp, _delApp2, _putApp2, _getApp2, _qryApp2, addObj, _addObj, delObj, _delObj, putObj, _putObj, getObj, _getObj, qryObj, _qryObj;
 
-    return regeneratorRuntime.wrap(function _callee46$(_context46) {
+    return regeneratorRuntime.wrap(function _callee50$(_context50) {
       while (1) {
-        switch (_context46.prev = _context46.next) {
+        switch (_context50.prev = _context50.next) {
           case 0:
-            _addUsrz = function _ref101() {
-              _addUsrz = _asyncToGenerator(
-              /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee45(_ref11) {
-                var towho, zone_id, API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee45$(_context45) {
-                  while (1) {
-                    switch (_context45.prev = _context45.next) {
-                      case 0:
-                        towho = _ref11.towho, zone_id = _ref11.zone_id;
-                        _context45.prev = 1;
-                        API_PATH = '/usrz';
-                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
-
-                        localToken = getLocalToken();
-                        headers = {
-                          accept: APPLICATION_JSON,
-                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
-
-                        };
-
-                        if (!(_.isNil(towho) || typeof towho !== 'string')) {
-                          _context45.next = 8;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: code is required as string');
-
-                      case 8:
-                        if (!(_.isNil(zone_id) || typeof zone_id !== 'string')) {
-                          _context45.next = 10;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: name is required as string not ' + (typeof name === "undefined" ? "undefined" : _typeof(name)));
-
-                      case 10:
-                        _context45.next = 12;
-                        return aliYunClient.post({
-                          url: url,
-                          headers: headers,
-                          signHeaders: {
-                            'X-Ca-Stage': 'RELEASE'
-                          },
-                          params: {
-                            towho: towho,
-                            zone_id: zone_id
-                          }
-                        });
-
-                      case 12:
-                        res = _context45.sent;
-                        data = res.data;
-                        return _context45.abrupt("return", data);
-
-                      case 17:
-                        _context45.prev = 17;
-                        _context45.t0 = _context45["catch"](1);
-                        return _context45.abrupt("return", {
-                          error: 1,
-                          reason: _context45.t0,
-                          debug: _context45.t0
-                        });
-
-                      case 20:
-                      case "end":
-                        return _context45.stop();
-                    }
-                  }
-                }, _callee45, this, [[1, 17]]);
-              }));
-              return _addUsrz.apply(this, arguments);
-            };
-
-            addUsrz = function _ref100(_x50) {
-              return _addUsrz.apply(this, arguments);
-            };
-
-            _qryObj = function _ref99() {
+            _qryObj = function _ref109() {
               _qryObj = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee44(param) {
+              regeneratorRuntime.mark(function _callee49(param) {
                 var api_path, key, API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee44$(_context44) {
+                return regeneratorRuntime.wrap(function _callee49$(_context49) {
                   while (1) {
-                    switch (_context44.prev = _context44.next) {
+                    switch (_context49.prev = _context49.next) {
                       case 0:
-                        _context44.prev = 0;
+                        _context49.prev = 0;
                         api_path = '/obj';
 
                         if (JSON.stringify(param) !== '{}') {
@@ -165,7 +86,7 @@ function _lovearth() {
                           //再调用get的时候,不要再opts参数里放置param,就是不要放置params={"user_id":"ufnfFJx"}
 
                         };
-                        _context44.next = 11;
+                        _context49.next = 11;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -175,43 +96,43 @@ function _lovearth() {
                         });
 
                       case 11:
-                        res = _context44.sent;
+                        res = _context49.sent;
                         //console.log(res);
                         data = res.data;
-                        return _context44.abrupt("return", data);
+                        return _context49.abrupt("return", data);
 
                       case 16:
-                        _context44.prev = 16;
-                        _context44.t0 = _context44["catch"](0);
-                        return _context44.abrupt("return", {
+                        _context49.prev = 16;
+                        _context49.t0 = _context49["catch"](0);
+                        return _context49.abrupt("return", {
                           error: 2,
-                          reason: _context44.t0,
+                          reason: _context49.t0,
                           result: {},
                           debug: {}
                         });
 
                       case 19:
                       case "end":
-                        return _context44.stop();
+                        return _context49.stop();
                     }
                   }
-                }, _callee44, this, [[0, 16]]);
+                }, _callee49, this, [[0, 16]]);
               }));
               return _qryObj.apply(this, arguments);
             };
 
-            qryObj = function _ref98(_x49) {
+            qryObj = function _ref108(_x55) {
               return _qryObj.apply(this, arguments);
             };
 
-            _getObj = function _ref97() {
+            _getObj = function _ref107() {
               _getObj = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee43(obj_key) {
+              regeneratorRuntime.mark(function _callee48(obj_key) {
                 var API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee43$(_context43) {
+                return regeneratorRuntime.wrap(function _callee48$(_context48) {
                   while (1) {
-                    switch (_context43.prev = _context43.next) {
+                    switch (_context48.prev = _context48.next) {
                       case 0:
                         API_PATH = '/obj/' + obj_key;
                         url = encodeURI(API_END_POINT + API_PATH);
@@ -224,11 +145,359 @@ function _lovearth() {
                         };
 
                         if (!(_.isNil(obj_key) || typeof obj_key !== 'string')) {
-                          _context43.next = 6;
+                          _context48.next = 6;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: obj_key  is required as string');
+
+                      case 6:
+                        _context48.next = 8;
+                        return aliYunClient.get({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          }
+                        });
+
+                      case 8:
+                        res = _context48.sent;
+                        //console.log(res);
+                        data = res.data;
+                        return _context48.abrupt("return", data);
+
+                      case 11:
+                      case "end":
+                        return _context48.stop();
+                    }
+                  }
+                }, _callee48, this);
+              }));
+              return _getObj.apply(this, arguments);
+            };
+
+            getObj = function _ref106(_x54) {
+              return _getObj.apply(this, arguments);
+            };
+
+            _putObj = function _ref105() {
+              _putObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee47(obj_key, obj_value) {
+                var API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee47$(_context47) {
+                  while (1) {
+                    switch (_context47.prev = _context47.next) {
+                      case 0:
+                        _context47.prev = 0;
+                        API_PATH = '/obj/' + obj_key;
+                        url = encodeURI(API_END_POINT + API_PATH); //因为我们支持中文字符作为key，那么在修改和删除的时候,url上都与有中文,如果不用encodeURI,就会在aliyun.client这个SDK报 Reqeust Path contains unescaped characters 的错误 
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+                        console.log(url); //字符串,数字,对象都会成功字符串化.
+
+                        obj_value = JSON.stringify(obj_value);
+                        _context47.next = 9;
+                        return aliYunClient.put({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          },
+                          params: {
+                            value: obj_value
+                          }
+                        });
+
+                      case 9:
+                        res = _context47.sent;
+                        data = res.data;
+                        return _context47.abrupt("return", data);
+
+                      case 14:
+                        _context47.prev = 14;
+                        _context47.t0 = _context47["catch"](0);
+                        return _context47.abrupt("return", {
+                          error: 2,
+                          reason: _context47.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 17:
+                      case "end":
+                        return _context47.stop();
+                    }
+                  }
+                }, _callee47, this, [[0, 14]]);
+              }));
+              return _putObj.apply(this, arguments);
+            };
+
+            putObj = function _ref104(_x52, _x53) {
+              return _putObj.apply(this, arguments);
+            };
+
+            _delObj = function _ref103() {
+              _delObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee46(obj_key) {
+                var API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee46$(_context46) {
+                  while (1) {
+                    switch (_context46.prev = _context46.next) {
+                      case 0:
+                        _context46.prev = 0;
+                        API_PATH = '/obj/' + obj_key;
+                        url = encodeURI(API_END_POINT + API_PATH);
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(obj_key) || typeof obj_key !== 'string')) {
+                          _context46.next = 7;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: obj_key is required as string');
+
+                      case 7:
+                        _context46.next = 9;
+                        return aliYunClient.delete({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          }
+                        });
+
+                      case 9:
+                        res = _context46.sent;
+                        data = res.data;
+                        return _context46.abrupt("return", data);
+
+                      case 14:
+                        _context46.prev = 14;
+                        _context46.t0 = _context46["catch"](0);
+                        return _context46.abrupt("return", {
+                          error: 2,
+                          reason: _context46.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 17:
+                      case "end":
+                        return _context46.stop();
+                    }
+                  }
+                }, _callee46, this, [[0, 14]]);
+              }));
+              return _delObj.apply(this, arguments);
+            };
+
+            delObj = function _ref102(_x51) {
+              return _delObj.apply(this, arguments);
+            };
+
+            _addObj = function _ref101() {
+              _addObj = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee45(_ref11) {
+                var key, value, key2, key3, key4, readonly, API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee45$(_context45) {
+                  while (1) {
+                    switch (_context45.prev = _context45.next) {
+                      case 0:
+                        key = _ref11.key, value = _ref11.value, key2 = _ref11.key2, key3 = _ref11.key3, key4 = _ref11.key4, readonly = _ref11.readonly;
+                        _context45.prev = 1;
+                        API_PATH = '/obj';
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(key) || typeof key !== 'string')) {
+                          _context45.next = 8;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: key is required as string');
+
+                      case 8:
+                        //字符串,数字,对象都会成功字符串化.
+                        value = JSON.stringify(value);
+                        add_params = {
+                          key: key,
+                          value: value
+                        };
+
+                        if (!_.isNil(key2)) {
+                          add_params.key2 = key2;
+                        }
+
+                        if (!_.isNil(key3)) {
+                          add_params.key3 = key3;
+                        }
+
+                        if (!_.isNil(key4)) {
+                          add_params.key4 = key4;
+                        }
+
+                        if (!_.isNil(readonly)) {
+                          add_params.readonly = readonly;
+                        }
+
+                        _context45.next = 16;
+                        return aliYunClient.post({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          },
+                          params: add_params
+                        });
+
+                      case 16:
+                        res = _context45.sent;
+                        data = res.data;
+                        return _context45.abrupt("return", data);
+
+                      case 21:
+                        _context45.prev = 21;
+                        _context45.t0 = _context45["catch"](1);
+                        return _context45.abrupt("return", {
+                          error: 1,
+                          reason: _context45.t0,
+                          debug: _context45.t0
+                        });
+
+                      case 24:
+                      case "end":
+                        return _context45.stop();
+                    }
+                  }
+                }, _callee45, this, [[1, 21]]);
+              }));
+              return _addObj.apply(this, arguments);
+            };
+
+            addObj = function _ref100(_x50) {
+              return _addObj.apply(this, arguments);
+            };
+
+            _qryApp2 = function _ref99() {
+              _qryApp2 = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee44(param) {
+                var api_path, key, API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee44$(_context44) {
+                  while (1) {
+                    switch (_context44.prev = _context44.next) {
+                      case 0:
+                        _context44.prev = 0;
+                        api_path = '/app';
+
+                        if (JSON.stringify(param) !== '{}') {
+                          api_path = '/app?';
+                        }
+
+                        for (key in param) {
+                          api_path = api_path + '&' + key + '=' + param[key]; //console.log("key: " + key + " ,value: " + param[key]);
+                        }
+
+                        API_PATH = api_path;
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+                          //再调用get的时候,不要再opts参数里放置param,就是不要放置params={"user_id":"ufnfFJx"}
+
+                        };
+                        _context44.next = 10;
+                        return aliYunClient.get({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          }
+                        });
+
+                      case 10:
+                        res = _context44.sent;
+                        //console.log(res);
+                        data = res.data;
+                        return _context44.abrupt("return", data);
+
+                      case 15:
+                        _context44.prev = 15;
+                        _context44.t0 = _context44["catch"](0);
+                        return _context44.abrupt("return", {
+                          error: 2,
+                          reason: _context44.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 18:
+                      case "end":
+                        return _context44.stop();
+                    }
+                  }
+                }, _callee44, this, [[0, 15]]);
+              }));
+              return _qryApp2.apply(this, arguments);
+            };
+
+            qryApp = function _ref98(_x49) {
+              return _qryApp2.apply(this, arguments);
+            };
+
+            _getApp2 = function _ref97() {
+              _getApp2 = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee43(app_id) {
+                var API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee43$(_context43) {
+                  while (1) {
+                    switch (_context43.prev = _context43.next) {
+                      case 0:
+                        API_PATH = '/app/' + app_id;
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(app_id) || typeof app_id !== 'string')) {
+                          _context43.next = 6;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: user_id is required as string');
 
                       case 6:
                         _context43.next = 8;
@@ -253,25 +522,25 @@ function _lovearth() {
                   }
                 }, _callee43, this);
               }));
-              return _getObj.apply(this, arguments);
+              return _getApp2.apply(this, arguments);
             };
 
-            getObj = function _ref96(_x48) {
-              return _getObj.apply(this, arguments);
+            getApp = function _ref96(_x48) {
+              return _getApp2.apply(this, arguments);
             };
 
-            _putObj = function _ref95() {
-              _putObj = _asyncToGenerator(
+            _putApp2 = function _ref95() {
+              _putApp2 = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee42(obj_key, obj_value) {
+              regeneratorRuntime.mark(function _callee42(app_id, put_param) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee42$(_context42) {
                   while (1) {
                     switch (_context42.prev = _context42.next) {
                       case 0:
                         _context42.prev = 0;
-                        API_PATH = '/obj/' + obj_key;
-                        url = encodeURI(API_END_POINT + API_PATH); //因为我们支持中文字符作为key，那么在修改和删除的时候,url上都与有中文,如果不用encodeURI,就会在aliyun.client这个SDK报 Reqeust Path contains unescaped characters 的错误 
+                        API_PATH = '/app/' + app_id;
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
                         headers = {
@@ -280,28 +549,23 @@ function _lovearth() {
                           Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
 
                         };
-                        console.log(url); //字符串,数字,对象都会成功字符串化.
-
-                        obj_value = JSON.stringify(obj_value);
-                        _context42.next = 9;
+                        _context42.next = 7;
                         return aliYunClient.put({
                           url: url,
                           headers: headers,
                           signHeaders: {
                             'X-Ca-Stage': 'RELEASE'
                           },
-                          params: {
-                            value: obj_value
-                          }
+                          params: put_param
                         });
 
-                      case 9:
+                      case 7:
                         res = _context42.sent;
                         data = res.data;
                         return _context42.abrupt("return", data);
 
-                      case 14:
-                        _context42.prev = 14;
+                      case 12:
+                        _context42.prev = 12;
                         _context42.t0 = _context42["catch"](0);
                         return _context42.abrupt("return", {
                           error: 2,
@@ -310,32 +574,33 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 17:
+                      case 15:
                       case "end":
                         return _context42.stop();
                     }
                   }
-                }, _callee42, this, [[0, 14]]);
+                }, _callee42, this, [[0, 12]]);
               }));
-              return _putObj.apply(this, arguments);
+              return _putApp2.apply(this, arguments);
             };
 
-            putObj = function _ref94(_x46, _x47) {
-              return _putObj.apply(this, arguments);
+            putApp = function _ref94(_x46, _x47) {
+              return _putApp2.apply(this, arguments);
             };
 
-            _delObj = function _ref93() {
-              _delObj = _asyncToGenerator(
+            _delApp2 = function _ref93() {
+              _delApp2 = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee41(obj_key) {
+              regeneratorRuntime.mark(function _callee41(app_id) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee41$(_context41) {
                   while (1) {
                     switch (_context41.prev = _context41.next) {
                       case 0:
                         _context41.prev = 0;
-                        API_PATH = '/obj/' + obj_key;
-                        url = encodeURI(API_END_POINT + API_PATH);
+                        API_PATH = '/app/' + app_id;
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
                         localToken = getLocalToken();
                         headers = {
                           accept: APPLICATION_JSON,
@@ -344,12 +609,12 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(obj_key) || typeof obj_key !== 'string')) {
+                        if (!(_.isNil(app_id) || typeof app_id !== 'string')) {
                           _context41.next = 7;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: obj_key is required as string');
+                        throw new ArgumentError('String Type Field: app_id is required as string');
 
                       case 7:
                         _context41.next = 9;
@@ -383,25 +648,25 @@ function _lovearth() {
                   }
                 }, _callee41, this, [[0, 14]]);
               }));
-              return _delObj.apply(this, arguments);
+              return _delApp2.apply(this, arguments);
             };
 
-            delObj = function _ref92(_x45) {
-              return _delObj.apply(this, arguments);
+            delApp = function _ref92(_x45) {
+              return _delApp2.apply(this, arguments);
             };
 
-            _addObj = function _ref91() {
-              _addObj = _asyncToGenerator(
+            _addApp = function _ref91() {
+              _addApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee40(_ref10) {
-                var key, value, key2, key3, key4, readonly, API_PATH, url, localToken, headers, res, data;
+                var pkg, name, ugrp_id, brief, avatar, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee40$(_context40) {
                   while (1) {
                     switch (_context40.prev = _context40.next) {
                       case 0:
-                        key = _ref10.key, value = _ref10.value, key2 = _ref10.key2, key3 = _ref10.key3, key4 = _ref10.key4, readonly = _ref10.readonly;
+                        pkg = _ref10.pkg, name = _ref10.name, ugrp_id = _ref10.ugrp_id, brief = _ref10.brief, avatar = _ref10.avatar;
                         _context40.prev = 1;
-                        API_PATH = '/obj';
+                        API_PATH = '/app';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -412,37 +677,38 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(key) || typeof key !== 'string')) {
+                        if (!(_.isNil(pkg) || typeof pkg !== 'string')) {
                           _context40.next = 8;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: key is required as string');
+                        throw new ArgumentError('String Type Field: pkg is required as string');
 
                       case 8:
-                        //字符串,数字,对象都会成功字符串化.
-                        value = JSON.stringify(value);
-                        add_params = {
-                          key: key,
-                          value: value
-                        };
-
-                        if (!_.isNil(key2)) {
-                          add_params.key2 = key2;
+                        if (!(_.isNil(name) || typeof name !== 'string')) {
+                          _context40.next = 10;
+                          break;
                         }
 
-                        if (!_.isNil(key3)) {
-                          add_params.key3 = key3;
+                        throw new ArgumentError('String Type Field: name is required as string not ' + _typeof(name));
+
+                      case 10:
+                        if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
+                          _context40.next = 12;
+                          break;
                         }
 
-                        if (!_.isNil(key4)) {
-                          add_params.key4 = key4;
+                        throw new ArgumentError('String Type Field: ugrp_id is required as string not ' + (typeof ugrp === "undefined" ? "undefined" : _typeof(ugrp)));
+
+                      case 12:
+                        if (!(_.isNil(brief) || typeof brief !== 'string')) {
+                          _context40.next = 14;
+                          break;
                         }
 
-                        if (!_.isNil(readonly)) {
-                          add_params.readonly = readonly;
-                        }
+                        throw new ArgumentError('String Type Field: brief is required as string');
 
+                      case 14:
                         _context40.next = 16;
                         return aliYunClient.post({
                           url: url,
@@ -450,7 +716,13 @@ function _lovearth() {
                           signHeaders: {
                             'X-Ca-Stage': 'RELEASE'
                           },
-                          params: add_params
+                          params: {
+                            pkg: pkg,
+                            name: name,
+                            ugrp_id: ugrp_id,
+                            brief: brief,
+                            avatar: avatar
+                          }
                         });
 
                       case 16:
@@ -462,9 +734,10 @@ function _lovearth() {
                         _context40.prev = 21;
                         _context40.t0 = _context40["catch"](1);
                         return _context40.abrupt("return", {
-                          error: 1,
+                          error: 2,
                           reason: _context40.t0,
-                          debug: _context40.t0
+                          result: {},
+                          debug: {}
                         });
 
                       case 24:
@@ -474,15 +747,15 @@ function _lovearth() {
                   }
                 }, _callee40, this, [[1, 21]]);
               }));
-              return _addObj.apply(this, arguments);
+              return _addApp.apply(this, arguments);
             };
 
-            addObj = function _ref90(_x44) {
-              return _addObj.apply(this, arguments);
+            addApp = function _ref90(_x44) {
+              return _addApp.apply(this, arguments);
             };
 
-            _qryApp2 = function _ref89() {
-              _qryApp2 = _asyncToGenerator(
+            _qryApp = function _ref89() {
+              _qryApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee39(param) {
                 var api_path, key, API_PATH, url, localToken, headers, res, data;
@@ -498,7 +771,7 @@ function _lovearth() {
                         }
 
                         for (key in param) {
-                          api_path = api_path + '&' + key + '=' + param[key]; //console.log("key: " + key + " ,value: " + param[key]);
+                          api_path = api_path + '&' + key + '=' + param[key];
                         }
 
                         API_PATH = api_path;
@@ -544,15 +817,15 @@ function _lovearth() {
                   }
                 }, _callee39, this, [[0, 15]]);
               }));
-              return _qryApp2.apply(this, arguments);
+              return _qryApp.apply(this, arguments);
             };
 
             qryApp = function _ref88(_x43) {
-              return _qryApp2.apply(this, arguments);
+              return _qryApp.apply(this, arguments);
             };
 
-            _getApp2 = function _ref87() {
-              _getApp2 = _asyncToGenerator(
+            _getApp = function _ref87() {
+              _getApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee38(app_id) {
                 var API_PATH, url, localToken, headers, res, data;
@@ -560,6 +833,7 @@ function _lovearth() {
                   while (1) {
                     switch (_context38.prev = _context38.next) {
                       case 0:
+                        _context38.prev = 0;
                         API_PATH = '/app/' + app_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
@@ -572,14 +846,14 @@ function _lovearth() {
                         };
 
                         if (!(_.isNil(app_id) || typeof app_id !== 'string')) {
-                          _context38.next = 6;
+                          _context38.next = 7;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: user_id is required as string');
 
-                      case 6:
-                        _context38.next = 8;
+                      case 7:
+                        _context38.next = 9;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -588,28 +862,38 @@ function _lovearth() {
                           }
                         });
 
-                      case 8:
+                      case 9:
                         res = _context38.sent;
                         //console.log(res);
                         data = res.data;
                         return _context38.abrupt("return", data);
 
-                      case 11:
+                      case 14:
+                        _context38.prev = 14;
+                        _context38.t0 = _context38["catch"](0);
+                        return _context38.abrupt("return", {
+                          error: 2,
+                          reason: _context38.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 17:
                       case "end":
                         return _context38.stop();
                     }
                   }
-                }, _callee38, this);
+                }, _callee38, this, [[0, 14]]);
               }));
-              return _getApp2.apply(this, arguments);
+              return _getApp.apply(this, arguments);
             };
 
             getApp = function _ref86(_x42) {
-              return _getApp2.apply(this, arguments);
+              return _getApp.apply(this, arguments);
             };
 
-            _putApp2 = function _ref85() {
-              _putApp2 = _asyncToGenerator(
+            _putApp = function _ref85() {
+              _putApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee37(app_id, put_param) {
                 var API_PATH, url, localToken, headers, res, data;
@@ -660,15 +944,15 @@ function _lovearth() {
                   }
                 }, _callee37, this, [[0, 12]]);
               }));
-              return _putApp2.apply(this, arguments);
+              return _putApp.apply(this, arguments);
             };
 
             putApp = function _ref84(_x40, _x41) {
-              return _putApp2.apply(this, arguments);
+              return _putApp.apply(this, arguments);
             };
 
-            _delApp2 = function _ref83() {
-              _delApp2 = _asyncToGenerator(
+            _delApp = function _ref83() {
+              _delApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee36(app_id) {
                 var API_PATH, url, localToken, headers, res, data;
@@ -727,126 +1011,27 @@ function _lovearth() {
                   }
                 }, _callee36, this, [[0, 14]]);
               }));
-              return _delApp2.apply(this, arguments);
+              return _delApp.apply(this, arguments);
             };
 
             delApp = function _ref82(_x39) {
-              return _delApp2.apply(this, arguments);
+              return _delApp.apply(this, arguments);
             };
 
-            _addApp = function _ref81() {
-              _addApp = _asyncToGenerator(
+            _qryUsro = function _ref81() {
+              _qryUsro = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee35(_ref9) {
-                var pkg, name, ugrp_id, brief, avatar, API_PATH, url, localToken, headers, res, data;
+              regeneratorRuntime.mark(function _callee35(param) {
+                var api_path, key, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee35$(_context35) {
                   while (1) {
                     switch (_context35.prev = _context35.next) {
                       case 0:
-                        pkg = _ref9.pkg, name = _ref9.name, ugrp_id = _ref9.ugrp_id, brief = _ref9.brief, avatar = _ref9.avatar;
-                        _context35.prev = 1;
-                        API_PATH = '/app';
-                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
-
-                        localToken = getLocalToken();
-                        headers = {
-                          accept: APPLICATION_JSON,
-                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
-
-                        };
-
-                        if (!(_.isNil(pkg) || typeof pkg !== 'string')) {
-                          _context35.next = 8;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: pkg is required as string');
-
-                      case 8:
-                        if (!(_.isNil(name) || typeof name !== 'string')) {
-                          _context35.next = 10;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: name is required as string not ' + _typeof(name));
-
-                      case 10:
-                        if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
-                          _context35.next = 12;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: ugrp_id is required as string not ' + (typeof ugrp === "undefined" ? "undefined" : _typeof(ugrp)));
-
-                      case 12:
-                        if (!(_.isNil(brief) || typeof brief !== 'string')) {
-                          _context35.next = 14;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: brief is required as string');
-
-                      case 14:
-                        _context35.next = 16;
-                        return aliYunClient.post({
-                          url: url,
-                          headers: headers,
-                          signHeaders: {
-                            'X-Ca-Stage': 'RELEASE'
-                          },
-                          params: {
-                            pkg: pkg,
-                            name: name,
-                            ugrp_id: ugrp_id,
-                            brief: brief,
-                            avatar: avatar
-                          }
-                        });
-
-                      case 16:
-                        res = _context35.sent;
-                        data = res.data;
-                        return _context35.abrupt("return", data);
-
-                      case 21:
-                        _context35.prev = 21;
-                        _context35.t0 = _context35["catch"](1);
-                        return _context35.abrupt("return", {
-                          error: 2,
-                          reason: _context35.t0,
-                          result: {},
-                          debug: {}
-                        });
-
-                      case 24:
-                      case "end":
-                        return _context35.stop();
-                    }
-                  }
-                }, _callee35, this, [[1, 21]]);
-              }));
-              return _addApp.apply(this, arguments);
-            };
-
-            addApp = function _ref80(_x38) {
-              return _addApp.apply(this, arguments);
-            };
-
-            _qryApp = function _ref79() {
-              _qryApp = _asyncToGenerator(
-              /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee34(param) {
-                var api_path, key, API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee34$(_context34) {
-                  while (1) {
-                    switch (_context34.prev = _context34.next) {
-                      case 0:
-                        _context34.prev = 0;
-                        api_path = '/app';
+                        _context35.prev = 0;
+                        api_path = '/usro';
 
                         if (JSON.stringify(param) !== '{}') {
-                          api_path = '/app?';
+                          api_path = '/usro?';
                         }
 
                         for (key in param) {
@@ -864,7 +1049,7 @@ function _lovearth() {
                           //再调用get的时候,不要再opts参数里放置param,就是不要放置params={"user_id":"ufnfFJx"}
 
                         };
-                        _context34.next = 10;
+                        _context35.next = 10;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -874,46 +1059,46 @@ function _lovearth() {
                         });
 
                       case 10:
-                        res = _context34.sent;
+                        res = _context35.sent;
                         //console.log(res);
                         data = res.data;
-                        return _context34.abrupt("return", data);
+                        return _context35.abrupt("return", data);
 
                       case 15:
-                        _context34.prev = 15;
-                        _context34.t0 = _context34["catch"](0);
-                        return _context34.abrupt("return", {
+                        _context35.prev = 15;
+                        _context35.t0 = _context35["catch"](0);
+                        return _context35.abrupt("return", {
                           error: 2,
-                          reason: _context34.t0,
+                          reason: _context35.t0,
                           result: {},
                           debug: {}
                         });
 
                       case 18:
                       case "end":
-                        return _context34.stop();
+                        return _context35.stop();
                     }
                   }
-                }, _callee34, this, [[0, 15]]);
+                }, _callee35, this, [[0, 15]]);
               }));
-              return _qryApp.apply(this, arguments);
+              return _qryUsro.apply(this, arguments);
             };
 
-            qryApp = function _ref78(_x37) {
-              return _qryApp.apply(this, arguments);
+            qryUsro = function _ref80(_x38) {
+              return _qryUsro.apply(this, arguments);
             };
 
-            _getApp = function _ref77() {
-              _getApp = _asyncToGenerator(
+            _getUsro = function _ref79() {
+              _getUsro = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee33(app_id) {
+              regeneratorRuntime.mark(function _callee34(usro_id) {
                 var API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee33$(_context33) {
+                return regeneratorRuntime.wrap(function _callee34$(_context34) {
                   while (1) {
-                    switch (_context33.prev = _context33.next) {
+                    switch (_context34.prev = _context34.next) {
                       case 0:
-                        _context33.prev = 0;
-                        API_PATH = '/app/' + app_id;
+                        _context34.prev = 0;
+                        API_PATH = '/usro/' + usro_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -924,15 +1109,15 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(app_id) || typeof app_id !== 'string')) {
-                          _context33.next = 7;
+                        if (!(_.isNil(usro_id) || typeof usro_id !== 'string')) {
+                          _context34.next = 7;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: user_id is required as string');
 
                       case 7:
-                        _context33.next = 9;
+                        _context34.next = 9;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -942,46 +1127,46 @@ function _lovearth() {
                         });
 
                       case 9:
-                        res = _context33.sent;
+                        res = _context34.sent;
                         //console.log(res);
                         data = res.data;
-                        return _context33.abrupt("return", data);
+                        return _context34.abrupt("return", data);
 
                       case 14:
-                        _context33.prev = 14;
-                        _context33.t0 = _context33["catch"](0);
-                        return _context33.abrupt("return", {
+                        _context34.prev = 14;
+                        _context34.t0 = _context34["catch"](0);
+                        return _context34.abrupt("return", {
                           error: 2,
-                          reason: _context33.t0,
+                          reason: _context34.t0,
                           result: {},
                           debug: {}
                         });
 
                       case 17:
                       case "end":
-                        return _context33.stop();
+                        return _context34.stop();
                     }
                   }
-                }, _callee33, this, [[0, 14]]);
+                }, _callee34, this, [[0, 14]]);
               }));
-              return _getApp.apply(this, arguments);
+              return _getUsro.apply(this, arguments);
             };
 
-            getApp = function _ref76(_x36) {
-              return _getApp.apply(this, arguments);
+            getUsro = function _ref78(_x37) {
+              return _getUsro.apply(this, arguments);
             };
 
-            _putApp = function _ref75() {
-              _putApp = _asyncToGenerator(
+            _putUsro = function _ref77() {
+              _putUsro = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee32(app_id, put_param) {
+              regeneratorRuntime.mark(function _callee33(usro_id, put_param) {
                 var API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee32$(_context32) {
+                return regeneratorRuntime.wrap(function _callee33$(_context33) {
                   while (1) {
-                    switch (_context32.prev = _context32.next) {
+                    switch (_context33.prev = _context33.next) {
                       case 0:
-                        _context32.prev = 0;
-                        API_PATH = '/app/' + app_id;
+                        _context33.prev = 0;
+                        API_PATH = '/usro/' + usro_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -991,7 +1176,7 @@ function _lovearth() {
                           Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
 
                         };
-                        _context32.next = 7;
+                        _context33.next = 7;
                         return aliYunClient.put({
                           url: url,
                           headers: headers,
@@ -1002,45 +1187,46 @@ function _lovearth() {
                         });
 
                       case 7:
-                        res = _context32.sent;
+                        res = _context33.sent;
+                        //console.log(res);
                         data = res.data;
-                        return _context32.abrupt("return", data);
+                        return _context33.abrupt("return", data);
 
                       case 12:
-                        _context32.prev = 12;
-                        _context32.t0 = _context32["catch"](0);
-                        return _context32.abrupt("return", {
+                        _context33.prev = 12;
+                        _context33.t0 = _context33["catch"](0);
+                        return _context33.abrupt("return", {
                           error: 2,
-                          reason: _context32.t0,
+                          reason: _context33.t0,
                           result: {},
                           debug: {}
                         });
 
                       case 15:
                       case "end":
-                        return _context32.stop();
+                        return _context33.stop();
                     }
                   }
-                }, _callee32, this, [[0, 12]]);
+                }, _callee33, this, [[0, 12]]);
               }));
-              return _putApp.apply(this, arguments);
+              return _putUsro.apply(this, arguments);
             };
 
-            putApp = function _ref74(_x34, _x35) {
-              return _putApp.apply(this, arguments);
+            putUsro = function _ref76(_x35, _x36) {
+              return _putUsro.apply(this, arguments);
             };
 
-            _delApp = function _ref73() {
-              _delApp = _asyncToGenerator(
+            _delUsro = function _ref75() {
+              _delUsro = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee31(app_id) {
+              regeneratorRuntime.mark(function _callee32(usro_id) {
                 var API_PATH, url, localToken, headers, res, data;
-                return regeneratorRuntime.wrap(function _callee31$(_context31) {
+                return regeneratorRuntime.wrap(function _callee32$(_context32) {
                   while (1) {
-                    switch (_context31.prev = _context31.next) {
+                    switch (_context32.prev = _context32.next) {
                       case 0:
-                        _context31.prev = 0;
-                        API_PATH = '/app/' + app_id;
+                        _context32.prev = 0;
+                        API_PATH = '/usro/' + usro_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1051,15 +1237,15 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(app_id) || typeof app_id !== 'string')) {
-                          _context31.next = 7;
+                        if (!(_.isNil(usro_id) || typeof usro_id !== 'string')) {
+                          _context32.next = 7;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: app_id is required as string');
+                        throw new ArgumentError('String Type Field: usro_id is required as string');
 
                       case 7:
-                        _context31.next = 9;
+                        _context32.next = 9;
                         return aliYunClient.delete({
                           url: url,
                           headers: headers,
@@ -1069,13 +1255,102 @@ function _lovearth() {
                         });
 
                       case 9:
+                        res = _context32.sent;
+                        data = res.data;
+                        return _context32.abrupt("return", data);
+
+                      case 14:
+                        _context32.prev = 14;
+                        _context32.t0 = _context32["catch"](0);
+                        return _context32.abrupt("return", {
+                          error: 2,
+                          reason: _context32.t0,
+                          result: {},
+                          debug: {}
+                        });
+
+                      case 17:
+                      case "end":
+                        return _context32.stop();
+                    }
+                  }
+                }, _callee32, this, [[0, 14]]);
+              }));
+              return _delUsro.apply(this, arguments);
+            };
+
+            delUsro = function _ref74(_x34) {
+              return _delUsro.apply(this, arguments);
+            };
+
+            _addUsro = function _ref73() {
+              _addUsro = _asyncToGenerator(
+              /*#__PURE__*/
+              regeneratorRuntime.mark(function _callee31(_ref9) {
+                var role_id, ugrp_id, towho, API_PATH, url, localToken, headers, res, data;
+                return regeneratorRuntime.wrap(function _callee31$(_context31) {
+                  while (1) {
+                    switch (_context31.prev = _context31.next) {
+                      case 0:
+                        role_id = _ref9.role_id, ugrp_id = _ref9.ugrp_id, towho = _ref9.towho;
+                        _context31.prev = 1;
+                        API_PATH = '/usro';
+                        url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
+
+                        localToken = getLocalToken();
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+
+                        };
+
+                        if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
+                          _context31.next = 8;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: role is required as string');
+
+                      case 8:
+                        if (!(_.isNil(towho) || typeof towho !== 'string')) {
+                          _context31.next = 10;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: towho is required as string not ' + (typeof name === "undefined" ? "undefined" : _typeof(name)));
+
+                      case 10:
+                        if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
+                          _context31.next = 12;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: ugrp is required as string');
+
+                      case 12:
+                        _context31.next = 14;
+                        return aliYunClient.post({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
+                          },
+                          params: {
+                            role_id: role_id,
+                            ugrp_id: ugrp_id,
+                            towho: towho
+                          }
+                        });
+
+                      case 14:
                         res = _context31.sent;
                         data = res.data;
                         return _context31.abrupt("return", data);
 
-                      case 14:
-                        _context31.prev = 14;
-                        _context31.t0 = _context31["catch"](0);
+                      case 19:
+                        _context31.prev = 19;
+                        _context31.t0 = _context31["catch"](1);
                         return _context31.abrupt("return", {
                           error: 2,
                           reason: _context31.t0,
@@ -1083,22 +1358,22 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 17:
+                      case 22:
                       case "end":
                         return _context31.stop();
                     }
                   }
-                }, _callee31, this, [[0, 14]]);
+                }, _callee31, this, [[1, 19]]);
               }));
-              return _delApp.apply(this, arguments);
+              return _addUsro.apply(this, arguments);
             };
 
-            delApp = function _ref72(_x33) {
-              return _delApp.apply(this, arguments);
+            addUsro = function _ref72(_x33) {
+              return _addUsro.apply(this, arguments);
             };
 
-            _qryUsro = function _ref71() {
-              _qryUsro = _asyncToGenerator(
+            _qryRole = function _ref71() {
+              _qryRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee30(param) {
                 var api_path, key, API_PATH, url, localToken, headers, res, data;
@@ -1107,14 +1382,14 @@ function _lovearth() {
                     switch (_context30.prev = _context30.next) {
                       case 0:
                         _context30.prev = 0;
-                        api_path = '/usro';
+                        api_path = '/role';
 
                         if (JSON.stringify(param) !== '{}') {
-                          api_path = '/usro?';
+                          api_path = '/role?';
                         }
 
                         for (key in param) {
-                          api_path = api_path + '&' + key + '=' + param[key];
+                          api_path = api_path + '&' + key + '=' + param[key]; //console.log("key: " + key + " ,value: " + param[key]);
                         }
 
                         API_PATH = api_path;
@@ -1160,24 +1435,24 @@ function _lovearth() {
                   }
                 }, _callee30, this, [[0, 15]]);
               }));
-              return _qryUsro.apply(this, arguments);
+              return _qryRole.apply(this, arguments);
             };
 
-            qryUsro = function _ref70(_x32) {
-              return _qryUsro.apply(this, arguments);
+            qryRole = function _ref70(_x32) {
+              return _qryRole.apply(this, arguments);
             };
 
-            _getUsro = function _ref69() {
-              _getUsro = _asyncToGenerator(
+            _getRole = function _ref69() {
+              _getRole = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee29(usro_id) {
+              regeneratorRuntime.mark(function _callee29(role_id) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee29$(_context29) {
                   while (1) {
                     switch (_context29.prev = _context29.next) {
                       case 0:
                         _context29.prev = 0;
-                        API_PATH = '/usro/' + usro_id;
+                        API_PATH = '/role/' + role_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1188,7 +1463,7 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(usro_id) || typeof usro_id !== 'string')) {
+                        if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
                           _context29.next = 7;
                           break;
                         }
@@ -1228,24 +1503,24 @@ function _lovearth() {
                   }
                 }, _callee29, this, [[0, 14]]);
               }));
-              return _getUsro.apply(this, arguments);
+              return _getRole.apply(this, arguments);
             };
 
-            getUsro = function _ref68(_x31) {
-              return _getUsro.apply(this, arguments);
+            getRole = function _ref68(_x31) {
+              return _getRole.apply(this, arguments);
             };
 
-            _putUsro = function _ref67() {
-              _putUsro = _asyncToGenerator(
+            _putRole = function _ref67() {
+              _putRole = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee28(usro_id, put_param) {
+              regeneratorRuntime.mark(function _callee28(role_id, put_param) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee28$(_context28) {
                   while (1) {
                     switch (_context28.prev = _context28.next) {
                       case 0:
                         _context28.prev = 0;
-                        API_PATH = '/usro/' + usro_id;
+                        API_PATH = '/role/' + role_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1267,7 +1542,6 @@ function _lovearth() {
 
                       case 7:
                         res = _context28.sent;
-                        //console.log(res);
                         data = res.data;
                         return _context28.abrupt("return", data);
 
@@ -1288,24 +1562,24 @@ function _lovearth() {
                   }
                 }, _callee28, this, [[0, 12]]);
               }));
-              return _putUsro.apply(this, arguments);
+              return _putRole.apply(this, arguments);
             };
 
-            putUsro = function _ref66(_x29, _x30) {
-              return _putUsro.apply(this, arguments);
+            putRole = function _ref66(_x29, _x30) {
+              return _putRole.apply(this, arguments);
             };
 
-            _delUsro = function _ref65() {
-              _delUsro = _asyncToGenerator(
+            _delRole = function _ref65() {
+              _delRole = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee27(usro_id) {
+              regeneratorRuntime.mark(function _callee27(role_id) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee27$(_context27) {
                   while (1) {
                     switch (_context27.prev = _context27.next) {
                       case 0:
                         _context27.prev = 0;
-                        API_PATH = '/usro/' + usro_id;
+                        API_PATH = '/role/' + role_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1316,12 +1590,12 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(usro_id) || typeof usro_id !== 'string')) {
+                        if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
                           _context27.next = 7;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: usro_id is required as string');
+                        throw new ArgumentError('String Type Field: role_id is required as string');
 
                       case 7:
                         _context27.next = 9;
@@ -1341,6 +1615,7 @@ function _lovearth() {
                       case 14:
                         _context27.prev = 14;
                         _context27.t0 = _context27["catch"](0);
+                        console.log(_context27.t0);
                         return _context27.abrupt("return", {
                           error: 2,
                           reason: _context27.t0,
@@ -1348,32 +1623,32 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 17:
+                      case 18:
                       case "end":
                         return _context27.stop();
                     }
                   }
                 }, _callee27, this, [[0, 14]]);
               }));
-              return _delUsro.apply(this, arguments);
+              return _delRole.apply(this, arguments);
             };
 
-            delUsro = function _ref64(_x28) {
-              return _delUsro.apply(this, arguments);
+            delRole = function _ref64(_x28) {
+              return _delRole.apply(this, arguments);
             };
 
-            _addUsro = function _ref63() {
-              _addUsro = _asyncToGenerator(
+            _addRole = function _ref63() {
+              _addRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee26(_ref8) {
-                var role_id, ugrp_id, towho, API_PATH, url, localToken, headers, res, data;
+                var code, name, ugrp_id, granter, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee26$(_context26) {
                   while (1) {
                     switch (_context26.prev = _context26.next) {
                       case 0:
-                        role_id = _ref8.role_id, ugrp_id = _ref8.ugrp_id, towho = _ref8.towho;
+                        code = _ref8.code, name = _ref8.name, ugrp_id = _ref8.ugrp_id, granter = _ref8.granter;
                         _context26.prev = 1;
-                        API_PATH = '/usro';
+                        API_PATH = '/role';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1384,20 +1659,20 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
+                        if (!(_.isNil(code) || typeof code !== 'string')) {
                           _context26.next = 8;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: role is required as string');
+                        throw new ArgumentError('String Type Field: code is required as string');
 
                       case 8:
-                        if (!(_.isNil(towho) || typeof towho !== 'string')) {
+                        if (!(_.isNil(name) || typeof name !== 'string')) {
                           _context26.next = 10;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: towho is required as string not ' + (typeof name === "undefined" ? "undefined" : _typeof(name)));
+                        throw new ArgumentError('String Type Field: name is required as string not ' + _typeof(name));
 
                       case 10:
                         if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
@@ -1405,7 +1680,7 @@ function _lovearth() {
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: ugrp is required as string');
+                        throw new ArgumentError('String Type Field: ugrp_id is required as string');
 
                       case 12:
                         _context26.next = 14;
@@ -1416,9 +1691,10 @@ function _lovearth() {
                             'X-Ca-Stage': 'RELEASE'
                           },
                           params: {
-                            role_id: role_id,
+                            code: code,
+                            name: name,
                             ugrp_id: ugrp_id,
-                            towho: towho
+                            granter: granter
                           }
                         });
 
@@ -1430,6 +1706,7 @@ function _lovearth() {
                       case 19:
                         _context26.prev = 19;
                         _context26.t0 = _context26["catch"](1);
+                        console.log(_context26.t0);
                         return _context26.abrupt("return", {
                           error: 2,
                           reason: _context26.t0,
@@ -1437,22 +1714,22 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 22:
+                      case 23:
                       case "end":
                         return _context26.stop();
                     }
                   }
                 }, _callee26, this, [[1, 19]]);
               }));
-              return _addUsro.apply(this, arguments);
+              return _addRole.apply(this, arguments);
             };
 
-            addUsro = function _ref62(_x27) {
-              return _addUsro.apply(this, arguments);
+            addRole = function _ref62(_x27) {
+              return _addRole.apply(this, arguments);
             };
 
-            _qryRole = function _ref61() {
-              _qryRole = _asyncToGenerator(
+            _qryZone = function _ref61() {
+              _qryZone = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee25(param) {
                 var api_path, key, API_PATH, url, localToken, headers, res, data;
@@ -1461,14 +1738,14 @@ function _lovearth() {
                     switch (_context25.prev = _context25.next) {
                       case 0:
                         _context25.prev = 0;
-                        api_path = '/role';
+                        api_path = '/zone';
 
                         if (JSON.stringify(param) !== '{}') {
-                          api_path = '/role?';
+                          api_path = '/zone?';
                         }
 
                         for (key in param) {
-                          api_path = api_path + '&' + key + '=' + param[key]; //console.log("key: " + key + " ,value: " + param[key]);
+                          api_path = api_path + '&' + key + '=' + param[key];
                         }
 
                         API_PATH = api_path;
@@ -1493,56 +1770,55 @@ function _lovearth() {
 
                       case 10:
                         res = _context25.sent;
-                        //console.log(res);
                         data = res.data;
                         return _context25.abrupt("return", data);
 
                       case 15:
                         _context25.prev = 15;
                         _context25.t0 = _context25["catch"](0);
+                        console.log(_context25.t0);
                         return _context25.abrupt("return", {
                           error: 2,
                           reason: _context25.t0,
-                          result: {},
-                          debug: {}
+                          result: {}
                         });
 
-                      case 18:
+                      case 19:
                       case "end":
                         return _context25.stop();
                     }
                   }
                 }, _callee25, this, [[0, 15]]);
               }));
-              return _qryRole.apply(this, arguments);
+              return _qryZone.apply(this, arguments);
             };
 
-            qryRole = function _ref60(_x26) {
-              return _qryRole.apply(this, arguments);
+            qryZone = function _ref60(_x26) {
+              return _qryZone.apply(this, arguments);
             };
 
-            _getRole = function _ref59() {
-              _getRole = _asyncToGenerator(
+            _getZone = function _ref59() {
+              _getZone = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee24(role_id) {
+              regeneratorRuntime.mark(function _callee24(zone_id) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee24$(_context24) {
                   while (1) {
                     switch (_context24.prev = _context24.next) {
                       case 0:
                         _context24.prev = 0;
-                        API_PATH = '/role/' + role_id;
+                        API_PATH = '/zone/' + zone_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+                          Authorization: localToken //'apiv': APIV // Use md5 to hash the password
 
                         };
 
-                        if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
+                        if (!(_.isNil(zone_id) || typeof zone_id !== 'string')) {
                           _context24.next = 7;
                           break;
                         }
@@ -1561,45 +1837,44 @@ function _lovearth() {
 
                       case 9:
                         res = _context24.sent;
-                        //console.log(res);
                         data = res.data;
                         return _context24.abrupt("return", data);
 
                       case 14:
                         _context24.prev = 14;
                         _context24.t0 = _context24["catch"](0);
+                        console.log(_context24.t0);
                         return _context24.abrupt("return", {
                           error: 2,
                           reason: _context24.t0,
-                          result: {},
-                          debug: {}
+                          result: {}
                         });
 
-                      case 17:
+                      case 18:
                       case "end":
                         return _context24.stop();
                     }
                   }
                 }, _callee24, this, [[0, 14]]);
               }));
-              return _getRole.apply(this, arguments);
+              return _getZone.apply(this, arguments);
             };
 
-            getRole = function _ref58(_x25) {
-              return _getRole.apply(this, arguments);
+            getZone = function _ref58(_x25) {
+              return _getZone.apply(this, arguments);
             };
 
-            _putRole = function _ref57() {
-              _putRole = _asyncToGenerator(
+            _putZone = function _ref57() {
+              _putZone = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee23(role_id, put_param) {
+              regeneratorRuntime.mark(function _callee23(zone_id, put_param) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee23$(_context23) {
                   while (1) {
                     switch (_context23.prev = _context23.next) {
                       case 0:
                         _context23.prev = 0;
-                        API_PATH = '/role/' + role_id;
+                        API_PATH = '/zone/' + zone_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1641,40 +1916,39 @@ function _lovearth() {
                   }
                 }, _callee23, this, [[0, 12]]);
               }));
-              return _putRole.apply(this, arguments);
+              return _putZone.apply(this, arguments);
             };
 
-            putRole = function _ref56(_x23, _x24) {
-              return _putRole.apply(this, arguments);
+            putZone = function _ref56(_x23, _x24) {
+              return _putZone.apply(this, arguments);
             };
 
-            _delRole = function _ref55() {
-              _delRole = _asyncToGenerator(
+            _delZone = function _ref55() {
+              _delZone = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee22(role_id) {
+              regeneratorRuntime.mark(function _callee22(zone_id) {
                 var API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee22$(_context22) {
                   while (1) {
                     switch (_context22.prev = _context22.next) {
                       case 0:
                         _context22.prev = 0;
-                        API_PATH = '/role/' + role_id;
+                        API_PATH = '/zone/' + zone_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
-
+                          Authorization: getLocalToken()
                         };
 
-                        if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
+                        if (!(_.isNil(zone_id) || typeof zone_id !== 'string')) {
                           _context22.next = 7;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: role_id is required as string');
+                        throw new ArgumentError('String Type Field: zone_id is required as string');
 
                       case 7:
                         _context22.next = 9;
@@ -1694,7 +1968,6 @@ function _lovearth() {
                       case 14:
                         _context22.prev = 14;
                         _context22.t0 = _context22["catch"](0);
-                        console.log(_context22.t0);
                         return _context22.abrupt("return", {
                           error: 2,
                           reason: _context22.t0,
@@ -1702,32 +1975,32 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 18:
+                      case 17:
                       case "end":
                         return _context22.stop();
                     }
                   }
                 }, _callee22, this, [[0, 14]]);
               }));
-              return _delRole.apply(this, arguments);
+              return _delZone.apply(this, arguments);
             };
 
-            delRole = function _ref54(_x22) {
-              return _delRole.apply(this, arguments);
+            delZone = function _ref54(_x22) {
+              return _delZone.apply(this, arguments);
             };
 
-            _addRole = function _ref53() {
-              _addRole = _asyncToGenerator(
+            _addZone = function _ref53() {
+              _addZone = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee21(_ref7) {
-                var code, name, ugrp_id, granter, API_PATH, url, localToken, headers, res, data;
+                var name, brief, avatar, pid, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee21$(_context21) {
                   while (1) {
                     switch (_context21.prev = _context21.next) {
                       case 0:
-                        code = _ref7.code, name = _ref7.name, ugrp_id = _ref7.ugrp_id, granter = _ref7.granter;
+                        name = _ref7.name, brief = _ref7.brief, avatar = _ref7.avatar, pid = _ref7.pid;
                         _context21.prev = 1;
-                        API_PATH = '/role';
+                        API_PATH = '/zone';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         localToken = getLocalToken();
@@ -1738,31 +2011,23 @@ function _lovearth() {
 
                         };
 
-                        if (!(_.isNil(code) || typeof code !== 'string')) {
-                          _context21.next = 8;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: code is required as string');
-
-                      case 8:
                         if (!(_.isNil(name) || typeof name !== 'string')) {
-                          _context21.next = 10;
+                          _context21.next = 8;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: name is required as string not ' + _typeof(name));
 
-                      case 10:
-                        if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
-                          _context21.next = 12;
+                      case 8:
+                        if (!(_.isNil(brief) || typeof brief !== 'string')) {
+                          _context21.next = 10;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: ugrp_id is required as string');
+                        throw new ArgumentError('String Type Field: brief is required as string');
 
-                      case 12:
-                        _context21.next = 14;
+                      case 10:
+                        _context21.next = 12;
                         return aliYunClient.post({
                           url: url,
                           headers: headers,
@@ -1770,41 +2035,39 @@ function _lovearth() {
                             'X-Ca-Stage': 'RELEASE'
                           },
                           params: {
-                            code: code,
                             name: name,
-                            ugrp_id: ugrp_id,
-                            granter: granter
+                            brief: brief,
+                            avatar: avatar,
+                            pid: pid
                           }
                         });
 
-                      case 14:
+                      case 12:
                         res = _context21.sent;
                         data = res.data;
                         return _context21.abrupt("return", data);
 
-                      case 19:
-                        _context21.prev = 19;
+                      case 17:
+                        _context21.prev = 17;
                         _context21.t0 = _context21["catch"](1);
-                        console.log(_context21.t0);
                         return _context21.abrupt("return", {
-                          error: 2,
+                          error: 1,
                           reason: _context21.t0,
-                          result: {},
-                          debug: {}
+                          debug: _context21.t0
                         });
 
-                      case 23:
+                      case 20:
                       case "end":
                         return _context21.stop();
                     }
                   }
-                }, _callee21, this, [[1, 19]]);
+                }, _callee21, this, [[1, 17]]);
               }));
-              return _addRole.apply(this, arguments);
+              return _addZone.apply(this, arguments);
             };
 
-            addRole = function _ref52(_x21) {
-              return _addRole.apply(this, arguments);
+            addZone = function _ref52(_x21) {
+              return _addZone.apply(this, arguments);
             };
 
             _qryUgrp = function _ref51() {
@@ -3054,7 +3317,7 @@ function _lovearth() {
               _isLogin = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee4() {
-                var localToken, _isLogin2, res, data;
+                var localToken, _isLogin2, url, sign, headers, res, data;
 
                 return regeneratorRuntime.wrap(function _callee4$(_context4) {
                   while (1) {
@@ -3065,49 +3328,82 @@ function _lovearth() {
                         _isLogin2 = false;
 
                         if (!(_.isNil(localToken) || localToken == '')) {
-                          _context4.next = 7;
+                          _context4.next = 6;
                           break;
                         }
 
                         _isLogin2 = false;
-                        _context4.next = 12;
-                        break;
+                        return _context4.abrupt("return", false);
 
-                      case 7:
-                        _context4.next = 9;
-                        return getToken(localToken);
-
-                      case 9:
-                        res = _context4.sent;
-                        data = res.result.data;
-
-                        if (data.vtl > 0 && data.uid != "anonymus") {
-                          _isLogin2 = true;
-                        }
-
-                      case 12:
-                        return _context4.abrupt("return", {
-                          error: 0,
-                          result: {
-                            isLogin: _isLogin2
+                      case 6:
+                        /*
+                        localToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MGIxZWZmZGMwMzVlMjg2OWI2YzQ1ZjMzYmRmNWQ3In0.eyJpYXQiOjE1NTQ5NTM0NDEsIm5iZiI6MTU1NDk1MzQ0MSwiZXhwIjoxNTU0OTU3MDQxLCJpc3MiOiJsb3ZlYXJ0aCIsImR1YSI6IkhQenFZTktrIiwiZGlkIjoidnN5RGRTcmIiLCJ1aWQiOiJqUU9wRXAybSIsImFpZCI6Ilp2VVcxdExwIiwiYXVkIjoiY24uYWMuaWN0LmNoaWxkcmVucGMiLCJpcCI6IjExMy4xMTAuMjI4Ljg5IiwidWEiOiJYZHVhVXNlckFnZW50IiwidWdycCI6IlhkVWFYZHVBIiwicm9sZSI6Im5vbmUifQ.eFElFNUl9PJz6hZZNqZ8XBuU9gWQrg9sp9M2rP2IQ-0RPLw8M1BGVo8i0LCZsoC_NUcpJSn8ChGGOO87p32oaatsNzdr6jFOWyx3536kJdoVz4PFqipEg7Jtyut8q3940W8PHQKVmXgjLlESpDW8YAvE_Qsl0U7TgTDPDDrrR-rLuCD504N3a0kOwb1MZHE-MZQ5QT8t2AxqgbsV2y5qz2aTbOZAQD5KjLHhKvipiblBq2D27X74bxRP-e0iDbyKYAYpH8luzeqe3y-SRn3XvEu5gficInnSLlFiy56KZPeZPOQSOmu_rjNds7cIASnpxbFjXkMj9YPUHKBOjcEkkw'
+                        localToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MGIxZWZmZGMwMzVlMjg2OWI2YzQ1ZjMzYmRmNWQ3In0.eyJpYXQiOjE1NTQ5Njg3MTAsIm5iZiI6MTU1NDk2ODcxMCwiZXhwIjoxNTU1MDU1MTEwLCJpc3MiOiJsb3ZlYXJ0aCIsImR1YSI6IkhQenFZTktrIiwiZGlkIjoidnN5RGRTcmIiLCJ1aWQiOiJqUU9wRXAybSIsImFpZCI6Ilp2VVcxdExwIiwiYXVkIjoiY24uYWMuaWN0LmNoaWxkcmVucGMiLCJpcCI6IjExMy4xMTAuMjI4Ljg5IiwidWEiOiJYZHVhVXNlckFnZW50IiwidWdycCI6IlhkVWFYZHVBIiwicm9sZSI6Im5vbmUifQ.bv0NXpFT1uyk5J2HBo0hsdA-KCMp9s7QCYwOJq8XiamRlw97czpQWfsNYIjmUoJLElqrLZL8L93PThurQW3f1JaR-rK_izZz088Iv0F2Gklc-La3YOVwXzNMkC1lY5g_zIAcJu-FcMD0nkJeub6EnHzbCLZOh63WN424q3G4-pi3HfgfKOF8ly0b3znZOSj5xVSGagCsZEPJ9E9Xx8sHAq7dtx6Liyh2ugw_eGttTexEXR8LUgazgwK0vBmBiMf0pAviioGQhaD_uLRQpr2yWvLEuqCkga62iA92kJiHpD3lihJeFTwsi6NJWS2RCz_Y1DeCiDNhNeXP0Tq6P-lRsg';
+                        localToken = 'eyJhbGciOiJSUzI1NiIsImtpZCI6ImI1MGIxZWZmZGMwMzVlMjg2OWI2YzQ1ZjMzYmRmNWQ3In0.eyJpYXQiOjE1NTQ5Njk0NTksIm5iZiI6MTU1NDk2OTQ1OSwiZXhwIjoxNTU1MDU1ODU5LCJpc3MiOiJsb3ZlYXJ0aCIsImR1YSI6IkhQenFZTktrIiwiZGlkIjoidnN5RGRTcmIiLCJ1aWQiOiJqUU9wRXAybSIsImFpZCI6Ilp2VVcxdExwIiwiYXVkIjoiY24uYWMuaWN0LmNoaWxkcmVucGMiLCJpcCI6IjExMy4xMTAuMjI4Ljg5IiwidWEiOiJYZHVhVXNlckFnZW50IiwidWdycCI6IlhkVWFYZHVBIiwicm9sZSI6Im5vbmUifQ.TJ3lsepFtSppQsK1db-tdzistF68VrVr9FI3i-DnsLy6GAGLYNth1zCLPSAYHE3UhlI-s_yY-nNS2tX6eAyKD2xArpC1bLIUbp_LgoF6kEjg81GLtUFYcL2mbSKL1FQBI7lKWbGzZea-zY93D2PgqAdlGYDF1dp8Tfggka3pxfcZRp3208DrHWRj9qEOc-VZfrFvX0FgxX_z8GhiZZQmp5mi13ptGl4VnlLM3lVKijhMIsGuLVKlbB57TDcjlAqe0uyhncxw6Ue1yJYtH6Ff2A8sxEUuY5Ht3xm-IIOv_uOvqkls091Oq5ENXYD0htpIqocXplQFcZK5FArtR8CHlQ';
+                        */
+                        url = API_END_POINT + '/login/' + localToken;
+                        sign = generateSign({
+                          method: 'GET',
+                          path: '/login/' + localToken,
+                          appSecret: getAppSecret(),
+                          appKey: getAppKey()
+                        });
+                        headers = {
+                          accept: APPLICATION_JSON,
+                          'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
+                          Authorization: sign
+                        };
+                        _context4.next = 11;
+                        return aliYunClient.get({
+                          url: url,
+                          headers: headers,
+                          signHeaders: {
+                            'X-Ca-Stage': 'RELEASE'
                           }
                         });
 
-                      case 15:
-                        _context4.prev = 15;
-                        _context4.t0 = _context4["catch"](0);
-                        return _context4.abrupt("return", {
-                          error: 2,
-                          result: {},
-                          debug: {}
-                        });
+                      case 11:
+                        res = _context4.sent;
+                        data = res.data;
+
+                        if (!(data.error === 0)) {
+                          _context4.next = 21;
+                          break;
+                        }
+
+                        if (!(data.result.islogin == 1)) {
+                          _context4.next = 18;
+                          break;
+                        }
+
+                        return _context4.abrupt("return", true);
 
                       case 18:
+                        return _context4.abrupt("return", false);
+
+                      case 19:
+                        _context4.next = 23;
+                        break;
+
+                      case 21:
+                        throw new Error('fail to get Login profile');
+
+                      case 23:
+                        _context4.next = 29;
+                        break;
+
+                      case 25:
+                        _context4.prev = 25;
+                        _context4.t0 = _context4["catch"](0);
+                        console.log(_context4.t0);
+                        return _context4.abrupt("return", false);
+
+                      case 29:
                       case "end":
                         return _context4.stop();
                     }
                   }
-                }, _callee4, this, [[0, 15]]);
+                }, _callee4, this, [[0, 25]]);
               }));
               return _isLogin.apply(this, arguments);
             };
@@ -3361,11 +3657,11 @@ function _lovearth() {
              * 如果令牌的本地存储被人删除了,就需要也需要重新申请匿名令牌。 
              **/
 
-            _context46.next = 95;
+            _context50.next = 103;
             return initialize();
 
-          case 95:
-            return _context46.abrupt("return", {
+          case 103:
+            return _context50.abrupt("return", {
               initialize: initialize,
               addToken: addToken,
               getToken: getToken,
@@ -3382,6 +3678,11 @@ function _lovearth() {
               getUgrp: getUgrp,
               putUgrp: putUgrp,
               qryUgrp: qryUgrp,
+              addZone: addZone,
+              delZone: delZone,
+              getZone: getZone,
+              putZone: putZone,
+              qryZone: qryZone,
               addRole: addRole,
               delRole: delRole,
               getRole: getRole,
@@ -3392,7 +3693,6 @@ function _lovearth() {
               getUsro: getUsro,
               putUsro: putUsro,
               qryUsro: qryUsro,
-              addUsrz: addUsrz,
               addApp: addApp,
               delApp: delApp,
               getApp: getApp,
@@ -3410,12 +3710,12 @@ function _lovearth() {
               addfile: addfile
             });
 
-          case 96:
+          case 104:
           case "end":
-            return _context46.stop();
+            return _context50.stop();
         }
       }
-    }, _callee46, this);
+    }, _callee50, this);
   }));
   return _lovearth.apply(this, arguments);
 }

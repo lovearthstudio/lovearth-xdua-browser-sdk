@@ -21,6 +21,7 @@ Publish to npmjs
 ### 发布npm包,在package.json里修改版本号后,使用npm publish命令，可能会要求npm adduser 来添加用户.
 
 ```bash
+npm run build
 npm publish
 ```
 我们发现一个问题，必须先要`npm run build`把dist文件夹建立起来，然后npm publish 才会把整个dist连同lib都发到库里，然后在www.xdua.com调用的时候调用的是npm发布的dist。
