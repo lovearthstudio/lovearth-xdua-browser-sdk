@@ -185,7 +185,7 @@ function _lovearth() {
               _putObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee47(obj_key, obj_value) {
-                var API_PATH, url, localToken, headers, res, data;
+                var API_PATH, url, localToken, headers, obj_value_type, obj_value_str, res, data;
                 return regeneratorRuntime.wrap(function _callee47$(_context47) {
                   while (1) {
                     switch (_context47.prev = _context47.next) {
@@ -199,12 +199,19 @@ function _lovearth() {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
                           Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+                          //console.log(url);
+                          //字符串,数字,对象都会成功字符串化.
+                          //下面的obj_value一定要用let
 
                         };
-                        console.log(url); //字符串,数字,对象都会成功字符串化.
+                        obj_value_type = _typeof(obj_value);
+                        obj_value_str = String(obj_value);
 
-                        obj_value = JSON.stringify(obj_value);
-                        _context47.next = 9;
+                        if (obj_value_type == "object") {
+                          obj_value_str = JSON.stringify(obj_value);
+                        }
+
+                        _context47.next = 10;
                         return aliYunClient.put({
                           url: url,
                           headers: headers,
@@ -212,17 +219,17 @@ function _lovearth() {
                             'X-Ca-Stage': 'RELEASE'
                           },
                           params: {
-                            value: obj_value
+                            value: obj_value_str
                           }
                         });
 
-                      case 9:
+                      case 10:
                         res = _context47.sent;
                         data = res.data;
                         return _context47.abrupt("return", data);
 
-                      case 14:
-                        _context47.prev = 14;
+                      case 15:
+                        _context47.prev = 15;
                         _context47.t0 = _context47["catch"](0);
                         return _context47.abrupt("return", {
                           error: 2,
@@ -231,12 +238,12 @@ function _lovearth() {
                           debug: {}
                         });
 
-                      case 17:
+                      case 18:
                       case "end":
                         return _context47.stop();
                     }
                   }
-                }, _callee47, this, [[0, 14]]);
+                }, _callee47, this, [[0, 15]]);
               }));
               return _putObj.apply(this, arguments);
             };
@@ -315,7 +322,7 @@ function _lovearth() {
               _addObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee45(_ref11) {
-                var key, value, key2, key3, key4, readonly, API_PATH, url, localToken, headers, res, data;
+                var key, value, key2, key3, key4, readonly, API_PATH, url, localToken, headers, add_params, res, data;
                 return regeneratorRuntime.wrap(function _callee45$(_context45) {
                   while (1) {
                     switch (_context45.prev = _context45.next) {
@@ -342,7 +349,10 @@ function _lovearth() {
 
                       case 8:
                         //字符串,数字,对象都会成功字符串化.
-                        value = JSON.stringify(value);
+                        value = JSON.stringify(value); //总结一个非常高端的BUG,下面这个地方,必须要有let, 如果没有let,自己是能够跑通的,但是,如果别人把这个SDK转成ES5标准,就会出现
+                        //Can't find variable add_params
+                        //问题就是转换成ES5后,add_params这个变量就丢失了.
+
                         add_params = {
                           key: key,
                           value: value
