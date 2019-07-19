@@ -15,6 +15,12 @@ var OSS_INFO = {
 function getClient() {
   return _getClient.apply(this, arguments);
 }
+/**
+ * 当你用ApiCloud这种平台开发APP的时候,不好操作文件路径（传闻）,特别是IOS平台，如果这个时候能用blob上传就太好了
+ * https://help.aliyun.com/document_detail/64047.html?spm=a2c4g.11174283.6.1133.45eb7da2k9cASc
+ *  
+ * */
+
 
 function _getClient() {
   _getClient = _asyncToGenerator(
@@ -40,6 +46,7 @@ function _getClient() {
               region: OSS_INFO.region,
               accessKeyId: res.access_key_id,
               accessKeySecret: res.access_key_secret,
+              stsToken: res.security_token,
               bucket: OSS_INFO.bucket
             });
             return _context.abrupt("return", client);
@@ -60,50 +67,92 @@ function _getClient() {
   return _getClient.apply(this, arguments);
 }
 
-function addfile(_x, _x2) {
+function addfile(_x, _x2, _x3) {
   return _addfile.apply(this, arguments);
 }
 
 function _addfile() {
   _addfile = _asyncToGenerator(
   /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee2(file, ossfilepath) {
-    var point, oss, r1;
+  regeneratorRuntime.mark(function _callee2(file, ossfilepath, options) {
+    var oss, r1;
     return regeneratorRuntime.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            point = file.name.lastIndexOf('.');
-            _context2.prev = 1;
-            _context2.next = 4;
+            _context2.prev = 0;
+            _context2.next = 3;
             return getClient();
 
-          case 4:
+          case 3:
             oss = _context2.sent;
-            _context2.next = 7;
-            return oss.put(ossfilepath, file);
+            _context2.next = 6;
+            return oss.put(ossfilepath, file, options);
 
-          case 7:
+          case 6:
             r1 = _context2.sent;
             return _context2.abrupt("return", r1);
 
-          case 11:
-            _context2.prev = 11;
-            _context2.t0 = _context2["catch"](1);
+          case 10:
+            _context2.prev = 10;
+            _context2.t0 = _context2["catch"](0);
             console.error(_context2.t0);
             return _context2.abrupt("return", null);
 
-          case 15:
+          case 14:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, this, [[1, 11]]);
+    }, _callee2, this, [[0, 10]]);
   }));
   return _addfile.apply(this, arguments);
 }
 
+function addblob(_x4, _x5, _x6) {
+  return _addblob.apply(this, arguments);
+}
+
+function _addblob() {
+  _addblob = _asyncToGenerator(
+  /*#__PURE__*/
+  regeneratorRuntime.mark(function _callee3(blob, ossfilepath, options) {
+    var oss, r1;
+    return regeneratorRuntime.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            _context3.prev = 0;
+            _context3.next = 3;
+            return getClient();
+
+          case 3:
+            oss = _context3.sent;
+            _context3.next = 6;
+            return oss.put(ossfilepath, blob, options);
+
+          case 6:
+            r1 = _context3.sent;
+            return _context3.abrupt("return", r1);
+
+          case 10:
+            _context3.prev = 10;
+            _context3.t0 = _context3["catch"](0);
+            console.error(_context3.t0);
+            return _context3.abrupt("return", null);
+
+          case 14:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3, this, [[0, 10]]);
+  }));
+  return _addblob.apply(this, arguments);
+}
+
 module.exports = {
   getClient: getClient,
-  addfile: addfile
+  addfile: addfile,
+  addblob: addblob
 };

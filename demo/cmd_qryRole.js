@@ -23,7 +23,7 @@ async function test_qryRole() {
     query = {
         filter:{
             ugrp_id:"A3bdXNT3",
-            code:["god","ce08"]
+            code:"god"
         }
     }
     const res = await dua.qryRole(query);

@@ -1,6 +1,6 @@
 const lovearth = require('../lib')
 
-async function test_qryRole() {
+async function test_qryZone() {
     const dua = await lovearth({
         APP_KEY: "aHEVYhE1",
         APP_SECRET: "f34b127abc7cca1862dac91db6256190",
@@ -22,11 +22,10 @@ async function test_qryRole() {
     //--------------------------------------------------
     query = {
         filter:{
-            ugrp_id:"A3bdXNT3",
-            code:["god","ce08"]
+            pid:"A3bdXNT3",
         }
     }
-    const res = await dua.qryRole(query);
+    const res = await dua.qryZone(query);
     console.log(res);
     console.log(JSON.stringify(res));
     if(res.error == 0){
@@ -36,7 +35,7 @@ async function test_qryRole() {
     }
 }
 
-test_qryRole();
+test_qryZone();
     
     
     

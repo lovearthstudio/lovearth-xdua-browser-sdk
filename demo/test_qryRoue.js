@@ -18,15 +18,21 @@ async function test_qryRole() {
         role:   "none"
     })
 
-    console.log(loginres);
     //--------------------------------------------------
     query = {
         filter:{
             ugrp_id:"A3bdXNT3",
-            code:["god","ce08"]
+            role_code:"god"
         }
     }
-    const res = await dua.qryRole(query);
+    query = {
+        filter:{
+            ugrp_id:"A3bdXNT3",
+            role_code:["ce06","ce08"]
+        }
+    }
+
+    const res = await dua.qryRoue(query);
     console.log(res);
     console.log(JSON.stringify(res));
     if(res.error == 0){

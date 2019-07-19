@@ -1,42 +1,40 @@
 const lovearth = require('../lib')
-
-async function test_qryRole() {
+async function test_addUgrp() {
+    //--------------------------------------------------
     const dua = await lovearth({
         APP_KEY: "aHEVYhE1",
         APP_SECRET: "f34b127abc7cca1862dac91db6256190",
     })
-    let api_name = "用户登录";
-    const loginres = await dua.login({
+
+    api_name = "创建户群";
+    got_zone_id = "";
+    const res_login = await dua.login({
         by  :   "tel",
-        //ustr:   '+86-13202300003',
-        //pwd :   '96e79218965eb72c92a549dd5a330112',
-        //ugrp:   "A3bdXNT3",
         ustr:   '+86-15810419011',
         pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
-        //ugrp:   "XdUaXduA",
-        ugrp:   "A3bdXNT3",
+        ugrp:   "XdUaXduA",
         role:   "none"
     })
-
-    console.log(loginres);
-    //--------------------------------------------------
-    query = {
-        filter:{
-            ugrp_id:"A3bdXNT3",
-            code:["god","ce08"]
-        }
-    }
-    const res = await dua.qryRole(query);
-    console.log(res);
+    //console.log(res_login);
+    const res = await dua.addZone({
+        name:"儿研所户群/PC2端",
+        brief:"户区描述", 
+        avatar:"",
+        god_id:"Dt5mvrtU",
+        pid:"YRym9QaM"
+    })
     console.log(JSON.stringify(res));
+    //console.log(res);
     if(res.error == 0){
-        console.log(api_name+"成功 ");
+        got_zone_id = res.result.id;
+        console.log(api_name+"成功 "+got_zone_id);
     }else{
+        got_zone_id = res.result.id;
         console.log(api_name+"失败 "+res.reason);
     }
 }
 
-test_qryRole();
+test_addUgrp();
     
     
     
