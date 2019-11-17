@@ -16,13 +16,10 @@ async function test_qryRule() {
     })
     
     let api_name = "权限查询";
-    await dua.initialize()
     query = {
-        ugrp_id:"A3bdXNT3"
+        filter:{ugrp_id:"A3bdXNT3"}
     }
-
     let res = await dua.qryRule(query)
-
     console.log(res);
     console.log(JSON.stringify(res));
     if(res.error == 0){

@@ -16,8 +16,9 @@ async function test_qryGwenv(obj_key) {
 }
 
 query = {
-    "where": {"gmac":"AC233FC0422D","time0":1563036033,"time1":1564037078,"type":1,"dmac":"AC233FC0422D"},
-    "limit":10,
+    "where":{"gmac":"AC233FC0422D","time0":1563864893,"time1":1563864993,"type":1},
+    "limit":100,
+    "order":"backward",
     "dataform":"heatmap"
 }
 
