@@ -15,12 +15,12 @@ async function test_qryUser() {
         role:   "none"
     })
     query = {
-        tabx:"XdUaXduA",
+        tabx:"A3bdXNT3",
         where:{
-            ugrp:"XdUaXduA",
+            ugrp:"A3bdXNT3",
         },
-        //fields:"@all"
-        fields:"user_id,name"
+        fields:"@all"
+        //fields:"user_id,name"
     }
 
     let res = await dua.qryUser(query)

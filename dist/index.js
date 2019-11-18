@@ -1,4 +1,4 @@
-// xdua 1.8.9
+// xdua 1.9.1
 'use strict';
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -22,6 +22,7 @@ var _require = require('./constants/contentType'),
 var _require2 = require('./oss/oss-client'),
     getClient = _require2.getClient,
     addfile = _require2.addfile,
+    addavatar = _require2.addavatar,
     addblob = _require2.addblob;
 
 var _require3 = require('./constants'),
@@ -66,7 +67,7 @@ function _xdua() {
       while (1) {
         switch (_context89.prev = _context89.next) {
           case 0:
-            _addIotpass = function _ref197() {
+            _addIotpass = function _ref198() {
               _addIotpass = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee88(add_params) {
@@ -121,21 +122,21 @@ function _xdua() {
               return _addIotpass.apply(this, arguments);
             };
 
-            addIotpass = function _ref196(_x101) {
+            addIotpass = function _ref197(_x102) {
               return _addIotpass.apply(this, arguments);
             };
 
-            _qryDvlog = function _ref195() {
+            _qryDvlog = function _ref196() {
               _qryDvlog = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee87(_ref21) {
+              regeneratorRuntime.mark(function _callee87(_ref22) {
                 var where, limit, order, qryParam, _api_path20, key, API_PATH, url, localToken, headers, res, data;
 
                 return regeneratorRuntime.wrap(function _callee87$(_context87) {
                   while (1) {
                     switch (_context87.prev = _context87.next) {
                       case 0:
-                        where = _ref21.where, limit = _ref21.limit, order = _ref21.order;
+                        where = _ref22.where, limit = _ref22.limit, order = _ref22.order;
                         _context87.prev = 1;
 
                         if (typeof where !== "string") {
@@ -202,21 +203,21 @@ function _xdua() {
               return _qryDvlog.apply(this, arguments);
             };
 
-            qryDvlog = function _ref194(_x100) {
+            qryDvlog = function _ref195(_x101) {
               return _qryDvlog.apply(this, arguments);
             };
 
-            _qryGwlog = function _ref193() {
+            _qryGwlog = function _ref194() {
               _qryGwlog = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee86(_ref20) {
+              regeneratorRuntime.mark(function _callee86(_ref21) {
                 var where, limit, order, qryParam, _api_path19, key, API_PATH, url, localToken, headers, res, data;
 
                 return regeneratorRuntime.wrap(function _callee86$(_context86) {
                   while (1) {
                     switch (_context86.prev = _context86.next) {
                       case 0:
-                        where = _ref20.where, limit = _ref20.limit, order = _ref20.order;
+                        where = _ref21.where, limit = _ref21.limit, order = _ref21.order;
                         _context86.prev = 1;
 
                         if (typeof where !== "string") {
@@ -284,21 +285,21 @@ function _xdua() {
               return _qryGwlog.apply(this, arguments);
             };
 
-            qryGwlog = function _ref192(_x99) {
+            qryGwlog = function _ref193(_x100) {
               return _qryGwlog.apply(this, arguments);
             };
 
-            _qryDvenv = function _ref191() {
+            _qryDvenv = function _ref192() {
               _qryDvenv = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee85(_ref19) {
+              regeneratorRuntime.mark(function _callee85(_ref20) {
                 var where, limit, order, dataform, qryParam, _api_path18, key, API_PATH, url, localToken, headers, res, data;
 
                 return regeneratorRuntime.wrap(function _callee85$(_context85) {
                   while (1) {
                     switch (_context85.prev = _context85.next) {
                       case 0:
-                        where = _ref19.where, limit = _ref19.limit, order = _ref19.order, dataform = _ref19.dataform;
+                        where = _ref20.where, limit = _ref20.limit, order = _ref20.order, dataform = _ref20.dataform;
                         _context85.prev = 1;
 
                         if (typeof where !== "string") {
@@ -367,21 +368,21 @@ function _xdua() {
               return _qryDvenv.apply(this, arguments);
             };
 
-            qryDvenv = function _ref190(_x98) {
+            qryDvenv = function _ref191(_x99) {
               return _qryDvenv.apply(this, arguments);
             };
 
-            _qryGwenv = function _ref189() {
+            _qryGwenv = function _ref190() {
               _qryGwenv = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee84(_ref18) {
+              regeneratorRuntime.mark(function _callee84(_ref19) {
                 var where, limit, order, dataform, qryParam, _api_path17, key, API_PATH, url, localToken, headers, res, data;
 
                 return regeneratorRuntime.wrap(function _callee84$(_context84) {
                   while (1) {
                     switch (_context84.prev = _context84.next) {
                       case 0:
-                        where = _ref18.where, limit = _ref18.limit, order = _ref18.order, dataform = _ref18.dataform;
+                        where = _ref19.where, limit = _ref19.limit, order = _ref19.order, dataform = _ref19.dataform;
                         _context84.prev = 1;
 
                         if (typeof where !== "string") {
@@ -450,11 +451,11 @@ function _xdua() {
               return _qryGwenv.apply(this, arguments);
             };
 
-            qryGwenv = function _ref188(_x97) {
+            qryGwenv = function _ref189(_x98) {
               return _qryGwenv.apply(this, arguments);
             };
 
-            _qryJobq = function _ref187() {
+            _qryJobq = function _ref188() {
               _qryJobq = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee83(param) {
@@ -518,11 +519,11 @@ function _xdua() {
               return _qryJobq.apply(this, arguments);
             };
 
-            qryJobq = function _ref186(_x96) {
+            qryJobq = function _ref187(_x97) {
               return _qryJobq.apply(this, arguments);
             };
 
-            _getJobq = function _ref185() {
+            _getJobq = function _ref186() {
               _getJobq = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee82(jobq_id) {
@@ -573,11 +574,11 @@ function _xdua() {
               return _getJobq.apply(this, arguments);
             };
 
-            getJobq = function _ref184(_x95) {
+            getJobq = function _ref185(_x96) {
               return _getJobq.apply(this, arguments);
             };
 
-            _putJobq = function _ref183() {
+            _putJobq = function _ref184() {
               _putJobq = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee81(jobq_id, put_param) {
@@ -632,11 +633,11 @@ function _xdua() {
               return _putJobq.apply(this, arguments);
             };
 
-            putJobq = function _ref182(_x93, _x94) {
+            putJobq = function _ref183(_x94, _x95) {
               return _putJobq.apply(this, arguments);
             };
 
-            _delJobq = function _ref181() {
+            _delJobq = function _ref182() {
               _delJobq = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee80(jobq_id) {
@@ -698,20 +699,20 @@ function _xdua() {
               return _delJobq.apply(this, arguments);
             };
 
-            delJobq = function _ref180(_x92) {
+            delJobq = function _ref181(_x93) {
               return _delJobq.apply(this, arguments);
             };
 
-            _addJobq = function _ref179() {
+            _addJobq = function _ref180() {
               _addJobq = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee79(_ref17) {
+              regeneratorRuntime.mark(function _callee79(_ref18) {
                 var name, brief, avatar, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee79$(_context79) {
                   while (1) {
                     switch (_context79.prev = _context79.next) {
                       case 0:
-                        name = _ref17.name, brief = _ref17.brief, avatar = _ref17.avatar;
+                        name = _ref18.name, brief = _ref18.brief, avatar = _ref18.avatar;
                         _context79.prev = 1;
                         API_PATH = '/jobq';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -778,11 +779,11 @@ function _xdua() {
               return _addJobq.apply(this, arguments);
             };
 
-            addJobq = function _ref178(_x91) {
+            addJobq = function _ref179(_x92) {
               return _addJobq.apply(this, arguments);
             };
 
-            _qryUinf = function _ref177() {
+            _qryUinf = function _ref178() {
               _qryUinf = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee78(query) {
@@ -849,11 +850,11 @@ function _xdua() {
               return _qryUinf.apply(this, arguments);
             };
 
-            qryUinf = function _ref176(_x90) {
+            qryUinf = function _ref177(_x91) {
               return _qryUinf.apply(this, arguments);
             };
 
-            _getUinf = function _ref175() {
+            _getUinf = function _ref176() {
               _getUinf = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee77(uinf_uid) {
@@ -903,11 +904,11 @@ function _xdua() {
               return _getUinf.apply(this, arguments);
             };
 
-            getUinf = function _ref174(_x89) {
+            getUinf = function _ref175(_x90) {
               return _getUinf.apply(this, arguments);
             };
 
-            _putUinf = function _ref173() {
+            _putUinf = function _ref174() {
               _putUinf = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee76(uinf_uid, update) {
@@ -964,11 +965,11 @@ function _xdua() {
               return _putUinf.apply(this, arguments);
             };
 
-            putUinf = function _ref172(_x87, _x88) {
+            putUinf = function _ref173(_x88, _x89) {
               return _putUinf.apply(this, arguments);
             };
 
-            _delUinf = function _ref171() {
+            _delUinf = function _ref172() {
               _delUinf = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee75(uinf_uid) {
@@ -1030,11 +1031,11 @@ function _xdua() {
               return _delUinf.apply(this, arguments);
             };
 
-            delUinf = function _ref170(_x86) {
+            delUinf = function _ref171(_x87) {
               return _delUinf.apply(this, arguments);
             };
 
-            _addUinf = function _ref169() {
+            _addUinf = function _ref170() {
               _addUinf = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee74(uid, param) {
@@ -1110,11 +1111,11 @@ function _xdua() {
               return _addUinf.apply(this, arguments);
             };
 
-            addUinf = function _ref168(_x84, _x85) {
+            addUinf = function _ref169(_x85, _x86) {
               return _addUinf.apply(this, arguments);
             };
 
-            _qryFobj = function _ref167() {
+            _qryFobj = function _ref168() {
               _qryFobj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee73(param) {
@@ -1183,11 +1184,11 @@ function _xdua() {
               return _qryFobj.apply(this, arguments);
             };
 
-            qryFobj = function _ref166(_x83) {
+            qryFobj = function _ref167(_x84) {
               return _qryFobj.apply(this, arguments);
             };
 
-            _getFobj = function _ref165() {
+            _getFobj = function _ref166() {
               _getFobj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee72(fobj_key) {
@@ -1237,11 +1238,11 @@ function _xdua() {
               return _getFobj.apply(this, arguments);
             };
 
-            getFobj = function _ref164(_x82) {
+            getFobj = function _ref165(_x83) {
               return _getFobj.apply(this, arguments);
             };
 
-            _putFobj = function _ref163() {
+            _putFobj = function _ref164() {
               _putFobj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee71(fobj_key, fobj_update) {
@@ -1298,11 +1299,11 @@ function _xdua() {
               return _putFobj.apply(this, arguments);
             };
 
-            putFobj = function _ref162(_x80, _x81) {
+            putFobj = function _ref163(_x81, _x82) {
               return _putFobj.apply(this, arguments);
             };
 
-            _delFobj = function _ref161() {
+            _delFobj = function _ref162() {
               _delFobj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee70(fobj_key) {
@@ -1364,20 +1365,20 @@ function _xdua() {
               return _delFobj.apply(this, arguments);
             };
 
-            delFobj = function _ref160(_x79) {
+            delFobj = function _ref161(_x80) {
               return _delFobj.apply(this, arguments);
             };
 
-            _addFobj = function _ref159() {
+            _addFobj = function _ref160() {
               _addFobj = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee69(_ref16) {
+              regeneratorRuntime.mark(function _callee69(_ref17) {
                 var url, param, name, note, cato, size, idx1, idx2, idx3, idx4, API_PATH, api_url, localToken, headers, add_params, res, data;
                 return regeneratorRuntime.wrap(function _callee69$(_context69) {
                   while (1) {
                     switch (_context69.prev = _context69.next) {
                       case 0:
-                        url = _ref16.url, param = _ref16.param, name = _ref16.name, note = _ref16.note, cato = _ref16.cato, size = _ref16.size, idx1 = _ref16.idx1, idx2 = _ref16.idx2, idx3 = _ref16.idx3, idx4 = _ref16.idx4;
+                        url = _ref17.url, param = _ref17.param, name = _ref17.name, note = _ref17.note, cato = _ref17.cato, size = _ref17.size, idx1 = _ref17.idx1, idx2 = _ref17.idx2, idx3 = _ref17.idx3, idx4 = _ref17.idx4;
                         _context69.prev = 1;
                         API_PATH = '/fobj';
                         api_url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -1461,11 +1462,11 @@ function _xdua() {
               return _addFobj.apply(this, arguments);
             };
 
-            addFobj = function _ref158(_x78) {
+            addFobj = function _ref159(_x79) {
               return _addFobj.apply(this, arguments);
             };
 
-            _hasObj = function _ref157() {
+            _hasObj = function _ref158() {
               _hasObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee68(filter) {
@@ -1529,11 +1530,11 @@ function _xdua() {
               return _hasObj.apply(this, arguments);
             };
 
-            hasObj = function _ref156(_x77) {
+            hasObj = function _ref157(_x78) {
               return _hasObj.apply(this, arguments);
             };
 
-            _qryObj = function _ref155() {
+            _qryObj = function _ref156() {
               _qryObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee67(param) {
@@ -1607,11 +1608,11 @@ function _xdua() {
               return _qryObj.apply(this, arguments);
             };
 
-            qryObj = function _ref154(_x76) {
+            qryObj = function _ref155(_x77) {
               return _qryObj.apply(this, arguments);
             };
 
-            _getObj = function _ref153() {
+            _getObj = function _ref154() {
               _getObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee66(obj_key) {
@@ -1663,11 +1664,11 @@ function _xdua() {
               return _getObj.apply(this, arguments);
             };
 
-            getObj = function _ref152(_x75) {
+            getObj = function _ref153(_x76) {
               return _getObj.apply(this, arguments);
             };
 
-            _putObj = function _ref151() {
+            _putObj = function _ref152() {
               _putObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee65(obj_key, obj_value) {
@@ -1734,11 +1735,11 @@ function _xdua() {
               return _putObj.apply(this, arguments);
             };
 
-            putObj = function _ref150(_x73, _x74) {
+            putObj = function _ref151(_x74, _x75) {
               return _putObj.apply(this, arguments);
             };
 
-            _delObjs = function _ref149() {
+            _delObjs = function _ref150() {
               _delObjs = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee64(param) {
@@ -1810,11 +1811,11 @@ function _xdua() {
               return _delObjs.apply(this, arguments);
             };
 
-            delObjs = function _ref148(_x72) {
+            delObjs = function _ref149(_x73) {
               return _delObjs.apply(this, arguments);
             };
 
-            _delObj = function _ref147() {
+            _delObj = function _ref148() {
               _delObj = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee63(obj_key) {
@@ -1876,20 +1877,20 @@ function _xdua() {
               return _delObj.apply(this, arguments);
             };
 
-            delObj = function _ref146(_x71) {
+            delObj = function _ref147(_x72) {
               return _delObj.apply(this, arguments);
             };
 
-            _addObj = function _ref145() {
+            _addObj = function _ref146() {
               _addObj = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee62(_ref15) {
+              regeneratorRuntime.mark(function _callee62(_ref16) {
                 var name, value, type, key1, key2, key3, key4, readonly, API_PATH, url, localToken, headers, add_params, res, data;
                 return regeneratorRuntime.wrap(function _callee62$(_context62) {
                   while (1) {
                     switch (_context62.prev = _context62.next) {
                       case 0:
-                        name = _ref15.name, value = _ref15.value, type = _ref15.type, key1 = _ref15.key1, key2 = _ref15.key2, key3 = _ref15.key3, key4 = _ref15.key4, readonly = _ref15.readonly;
+                        name = _ref16.name, value = _ref16.value, type = _ref16.type, key1 = _ref16.key1, key2 = _ref16.key2, key3 = _ref16.key3, key4 = _ref16.key4, readonly = _ref16.readonly;
                         _context62.prev = 1;
                         API_PATH = '/obj';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -1978,11 +1979,11 @@ function _xdua() {
               return _addObj.apply(this, arguments);
             };
 
-            addObj = function _ref144(_x70) {
+            addObj = function _ref145(_x71) {
               return _addObj.apply(this, arguments);
             };
 
-            _qryApp2 = function _ref143() {
+            _qryApp2 = function _ref144() {
               _qryApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee61(param) {
@@ -2049,11 +2050,11 @@ function _xdua() {
               return _qryApp2.apply(this, arguments);
             };
 
-            qryApp = function _ref142(_x69) {
+            qryApp = function _ref143(_x70) {
               return _qryApp2.apply(this, arguments);
             };
 
-            _getApp2 = function _ref141() {
+            _getApp2 = function _ref142() {
               _getApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee60(app_id) {
@@ -2106,11 +2107,11 @@ function _xdua() {
               return _getApp2.apply(this, arguments);
             };
 
-            getApp = function _ref140(_x68) {
+            getApp = function _ref141(_x69) {
               return _getApp2.apply(this, arguments);
             };
 
-            _putApp2 = function _ref139() {
+            _putApp2 = function _ref140() {
               _putApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee59(app_id, put_param) {
@@ -2165,11 +2166,11 @@ function _xdua() {
               return _putApp2.apply(this, arguments);
             };
 
-            putApp = function _ref138(_x66, _x67) {
+            putApp = function _ref139(_x67, _x68) {
               return _putApp2.apply(this, arguments);
             };
 
-            _delApp2 = function _ref137() {
+            _delApp2 = function _ref138() {
               _delApp2 = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee58(app_id) {
@@ -2232,20 +2233,20 @@ function _xdua() {
               return _delApp2.apply(this, arguments);
             };
 
-            delApp = function _ref136(_x65) {
+            delApp = function _ref137(_x66) {
               return _delApp2.apply(this, arguments);
             };
 
-            _addApp = function _ref135() {
+            _addApp = function _ref136() {
               _addApp = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee57(_ref14) {
+              regeneratorRuntime.mark(function _callee57(_ref15) {
                 var pkg, name, ugrp_id, brief, avatar, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee57$(_context57) {
                   while (1) {
                     switch (_context57.prev = _context57.next) {
                       case 0:
-                        pkg = _ref14.pkg, name = _ref14.name, ugrp_id = _ref14.ugrp_id, brief = _ref14.brief, avatar = _ref14.avatar;
+                        pkg = _ref15.pkg, name = _ref15.name, ugrp_id = _ref15.ugrp_id, brief = _ref15.brief, avatar = _ref15.avatar;
                         _context57.prev = 1;
                         API_PATH = '/app';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -2313,11 +2314,11 @@ function _xdua() {
               return _addApp.apply(this, arguments);
             };
 
-            addApp = function _ref134(_x64) {
+            addApp = function _ref135(_x65) {
               return _addApp.apply(this, arguments);
             };
 
-            _qryApp = function _ref133() {
+            _qryApp = function _ref134() {
               _qryApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee56(param) {
@@ -2384,11 +2385,11 @@ function _xdua() {
               return _qryApp.apply(this, arguments);
             };
 
-            qryApp = function _ref132(_x63) {
+            qryApp = function _ref133(_x64) {
               return _qryApp.apply(this, arguments);
             };
 
-            _getApp = function _ref131() {
+            _getApp = function _ref132() {
               _getApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee55(app_id) {
@@ -2452,11 +2453,11 @@ function _xdua() {
               return _getApp.apply(this, arguments);
             };
 
-            getApp = function _ref130(_x62) {
+            getApp = function _ref131(_x63) {
               return _getApp.apply(this, arguments);
             };
 
-            _putApp = function _ref129() {
+            _putApp = function _ref130() {
               _putApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee54(app_id, put_param) {
@@ -2511,11 +2512,11 @@ function _xdua() {
               return _putApp.apply(this, arguments);
             };
 
-            putApp = function _ref128(_x60, _x61) {
+            putApp = function _ref129(_x61, _x62) {
               return _putApp.apply(this, arguments);
             };
 
-            _delApp = function _ref127() {
+            _delApp = function _ref128() {
               _delApp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee53(app_id) {
@@ -2578,11 +2579,11 @@ function _xdua() {
               return _delApp.apply(this, arguments);
             };
 
-            delApp = function _ref126(_x59) {
+            delApp = function _ref127(_x60) {
               return _delApp.apply(this, arguments);
             };
 
-            _qryUaff = function _ref125() {
+            _qryUaff = function _ref126() {
               _qryUaff = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee52(param) {
@@ -2649,11 +2650,11 @@ function _xdua() {
               return _qryUaff.apply(this, arguments);
             };
 
-            qryUaff = function _ref124(_x58) {
+            qryUaff = function _ref125(_x59) {
               return _qryUaff.apply(this, arguments);
             };
 
-            _getUaff = function _ref123() {
+            _getUaff = function _ref124() {
               _getUaff = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee51(uaff_id) {
@@ -2717,11 +2718,11 @@ function _xdua() {
               return _getUaff.apply(this, arguments);
             };
 
-            getUaff = function _ref122(_x57) {
+            getUaff = function _ref123(_x58) {
               return _getUaff.apply(this, arguments);
             };
 
-            _putUaff = function _ref121() {
+            _putUaff = function _ref122() {
               _putUaff = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee50(uaff_id, put_param) {
@@ -2775,11 +2776,11 @@ function _xdua() {
               return _putUaff.apply(this, arguments);
             };
 
-            putUaff = function _ref120(_x55, _x56) {
+            putUaff = function _ref121(_x56, _x57) {
               return _putUaff.apply(this, arguments);
             };
 
-            _delUaff = function _ref119() {
+            _delUaff = function _ref120() {
               _delUaff = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee49(uaff_id) {
@@ -2842,20 +2843,20 @@ function _xdua() {
               return _delUaff.apply(this, arguments);
             };
 
-            delUaff = function _ref118(_x54) {
+            delUaff = function _ref119(_x55) {
               return _delUaff.apply(this, arguments);
             };
 
-            _addUaff = function _ref117() {
+            _addUaff = function _ref118() {
               _addUaff = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee48(_ref13) {
+              regeneratorRuntime.mark(function _callee48(_ref14) {
                 var user_id, ugrp_id, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee48$(_context48) {
                   while (1) {
                     switch (_context48.prev = _context48.next) {
                       case 0:
-                        user_id = _ref13.user_id, ugrp_id = _ref13.ugrp_id;
+                        user_id = _ref14.user_id, ugrp_id = _ref14.ugrp_id;
                         _context48.prev = 1;
                         API_PATH = '/uaff';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -2922,11 +2923,11 @@ function _xdua() {
               return _addUaff.apply(this, arguments);
             };
 
-            addUaff = function _ref116(_x53) {
+            addUaff = function _ref117(_x54) {
               return _addUaff.apply(this, arguments);
             };
 
-            _qryUsro = function _ref115() {
+            _qryUsro = function _ref116() {
               _qryUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee47(param) {
@@ -2996,11 +2997,11 @@ function _xdua() {
               return _qryUsro.apply(this, arguments);
             };
 
-            qryUsro = function _ref114(_x52) {
+            qryUsro = function _ref115(_x53) {
               return _qryUsro.apply(this, arguments);
             };
 
-            _getUsro = function _ref113() {
+            _getUsro = function _ref114() {
               _getUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee46(usro_id) {
@@ -3064,11 +3065,11 @@ function _xdua() {
               return _getUsro.apply(this, arguments);
             };
 
-            getUsro = function _ref112(_x51) {
+            getUsro = function _ref113(_x52) {
               return _getUsro.apply(this, arguments);
             };
 
-            _putUsro = function _ref111() {
+            _putUsro = function _ref112() {
               _putUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee45(usro_id, put_param) {
@@ -3124,11 +3125,11 @@ function _xdua() {
               return _putUsro.apply(this, arguments);
             };
 
-            putUsro = function _ref110(_x49, _x50) {
+            putUsro = function _ref111(_x50, _x51) {
               return _putUsro.apply(this, arguments);
             };
 
-            _delUsro = function _ref109() {
+            _delUsro = function _ref110() {
               _delUsro = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee44(usro_id) {
@@ -3191,20 +3192,20 @@ function _xdua() {
               return _delUsro.apply(this, arguments);
             };
 
-            delUsro = function _ref108(_x48) {
+            delUsro = function _ref109(_x49) {
               return _delUsro.apply(this, arguments);
             };
 
-            _addUsro = function _ref107() {
+            _addUsro = function _ref108() {
               _addUsro = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee43(_ref12) {
+              regeneratorRuntime.mark(function _callee43(_ref13) {
                 var role_id, ugrp_id, towho, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee43$(_context43) {
                   while (1) {
                     switch (_context43.prev = _context43.next) {
                       case 0:
-                        role_id = _ref12.role_id, ugrp_id = _ref12.ugrp_id, towho = _ref12.towho;
+                        role_id = _ref13.role_id, ugrp_id = _ref13.ugrp_id, towho = _ref13.towho;
                         _context43.prev = 1;
                         API_PATH = '/usro';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -3280,11 +3281,11 @@ function _xdua() {
               return _addUsro.apply(this, arguments);
             };
 
-            addUsro = function _ref106(_x47) {
+            addUsro = function _ref107(_x48) {
               return _addUsro.apply(this, arguments);
             };
 
-            _qryRoue = function _ref105() {
+            _qryRoue = function _ref106() {
               _qryRoue = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee42(param) {
@@ -3351,11 +3352,11 @@ function _xdua() {
               return _qryRoue.apply(this, arguments);
             };
 
-            qryRoue = function _ref104(_x46) {
+            qryRoue = function _ref105(_x47) {
               return _qryRoue.apply(this, arguments);
             };
 
-            _getRoue = function _ref103() {
+            _getRoue = function _ref104() {
               _getRoue = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee41(roue_id) {
@@ -3417,11 +3418,11 @@ function _xdua() {
               return _getRoue.apply(this, arguments);
             };
 
-            getRoue = function _ref102(_x45) {
+            getRoue = function _ref103(_x46) {
               return _getRoue.apply(this, arguments);
             };
 
-            _putRoue = function _ref101() {
+            _putRoue = function _ref102() {
               _putRoue = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee40(roue_id, put_param) {
@@ -3475,11 +3476,11 @@ function _xdua() {
               return _putRoue.apply(this, arguments);
             };
 
-            putRoue = function _ref100(_x43, _x44) {
+            putRoue = function _ref101(_x44, _x45) {
               return _putRoue.apply(this, arguments);
             };
 
-            _delRoue = function _ref99() {
+            _delRoue = function _ref100() {
               _delRoue = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee39(roue_id) {
@@ -3542,11 +3543,11 @@ function _xdua() {
               return _delRoue.apply(this, arguments);
             };
 
-            delRoue = function _ref98(_x42) {
+            delRoue = function _ref99(_x43) {
               return _delRoue.apply(this, arguments);
             };
 
-            _delRoues = function _ref97() {
+            _delRoues = function _ref98() {
               _delRoues = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee38(param) {
@@ -3617,20 +3618,20 @@ function _xdua() {
               return _delRoues.apply(this, arguments);
             };
 
-            delRoues = function _ref96(_x41) {
+            delRoues = function _ref97(_x42) {
               return _delRoues.apply(this, arguments);
             };
 
-            _addRoue = function _ref95() {
+            _addRoue = function _ref96() {
               _addRoue = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee37(_ref11) {
+              regeneratorRuntime.mark(function _callee37(_ref12) {
                 var role_id, rule_id, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee37$(_context37) {
                   while (1) {
                     switch (_context37.prev = _context37.next) {
                       case 0:
-                        role_id = _ref11.role_id, rule_id = _ref11.rule_id;
+                        role_id = _ref12.role_id, rule_id = _ref12.rule_id;
                         _context37.prev = 1;
                         API_PATH = '/roue';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -3696,11 +3697,11 @@ function _xdua() {
               return _addRoue.apply(this, arguments);
             };
 
-            addRoue = function _ref94(_x40) {
+            addRoue = function _ref95(_x41) {
               return _addRoue.apply(this, arguments);
             };
 
-            _qryRule = function _ref93() {
+            _qryRule = function _ref94() {
               _qryRule = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee36(param) {
@@ -3779,11 +3780,11 @@ function _xdua() {
               return _qryRule.apply(this, arguments);
             };
 
-            qryRule = function _ref92(_x39) {
+            qryRule = function _ref93(_x40) {
               return _qryRule.apply(this, arguments);
             };
 
-            _getRule = function _ref91() {
+            _getRule = function _ref92() {
               _getRule = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee35(rule_id) {
@@ -3845,11 +3846,11 @@ function _xdua() {
               return _getRule.apply(this, arguments);
             };
 
-            getRule = function _ref90(_x38) {
+            getRule = function _ref91(_x39) {
               return _getRule.apply(this, arguments);
             };
 
-            _putRule = function _ref89() {
+            _putRule = function _ref90() {
               _putRule = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee34(rule_id, put_param) {
@@ -3903,11 +3904,11 @@ function _xdua() {
               return _putRule.apply(this, arguments);
             };
 
-            putRule = function _ref88(_x36, _x37) {
+            putRule = function _ref89(_x37, _x38) {
               return _putRule.apply(this, arguments);
             };
 
-            _delRule = function _ref87() {
+            _delRule = function _ref88() {
               _delRule = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee33(rule_id) {
@@ -3970,20 +3971,20 @@ function _xdua() {
               return _delRule.apply(this, arguments);
             };
 
-            delRule = function _ref86(_x35) {
+            delRule = function _ref87(_x36) {
               return _delRule.apply(this, arguments);
             };
 
-            _addRule = function _ref85() {
+            _addRule = function _ref86() {
               _addRule = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee32(_ref10) {
+              regeneratorRuntime.mark(function _callee32(_ref11) {
                 var code, name, ugrp_id, extra, avatar, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee32$(_context32) {
                   while (1) {
                     switch (_context32.prev = _context32.next) {
                       case 0:
-                        code = _ref10.code, name = _ref10.name, ugrp_id = _ref10.ugrp_id, extra = _ref10.extra, avatar = _ref10.avatar;
+                        code = _ref11.code, name = _ref11.name, ugrp_id = _ref11.ugrp_id, extra = _ref11.extra, avatar = _ref11.avatar;
                         _context32.prev = 1;
                         API_PATH = '/rule';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -4060,11 +4061,11 @@ function _xdua() {
               return _addRule.apply(this, arguments);
             };
 
-            addRule = function _ref84(_x34) {
+            addRule = function _ref85(_x35) {
               return _addRule.apply(this, arguments);
             };
 
-            _qryRole = function _ref83() {
+            _qryRole = function _ref84() {
               _qryRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee31(param) {
@@ -4132,11 +4133,11 @@ function _xdua() {
               return _qryRole.apply(this, arguments);
             };
 
-            qryRole = function _ref82(_x33) {
+            qryRole = function _ref83(_x34) {
               return _qryRole.apply(this, arguments);
             };
 
-            _getRole = function _ref81() {
+            _getRole = function _ref82() {
               _getRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee30(role_id) {
@@ -4200,11 +4201,11 @@ function _xdua() {
               return _getRole.apply(this, arguments);
             };
 
-            getRole = function _ref80(_x32) {
+            getRole = function _ref81(_x33) {
               return _getRole.apply(this, arguments);
             };
 
-            _putRole = function _ref79() {
+            _putRole = function _ref80() {
               _putRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee29(role_id, put_param) {
@@ -4259,11 +4260,11 @@ function _xdua() {
               return _putRole.apply(this, arguments);
             };
 
-            putRole = function _ref78(_x30, _x31) {
+            putRole = function _ref79(_x31, _x32) {
               return _putRole.apply(this, arguments);
             };
 
-            _delRole = function _ref77() {
+            _delRole = function _ref78() {
               _delRole = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee28(role_id) {
@@ -4327,20 +4328,20 @@ function _xdua() {
               return _delRole.apply(this, arguments);
             };
 
-            delRole = function _ref76(_x29) {
+            delRole = function _ref77(_x30) {
               return _delRole.apply(this, arguments);
             };
 
-            _addRole = function _ref75() {
+            _addRole = function _ref76() {
               _addRole = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee27(_ref9) {
+              regeneratorRuntime.mark(function _callee27(_ref10) {
                 var code, name, ugrp_id, granter, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee27$(_context27) {
                   while (1) {
                     switch (_context27.prev = _context27.next) {
                       case 0:
-                        code = _ref9.code, name = _ref9.name, ugrp_id = _ref9.ugrp_id, granter = _ref9.granter;
+                        code = _ref10.code, name = _ref10.name, ugrp_id = _ref10.ugrp_id, granter = _ref10.granter;
                         _context27.prev = 1;
                         API_PATH = '/role';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -4418,11 +4419,11 @@ function _xdua() {
               return _addRole.apply(this, arguments);
             };
 
-            addRole = function _ref74(_x28) {
+            addRole = function _ref75(_x29) {
               return _addRole.apply(this, arguments);
             };
 
-            _qryZone = function _ref73() {
+            _qryZone = function _ref74() {
               _qryZone = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee26(param) {
@@ -4491,11 +4492,11 @@ function _xdua() {
               return _qryZone.apply(this, arguments);
             };
 
-            qryZone = function _ref72(_x27) {
+            qryZone = function _ref73(_x28) {
               return _qryZone.apply(this, arguments);
             };
 
-            _getZone = function _ref71() {
+            _getZone = function _ref72() {
               _getZone = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee25(zone_id) {
@@ -4558,11 +4559,11 @@ function _xdua() {
               return _getZone.apply(this, arguments);
             };
 
-            getZone = function _ref70(_x26) {
+            getZone = function _ref71(_x27) {
               return _getZone.apply(this, arguments);
             };
 
-            _putZone = function _ref69() {
+            _putZone = function _ref70() {
               _putZone = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee24(zone_id, put_param) {
@@ -4617,11 +4618,11 @@ function _xdua() {
               return _putZone.apply(this, arguments);
             };
 
-            putZone = function _ref68(_x24, _x25) {
+            putZone = function _ref69(_x25, _x26) {
               return _putZone.apply(this, arguments);
             };
 
-            _delZone = function _ref67() {
+            _delZone = function _ref68() {
               _delZone = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee23(zone_id) {
@@ -4683,20 +4684,20 @@ function _xdua() {
               return _delZone.apply(this, arguments);
             };
 
-            delZone = function _ref66(_x23) {
+            delZone = function _ref67(_x24) {
               return _delZone.apply(this, arguments);
             };
 
-            _addZone = function _ref65() {
+            _addZone = function _ref66() {
               _addZone = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee22(_ref8) {
+              regeneratorRuntime.mark(function _callee22(_ref9) {
                 var name, god_id, brief, avatar, pid, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee22$(_context22) {
                   while (1) {
                     switch (_context22.prev = _context22.next) {
                       case 0:
-                        name = _ref8.name, god_id = _ref8.god_id, brief = _ref8.brief, avatar = _ref8.avatar, pid = _ref8.pid;
+                        name = _ref9.name, god_id = _ref9.god_id, brief = _ref9.brief, avatar = _ref9.avatar, pid = _ref9.pid;
                         _context22.prev = 1;
                         API_PATH = '/zone';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -4765,11 +4766,11 @@ function _xdua() {
               return _addZone.apply(this, arguments);
             };
 
-            addZone = function _ref64(_x22) {
+            addZone = function _ref65(_x23) {
               return _addZone.apply(this, arguments);
             };
 
-            _qryUgrp = function _ref63() {
+            _qryUgrp = function _ref64() {
               _qryUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee21(param) {
@@ -4838,11 +4839,11 @@ function _xdua() {
               return _qryUgrp.apply(this, arguments);
             };
 
-            qryUgrp = function _ref62(_x21) {
+            qryUgrp = function _ref63(_x22) {
               return _qryUgrp.apply(this, arguments);
             };
 
-            _getUgrp = function _ref61() {
+            _getUgrp = function _ref62() {
               _getUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee20(ugrp_id) {
@@ -4906,11 +4907,11 @@ function _xdua() {
               return _getUgrp.apply(this, arguments);
             };
 
-            getUgrp = function _ref60(_x20) {
+            getUgrp = function _ref61(_x21) {
               return _getUgrp.apply(this, arguments);
             };
 
-            _putUgrp = function _ref59() {
+            _putUgrp = function _ref60() {
               _putUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee19(ugrp_id, put_param) {
@@ -4965,11 +4966,11 @@ function _xdua() {
               return _putUgrp.apply(this, arguments);
             };
 
-            putUgrp = function _ref58(_x18, _x19) {
+            putUgrp = function _ref59(_x19, _x20) {
               return _putUgrp.apply(this, arguments);
             };
 
-            _delUgrp = function _ref57() {
+            _delUgrp = function _ref58() {
               _delUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee18(ugrp_id) {
@@ -5032,20 +5033,20 @@ function _xdua() {
               return _delUgrp.apply(this, arguments);
             };
 
-            delUgrp = function _ref56(_x17) {
+            delUgrp = function _ref57(_x18) {
               return _delUgrp.apply(this, arguments);
             };
 
-            _addUgrp = function _ref55() {
+            _addUgrp = function _ref56() {
               _addUgrp = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee17(_ref7) {
+              regeneratorRuntime.mark(function _callee17(_ref8) {
                 var code, name, brief, avatar, pid, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee17$(_context17) {
                   while (1) {
                     switch (_context17.prev = _context17.next) {
                       case 0:
-                        code = _ref7.code, name = _ref7.name, brief = _ref7.brief, avatar = _ref7.avatar, pid = _ref7.pid;
+                        code = _ref8.code, name = _ref8.name, brief = _ref8.brief, avatar = _ref8.avatar, pid = _ref8.pid;
                         _context17.prev = 1;
                         API_PATH = '/ugrp';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -5122,11 +5123,11 @@ function _xdua() {
               return _addUgrp.apply(this, arguments);
             };
 
-            addUgrp = function _ref54(_x16) {
+            addUgrp = function _ref55(_x17) {
               return _addUgrp.apply(this, arguments);
             };
 
-            _qryUser = function _ref53() {
+            _qryUser = function _ref54() {
               _qryUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee16(param) {
@@ -5144,7 +5145,7 @@ function _xdua() {
                         } //fixme:这个会影响客户攒param的参数,param有可能是客户端的一个全局变量
 
 
-                        param["filter"] = JSON.stringify(param["filter"]);
+                        param["where"] = JSON.stringify(param["where"]);
 
                         for (key in param) {
                           _api_path = _api_path + '&' + key + '=' + param[key];
@@ -5197,27 +5198,20 @@ function _xdua() {
               return _qryUser.apply(this, arguments);
             };
 
-            qryUser = function _ref52(_x15) {
+            qryUser = function _ref53(_x16) {
               return _qryUser.apply(this, arguments);
             };
 
-            _getUser = function _ref51() {
+            _getUser = function _ref52() {
               _getUser = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee15(user_id) {
-                var api_action,
-                    API_PATH,
-                    url,
-                    localToken,
-                    headers,
-                    res,
-                    data,
-                    _args15 = arguments;
+              regeneratorRuntime.mark(function _callee15(_ref7) {
+                var user_id, tabx, api_action, fields, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee15$(_context15) {
                   while (1) {
                     switch (_context15.prev = _context15.next) {
                       case 0:
-                        api_action = _args15.length > 1 && _args15[1] !== undefined ? _args15[1] : "getuser";
+                        user_id = _ref7.user_id, tabx = _ref7.tabx, api_action = _ref7.api_action, fields = _ref7.fields;
                         _context15.prev = 1;
 
                         if (!(api_action != "getuser" && api_action != 'getself')) {
@@ -5228,7 +5222,39 @@ function _xdua() {
                         throw new ArgumentError('Invalid Api Action');
 
                       case 4:
-                        API_PATH = '/user/' + user_id + "?action=" + api_action;
+                        if (!(_.isNil(user_id) || typeof user_id !== 'string')) {
+                          _context15.next = 6;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: user_id is required as string');
+
+                      case 6:
+                        if (!(_.isNil(tabx) || typeof tabx !== 'string')) {
+                          _context15.next = 8;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: tabx is required as string');
+
+                      case 8:
+                        if (!(_.isNil(api_action) || typeof api_action !== 'string')) {
+                          _context15.next = 10;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: api_action is required as string');
+
+                      case 10:
+                        if (!(_.isNil(fields) || typeof fields !== 'string')) {
+                          _context15.next = 12;
+                          break;
+                        }
+
+                        throw new ArgumentError('String Type Field: fields is required as string');
+
+                      case 12:
+                        API_PATH = '/user/' + user_id + "?action=" + api_action + "&tabx=" + tabx_id + "&fields=" + fields;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         console.log(url);
@@ -5237,18 +5263,10 @@ function _xdua() {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
                           Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+                          //再调用get的时候,不要再opts参数里放置param,就是不要放置params={"user_id":"ufnfFJx"}
 
                         };
-
-                        if (!(_.isNil(user_id) || typeof user_id !== 'string')) {
-                          _context15.next = 11;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: user_id is required as string');
-
-                      case 11:
-                        _context15.next = 13;
+                        _context15.next = 19;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -5257,13 +5275,13 @@ function _xdua() {
                           }
                         });
 
-                      case 13:
+                      case 19:
                         res = _context15.sent;
                         data = res.data;
                         return _context15.abrupt("return", data);
 
-                      case 18:
-                        _context15.prev = 18;
+                      case 24:
+                        _context15.prev = 24;
                         _context15.t0 = _context15["catch"](1);
                         return _context15.abrupt("return", {
                           error: 1,
@@ -5271,25 +5289,25 @@ function _xdua() {
                           debug: _context15.t0
                         });
 
-                      case 21:
+                      case 27:
                       case "end":
                         return _context15.stop();
                     }
                   }
-                }, _callee15, this, [[1, 18]]);
+                }, _callee15, this, [[1, 24]]);
               }));
               return _getUser.apply(this, arguments);
             };
 
-            getUser = function _ref50(_x14) {
+            getUser = function _ref51(_x15) {
               return _getUser.apply(this, arguments);
             };
 
-            _putUser = function _ref49() {
+            _putUser = function _ref50() {
               _putUser = _asyncToGenerator(
               /*#__PURE__*/
-              regeneratorRuntime.mark(function _callee14(user_id, put_param) {
-                var API_PATH, url, localToken, headers, res, data;
+              regeneratorRuntime.mark(function _callee14(user_id, tabx, update) {
+                var API_PATH, url, localToken, headers, update_str, res, data;
                 return regeneratorRuntime.wrap(function _callee14$(_context14) {
                   while (1) {
                     switch (_context14.prev = _context14.next) {
@@ -5302,26 +5320,34 @@ function _xdua() {
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
-
+                          Authorization: getLocalToken()
                         };
-                        _context14.next = 7;
+                        update_str = "";
+
+                        if (!_.isNil(update)) {
+                          update_str = JSON.stringify(update);
+                        }
+
+                        _context14.next = 9;
                         return aliYunClient.put({
                           url: url,
                           headers: headers,
                           signHeaders: {
                             'X-Ca-Stage': 'RELEASE'
                           },
-                          params: put_param
+                          params: {
+                            tabx: tabx,
+                            update: update_str
+                          }
                         });
 
-                      case 7:
+                      case 9:
                         res = _context14.sent;
                         data = res.data;
                         return _context14.abrupt("return", data);
 
-                      case 12:
-                        _context14.prev = 12;
+                      case 14:
+                        _context14.prev = 14;
                         _context14.t0 = _context14["catch"](0);
                         return _context14.abrupt("return", {
                           error: 1,
@@ -5329,21 +5355,21 @@ function _xdua() {
                           debug: _context14.t0
                         });
 
-                      case 15:
+                      case 17:
                       case "end":
                         return _context14.stop();
                     }
                   }
-                }, _callee14, this, [[0, 12]]);
+                }, _callee14, this, [[0, 14]]);
               }));
               return _putUser.apply(this, arguments);
             };
 
-            putUser = function _ref48(_x12, _x13) {
+            putUser = function _ref49(_x12, _x13, _x14) {
               return _putUser.apply(this, arguments);
             };
 
-            _delUser = function _ref47() {
+            _delUser = function _ref48() {
               _delUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee13(user_id) {
@@ -5405,21 +5431,21 @@ function _xdua() {
               return _delUser.apply(this, arguments);
             };
 
-            delUser = function _ref46(_x11) {
+            delUser = function _ref47(_x11) {
               return _delUser.apply(this, arguments);
             };
 
-            _addUser = function _ref45() {
+            _addUser = function _ref46() {
               _addUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee12(_ref6) {
-                var name, by, tel, mail, sex, ustr, pwd, vfcode, incode, shop, role, _ref6$api_action, api_action, API_PATH, url, localToken, headers, res, data;
+                var by, extra, ustr, pwd, vfcode, incode, shop, role, _ref6$api_action, api_action, API_PATH, url, localToken, headers, extra_str, res, data;
 
                 return regeneratorRuntime.wrap(function _callee12$(_context12) {
                   while (1) {
                     switch (_context12.prev = _context12.next) {
                       case 0:
-                        name = _ref6.name, by = _ref6.by, tel = _ref6.tel, mail = _ref6.mail, sex = _ref6.sex, ustr = _ref6.ustr, pwd = _ref6.pwd, vfcode = _ref6.vfcode, incode = _ref6.incode, shop = _ref6.shop, role = _ref6.role, _ref6$api_action = _ref6.api_action, api_action = _ref6$api_action === void 0 ? "adduser" : _ref6$api_action;
+                        by = _ref6.by, extra = _ref6.extra, ustr = _ref6.ustr, pwd = _ref6.pwd, vfcode = _ref6.vfcode, incode = _ref6.incode, shop = _ref6.shop, role = _ref6.role, _ref6$api_action = _ref6.api_action, api_action = _ref6$api_action === void 0 ? "adduser" : _ref6$api_action;
                         _context12.prev = 1;
 
                         if (!(api_action != "adduser" && api_action != 'signup')) {
@@ -5485,30 +5511,28 @@ function _xdua() {
                         throw new ArgumentError('String Type Field:vfcode is required as string');
 
                       case 18:
-                        if (!(_.isNil(incode) || typeof incode !== 'string')) {
-                          _context12.next = 20;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field:incode is required as string');
-
-                      case 20:
                         if (!(_.isNil(shop) || typeof shop !== 'string')) {
-                          _context12.next = 22;
+                          _context12.next = 20;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field:shop is required as string');
 
-                      case 22:
+                      case 20:
                         if (!(_.isNil(role) || typeof role !== 'string')) {
-                          _context12.next = 24;
+                          _context12.next = 22;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field:role is required as string');
 
-                      case 24:
+                      case 22:
+                        extra_str = "";
+
+                        if (!_.isNil(extra)) {
+                          extra_str = JSON.stringify(extra);
+                        }
+
                         _context12.next = 26;
                         return aliYunClient.post({
                           url: url,
@@ -5519,15 +5543,11 @@ function _xdua() {
                           params: {
                             by: by,
                             ustr: ustr,
-                            name: name,
-                            tel: tel,
-                            sex: sex,
-                            mail: mail,
                             vfcode: vfcode,
-                            incode: incode,
                             pwd: pwd,
                             shop: shop,
-                            role: role
+                            role: role,
+                            extra: extra_str
                           }
                         });
 
@@ -5555,11 +5575,11 @@ function _xdua() {
               return _addUser.apply(this, arguments);
             };
 
-            addUser = function _ref44(_x10) {
+            addUser = function _ref45(_x10) {
               return _addUser.apply(this, arguments);
             };
 
-            _signup = function _ref43() {
+            _signup = function _ref44() {
               _signup = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee11(_ref5) {
@@ -5696,11 +5716,11 @@ function _xdua() {
               return _signup.apply(this, arguments);
             };
 
-            signup = function _ref42(_x9) {
+            signup = function _ref43(_x9) {
               return _signup.apply(this, arguments);
             };
 
-            _chgPass = function _ref41() {
+            _chgPass = function _ref42() {
               _chgPass = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee10(user_id, _ref4) {
@@ -5783,11 +5803,11 @@ function _xdua() {
               return _chgPass.apply(this, arguments);
             };
 
-            chgPass = function _ref40(_x7, _x8) {
+            chgPass = function _ref41(_x7, _x8) {
               return _chgPass.apply(this, arguments);
             };
 
-            _rstPass = function _ref39() {
+            _rstPass = function _ref40() {
               _rstPass = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee9(_ref3) {
@@ -5882,11 +5902,11 @@ function _xdua() {
               return _rstPass.apply(this, arguments);
             };
 
-            rstPass = function _ref38(_x6) {
+            rstPass = function _ref39(_x6) {
               return _rstPass.apply(this, arguments);
             };
 
-            _addVfcodeByMail = function _ref37() {
+            _addVfcodeByMail = function _ref38() {
               _addVfcodeByMail = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee8(mail) {
@@ -5954,11 +5974,11 @@ function _xdua() {
               return _addVfcodeByMail.apply(this, arguments);
             };
 
-            addVfcodeByMail = function _ref36(_x5) {
+            addVfcodeByMail = function _ref37(_x5) {
               return _addVfcodeByMail.apply(this, arguments);
             };
 
-            _addVfcodeByTel = function _ref35() {
+            _addVfcodeByTel = function _ref36() {
               _addVfcodeByTel = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee7(tel) {
@@ -6027,11 +6047,11 @@ function _xdua() {
               return _addVfcodeByTel.apply(this, arguments);
             };
 
-            addVfcodeByTel = function _ref34(_x4) {
+            addVfcodeByTel = function _ref35(_x4) {
               return _addVfcodeByTel.apply(this, arguments);
             };
 
-            _login = function _ref33() {
+            _login = function _ref34() {
               _login = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee6(_ref2) {
@@ -6139,11 +6159,11 @@ function _xdua() {
               return _login.apply(this, arguments);
             };
 
-            login = function _ref32(_x3) {
+            login = function _ref33(_x3) {
               return _login.apply(this, arguments);
             };
 
-            _logout = function _ref31() {
+            _logout = function _ref32() {
               _logout = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee5() {
@@ -6175,11 +6195,11 @@ function _xdua() {
               return _logout.apply(this, arguments);
             };
 
-            logout = function _ref30() {
+            logout = function _ref31() {
               return _logout.apply(this, arguments);
             };
 
-            _isLogin = function _ref29() {
+            _isLogin = function _ref30() {
               _isLogin = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee4() {
@@ -6269,11 +6289,11 @@ function _xdua() {
               return _isLogin.apply(this, arguments);
             };
 
-            isLogin = function _ref28() {
+            isLogin = function _ref29() {
               return _isLogin.apply(this, arguments);
             };
 
-            _getToken = function _ref27() {
+            _getToken = function _ref28() {
               _getToken = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee3(token) {
@@ -6356,11 +6376,11 @@ function _xdua() {
               return _getToken.apply(this, arguments);
             };
 
-            getToken = function _ref26(_x2) {
+            getToken = function _ref27(_x2) {
               return _getToken.apply(this, arguments);
             };
 
-            _addToken = function _ref25() {
+            _addToken = function _ref26() {
               _addToken = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee2() {
@@ -6429,11 +6449,11 @@ function _xdua() {
               return _addToken.apply(this, arguments);
             };
 
-            addToken = function _ref24() {
+            addToken = function _ref25() {
               return _addToken.apply(this, arguments);
             };
 
-            _initialize = function _ref23() {
+            _initialize = function _ref24() {
               _initialize = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee() {
@@ -6465,7 +6485,7 @@ function _xdua() {
               return _initialize.apply(this, arguments);
             };
 
-            initialize = function _ref22() {
+            initialize = function _ref23() {
               return _initialize.apply(this, arguments);
             };
 
@@ -6576,6 +6596,7 @@ function _xdua() {
               rstPass: rstPass,
               chgPass: chgPass,
               addfile: addfile,
+              addavatar: addavatar,
               addblob: addblob,
               qryGwlog: qryGwlog,
               qryDvlog: qryDvlog,

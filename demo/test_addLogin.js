@@ -8,13 +8,22 @@ async function test_addLogin() {
     })
 
     api_name = "用户登录";
-    const res = await dua.login({
+    login_param = {
         by  :   "tel",
         ustr:   '+86-18017050123',
         pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
         shop:   "A3bdXNT3",
         role:   "none"
-    })
+    }
+    login_param = {
+        by  :   "tel",
+        ustr:   '+86-15810419011',
+        pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
+        shop:   "A3bdXNT3",
+        role:   "none"
+    }
+
+    const res = await dua.login(login_param)
 
     console.log(JSON.stringify(res));
     if(res.error == 0){

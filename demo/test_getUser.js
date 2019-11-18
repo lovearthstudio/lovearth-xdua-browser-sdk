@@ -22,13 +22,13 @@ async function test_getUser() {
     }
     //--------------------------------------------------
     api_name = "用户详情";
-    tabx_id  = "DefaultX";
-    tabx_id  = "XdUaXduA";
+    //tabx_id  = "DefaultX";
+    tabx_id  = "A3bdXNT3";
     query = {
         user_id:got_user_id,
         tabx:tabx_id,
         api_action:"getself",
-        fields:"user_id,name",
+        fields:"@all",
     }
     res = await dua.getUser(query)
     console.log(res)
