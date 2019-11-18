@@ -22,11 +22,9 @@ async function test_getUser() {
     }
     //--------------------------------------------------
     api_name = "用户详情";
-    //tabx_id  = "DefaultX";
-    tabx_id  = "A3bdXNT3";
     query = {
         user_id:got_user_id,
-        tabx:tabx_id,
+        tabx:"A3bdXNT3",    //alter:"DefaultX"
         api_action:"getself",
         fields:"@all",
     }

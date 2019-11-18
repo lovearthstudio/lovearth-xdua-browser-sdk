@@ -29,7 +29,7 @@
     "ali-oss": "^6.0.1",
     "aliyun-api-gateway-js-sdk": "^1.5.0",
     "crypto-js": "^3.1.9-1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.15",
     "store": "^2.0.12",
     "ua-parser-js": "^0.7.19",
     "util": "^0.11.0"
