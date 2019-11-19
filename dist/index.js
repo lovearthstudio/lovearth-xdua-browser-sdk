@@ -1,4 +1,4 @@
-// xdua 1.9.1
+// xdua 1.9.2
 'use strict';
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -5254,7 +5254,7 @@ function _xdua() {
                         throw new ArgumentError('String Type Field: fields is required as string');
 
                       case 12:
-                        API_PATH = '/user/' + user_id + "?action=" + api_action + "&tabx=" + tabx_id + "&fields=" + fields;
+                        API_PATH = '/user/' + user_id + "?action=" + api_action + "&tabx=" + tabx + "&fields=" + fields;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
                         console.log(url);

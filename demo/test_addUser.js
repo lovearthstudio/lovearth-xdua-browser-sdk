@@ -15,15 +15,14 @@ async function test_addUser() {
     add_user_param={
         api_action: "signup",
         by        : "tel",
-	    ustr      : "+86-18017050142",
+	    ustr      : "+86-18017050143",
 	    pwd       : "a906449d5769fa7361d7ecc6aa3f6d28",
 	    vfcode    : "FFFFFF",
 	    shop      : "A3bdXNT3",
         role      : "none",
         name      : "你的名字",
-        sex       : "F",
+        sex       : "M",
         bday      : "19860823",
-        mail      : "jiaoshuai@ict.ac.cn",
         avatar    : "default.jpg",
         extra    :{
             nickname:"我的昵称",
@@ -41,6 +40,7 @@ async function test_addUser() {
         console.log(api_name+"失败 "+res.reason);
     }
 }
+
 test_addUser();
     
     
