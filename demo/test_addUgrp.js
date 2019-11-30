@@ -11,17 +11,16 @@ async function test_addUgrp() {
         by  :   "tel",
         ustr:   '+86-15810419011',
         pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
-        ugrp:   "XdUaXduA",
+        shop:   "XdUaXduA",
         role:   "none"
     })
-    console.log(res_login);
+    //console.log(res_login);
     const res = await dua.addUgrp({
-        code:"testugrp5",
-        name:"测试户群5",
-        brief:"这是一个测试用的户群5", 
+        name:"养老通",
+        brief:"养老通户群", 
         avatar:""
     })
-    //console.log(res);
+    console.log(res);
     console.log(JSON.stringify(res));
     if(res.error == 0){
         got_ugrp_id = res.result.id;

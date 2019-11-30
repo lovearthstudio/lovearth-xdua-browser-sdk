@@ -19,7 +19,8 @@ async function test_qryUser() {
         where:{
             ugrp:"A3bdXNT3",
         },
-        fields:"@all"
+        fields:"@all",
+        order:"ctime:DESC"
         //fields:"user_id,name"
     }
 

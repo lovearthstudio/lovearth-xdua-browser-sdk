@@ -252,5 +252,6 @@ function _addblob() {
 module.exports = {
   getClient: getClient,
   addfile: addfile,
+  addavatar: addavatar,
   addblob: addblob
 };

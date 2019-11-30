@@ -23,9 +23,9 @@ async function test_setUser() {
     let user_id = "Dt5mvrtU" 
     let tabx    = "XdUaXduA"
     let update  = {
-        saying:   "辣椒帅",sex:"f"
+        saying:   "辣椒帅",sex:"f","avatar":"a.jpg"
     } 
-    res = await dua.putUser(user_id,tabx,update)
+    res = await dua.putUser(user_id,tabx,update,"setself")
     console.log(res);
     if(res.error == 0){
         console.log(api_name+"成功");

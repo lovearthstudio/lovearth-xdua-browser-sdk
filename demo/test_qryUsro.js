@@ -15,8 +15,7 @@ async function test_qryUsro() {
         role:   "none"
     })
     query = {
-        //filter:{ugrp_id:"A3bdXNT3","role_code[!]":"none"}
-        filter:{ugrp_id:"A3bdXNT3","grantee_id":"Dt5mvrtU"}
+        where:{ugrp_id:"A3bdXNT3","grantee_id":"Dt5mvrtU"}
     }
     let res = await dua.qryUsro(query)
     console.log(res);

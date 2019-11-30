@@ -33,21 +33,109 @@ function setLocalToken(token) {
   };
   store.set('api_info', api_info);
 }
+/**
+ * 以获取本地token,优先寻找usr_token,如果usr_token不存在，切换到app_token
+ * */
+
 
 function getLocalToken() {
   var localtoken = undefined;
 
   try {
-    var api_info = store.get('api_info');
-    localtoken = api_info.token;
+    var local_usr_token = store.get('usr_token');
+
+    if (!_.isNil(local_usr_token)) {
+      localtoken = local_usr_token;
+      console.log("Found local Usr Token");
+    } else {
+      var local_app_token = store.get('app_token');
+
+      if (!_.isNil(local_app_token)) {
+        localtoken = local_app_token;
+        console.log("Found local App Token");
+      } else {
+        localtoken = null;
+        console.log("Found No Token");
+      }
+    }
+
     return localtoken;
   } catch (error) {
     return null;
   }
 }
+/**
+ * 获取本地应用token
+ * */
+
+
+function getLocalAppToken() {
+  var localtoken = undefined;
+
+  try {
+    var local_app_token = store.get('app_token');
+
+    if (!_.isNil(local_app_token)) {
+      localtoken = local_app_token;
+      console.log("Found local App Token +");
+    } else {
+      localtoken = null;
+      console.log("Found No Token");
+    }
+
+    return localtoken;
+  } catch (error) {
+    return null;
+  }
+}
+/**
+ * 获取本地应用token
+ * */
+
+
+function getLocalUsrToken() {
+  var localtoken = undefined;
+
+  try {
+    var local_usr_token = store.get('usr_token');
+
+    if (!_.isNil(local_usr_token)) {
+      localtoken = local_usr_token;
+      console.log("Found local Usr Token +");
+    } else {
+      localtoken = null;
+      console.log("Found No Token");
+    }
+
+    return localtoken;
+  } catch (error) {
+    return null;
+  }
+}
+/**
+ * 设置本地应用token
+ * */
+
+
+function setLocalAppToken(token) {
+  store.set('app_token', token);
+}
+/**
+ * 设置本地应用token
+ * */
+
+
+function setLocalUsrToken(token) {
+  store.set('usr_token', token);
+}
+/**
+ * 删除本地所有token
+ * */
+
 
 function delLocalToken() {
-  store.remove('api_info');
+  store.remove('app_token');
+  store.remove('usr_token');
   return true;
 }
 
@@ -61,5 +149,8 @@ module.exports = {
   delLocalToken: delLocalToken,
   setAppKey: setAppKey,
   setAppSecret: setAppSecret,
-  setLocalToken: setLocalToken
+  setLocalToken: setLocalToken,
+  setLocalUsrToken: setLocalUsrToken,
+  setLocalAppToken: setLocalAppToken,
+  getLocalAppToken: getLocalAppToken
 };

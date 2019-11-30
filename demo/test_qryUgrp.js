@@ -10,7 +10,7 @@ async function test_qryUgrp() {
         by  :   "tel",
         ustr:   '+86-15810419011',
         pwd :   'a906449d5769fa7361d7ecc6aa3f6d28',
-        ugrp:   "XdUaXduA",
+        shop:   "XdUaXduA",
         role:   "none"
     })
     console.log(res_login);

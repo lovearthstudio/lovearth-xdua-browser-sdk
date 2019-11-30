@@ -1,4 +1,4 @@
-// xdua 1.9.2
+// xdua 1.9.7
 'use strict';
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -25,6 +25,8 @@ var _require2 = require('./oss/oss-client'),
     addavatar = _require2.addavatar,
     addblob = _require2.addblob;
 
+var store = require('store');
+
 var _require3 = require('./constants'),
     APIV = _require3.APIV,
     API_END_POINT = _require3.API_END_POINT,
@@ -33,7 +35,9 @@ var _require3 = require('./constants'),
     setAppKey = _require3.setAppKey,
     getAppSecret = _require3.getAppSecret,
     getAppKey = _require3.getAppKey,
-    setLocalToken = _require3.setLocalToken,
+    setLocalUsrToken = _require3.setLocalUsrToken,
+    setLocalAppToken = _require3.setLocalAppToken,
+    getLocalAppToken = _require3.getLocalAppToken,
     delLocalToken = _require3.delLocalToken,
     getLocalToken = _require3.getLocalToken;
 
@@ -41,17 +45,6 @@ var _require4 = require('./utils/Sign')(),
     generateSign = _require4.generateSign;
 
 var aliYunClient = require('./aliyunClient');
-/**
- * APP专属的应用token
- * */
-
-
-var global_app_token = null;
-/**
- * 用户专属的登录token
- * */
-
-var global_usr_token = null;
 
 function xdua(_x) {
   return _xdua.apply(this, arguments);
@@ -2851,12 +2844,12 @@ function _xdua() {
               _addUaff = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee48(_ref14) {
-                var user_id, ugrp_id, API_PATH, url, localToken, headers, res, data;
+                var user_id, shop_id, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee48$(_context48) {
                   while (1) {
                     switch (_context48.prev = _context48.next) {
                       case 0:
-                        user_id = _ref14.user_id, ugrp_id = _ref14.ugrp_id;
+                        user_id = _ref14.user_id, shop_id = _ref14.shop_id;
                         _context48.prev = 1;
                         API_PATH = '/uaff';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -2877,12 +2870,12 @@ function _xdua() {
                         throw new ArgumentError('String Type Field: user_id is required as string');
 
                       case 8:
-                        if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
+                        if (!(_.isNil(shop_id) || typeof shop_id !== 'string')) {
                           _context48.next = 10;
                           break;
                         }
 
-                        throw new ArgumentError('String Type Field: ugrp_id is required as string');
+                        throw new ArgumentError('String Type Field: shop_id is required as string');
 
                       case 10:
                         _context48.next = 12;
@@ -2894,7 +2887,7 @@ function _xdua() {
                           },
                           params: {
                             user_id: user_id,
-                            ugrp_id: ugrp_id
+                            shop_id: shop_id
                           }
                         });
 
@@ -3214,8 +3207,7 @@ function _xdua() {
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
-
+                          Authorization: getLocalToken()
                         };
 
                         if (!(_.isNil(role_id) || typeof role_id !== 'string')) {
@@ -3234,15 +3226,7 @@ function _xdua() {
                         throw new ArgumentError('String Type Field: towho is required as string not ' + (typeof name === "undefined" ? "undefined" : _typeof(name)));
 
                       case 10:
-                        if (!(_.isNil(ugrp_id) || typeof ugrp_id !== 'string')) {
-                          _context43.next = 12;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: ugrp_id is required as string');
-
-                      case 12:
-                        _context43.next = 14;
+                        _context43.next = 12;
                         return aliYunClient.post({
                           url: url,
                           headers: headers,
@@ -3251,18 +3235,17 @@ function _xdua() {
                           },
                           params: {
                             role_id: role_id,
-                            ugrp_id: ugrp_id,
                             towho: towho
                           }
                         });
 
-                      case 14:
+                      case 12:
                         res = _context43.sent;
                         data = res.data;
                         return _context43.abrupt("return", data);
 
-                      case 19:
-                        _context43.prev = 19;
+                      case 17:
+                        _context43.prev = 17;
                         _context43.t0 = _context43["catch"](1);
                         return _context43.abrupt("return", {
                           error: 2,
@@ -3271,12 +3254,12 @@ function _xdua() {
                           debug: {}
                         });
 
-                      case 22:
+                      case 20:
                       case "end":
                         return _context43.stop();
                     }
                   }
-                }, _callee43, this, [[1, 19]]);
+                }, _callee43, this, [[1, 17]]);
               }));
               return _addUsro.apply(this, arguments);
             };
@@ -3719,18 +3702,7 @@ function _xdua() {
                         } //fixme:这个会影响客户攒param的参数,param有可能是客户端的一个全局变量
 
 
-                        param["filter"] = JSON.stringify(param["filter"]);
-
-                        for (key in param) {
-                          _api_path5 = _api_path5 + '&' + key + '=' + param[key];
-                        } //fixme:这个会影响客户攒param的参数,param有可能是客户端的一个全局变量
-
-
-                        param["filter"] = JSON.stringify(param["filter"]);
-
-                        for (key in param) {
-                          _api_path5 = _api_path5 + '&' + key + '=' + param[key];
-                        }
+                        param["where"] = JSON.stringify(param["where"]);
 
                         for (key in param) {
                           _api_path5 = _api_path5 + '&' + key + '=' + param[key];
@@ -3746,7 +3718,7 @@ function _xdua() {
                           Authorization: getLocalToken() //再调用get的时候,不要再opts参数里放置param,就是不要放置params={"user_id":"ufnfFJx"}
 
                         };
-                        _context36.next = 14;
+                        _context36.next = 11;
                         return aliYunClient.get({
                           url: url,
                           headers: headers,
@@ -3755,13 +3727,13 @@ function _xdua() {
                           }
                         });
 
-                      case 14:
+                      case 11:
                         res = _context36.sent;
                         data = res.data;
                         return _context36.abrupt("return", data);
 
-                      case 19:
-                        _context36.prev = 19;
+                      case 16:
+                        _context36.prev = 16;
                         _context36.t0 = _context36["catch"](0);
                         return _context36.abrupt("return", {
                           error: 2,
@@ -3770,12 +3742,12 @@ function _xdua() {
                           debug: {}
                         });
 
-                      case 22:
+                      case 19:
                       case "end":
                         return _context36.stop();
                     }
                   }
-                }, _callee36, this, [[0, 19]]);
+                }, _callee36, this, [[0, 16]]);
               }));
               return _qryRule.apply(this, arguments);
             };
@@ -4441,7 +4413,7 @@ function _xdua() {
                         } //fixme:这个会影响客户攒param的参数,param有可能是客户端的一个全局变量
 
 
-                        param["filter"] = JSON.stringify(param["filter"]);
+                        param["where"] = JSON.stringify(param["where"]);
 
                         for (key in param) {
                           _api_path3 = _api_path3 + '&' + key + '=' + param[key];
@@ -5041,12 +5013,12 @@ function _xdua() {
               _addUgrp = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee17(_ref8) {
-                var code, name, brief, avatar, pid, API_PATH, url, localToken, headers, res, data;
+                var name, brief, avatar, API_PATH, url, localToken, headers, res, data;
                 return regeneratorRuntime.wrap(function _callee17$(_context17) {
                   while (1) {
                     switch (_context17.prev = _context17.next) {
                       case 0:
-                        code = _ref8.code, name = _ref8.name, brief = _ref8.brief, avatar = _ref8.avatar, pid = _ref8.pid;
+                        name = _ref8.name, brief = _ref8.brief, avatar = _ref8.avatar;
                         _context17.prev = 1;
                         API_PATH = '/ugrp';
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
@@ -5059,31 +5031,27 @@ function _xdua() {
 
                         };
 
-                        if (!(_.isNil(code) || typeof code !== 'string')) {
-                          _context17.next = 8;
-                          break;
-                        }
-
-                        throw new ArgumentError('String Type Field: code is required as string');
-
-                      case 8:
                         if (!(_.isNil(name) || typeof name !== 'string')) {
-                          _context17.next = 10;
+                          _context17.next = 8;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: name is required as string not ' + _typeof(name));
 
-                      case 10:
+                      case 8:
                         if (!(_.isNil(brief) || typeof brief !== 'string')) {
-                          _context17.next = 12;
+                          _context17.next = 10;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: brief is required as string');
 
-                      case 12:
-                        _context17.next = 14;
+                      case 10:
+                        if (_.isNil(avatar)) {
+                          avatar = "";
+                        }
+
+                        _context17.next = 13;
                         return aliYunClient.post({
                           url: url,
                           headers: headers,
@@ -5091,21 +5059,19 @@ function _xdua() {
                             'X-Ca-Stage': 'RELEASE'
                           },
                           params: {
-                            code: code,
                             name: name,
                             brief: brief,
-                            avatar: avatar,
-                            pid: pid
+                            avatar: avatar
                           }
                         });
 
-                      case 14:
+                      case 13:
                         res = _context17.sent;
                         data = res.data;
                         return _context17.abrupt("return", data);
 
-                      case 19:
-                        _context17.prev = 19;
+                      case 18:
+                        _context17.prev = 18;
                         _context17.t0 = _context17["catch"](1);
                         return _context17.abrupt("return", {
                           error: 1,
@@ -5113,12 +5079,12 @@ function _xdua() {
                           debug: _context17.t0
                         });
 
-                      case 22:
+                      case 21:
                       case "end":
                         return _context17.stop();
                     }
                   }
-                }, _callee17, this, [[1, 19]]);
+                }, _callee17, this, [[1, 18]]);
               }));
               return _addUgrp.apply(this, arguments);
             };
@@ -5307,12 +5273,21 @@ function _xdua() {
               _putUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee14(user_id, tabx, update) {
-                var API_PATH, url, localToken, headers, update_str, res, data;
+                var api_action,
+                    API_PATH,
+                    url,
+                    localToken,
+                    headers,
+                    update_str,
+                    res,
+                    data,
+                    _args14 = arguments;
                 return regeneratorRuntime.wrap(function _callee14$(_context14) {
                   while (1) {
                     switch (_context14.prev = _context14.next) {
                       case 0:
-                        _context14.prev = 0;
+                        api_action = _args14.length > 3 && _args14[3] !== undefined ? _args14[3] : "setuser";
+                        _context14.prev = 1;
                         API_PATH = '/user/' + user_id;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
@@ -5328,7 +5303,7 @@ function _xdua() {
                           update_str = JSON.stringify(update);
                         }
 
-                        _context14.next = 9;
+                        _context14.next = 10;
                         return aliYunClient.put({
                           url: url,
                           headers: headers,
@@ -5337,30 +5312,31 @@ function _xdua() {
                           },
                           params: {
                             tabx: tabx,
-                            update: update_str
+                            update: update_str,
+                            action: api_action
                           }
                         });
 
-                      case 9:
+                      case 10:
                         res = _context14.sent;
                         data = res.data;
                         return _context14.abrupt("return", data);
 
-                      case 14:
-                        _context14.prev = 14;
-                        _context14.t0 = _context14["catch"](0);
+                      case 15:
+                        _context14.prev = 15;
+                        _context14.t0 = _context14["catch"](1);
                         return _context14.abrupt("return", {
                           error: 1,
                           reason: _context14.t0,
                           debug: _context14.t0
                         });
 
-                      case 17:
+                      case 18:
                       case "end":
                         return _context14.stop();
                     }
                   }
-                }, _callee14, this, [[0, 14]]);
+                }, _callee14, this, [[1, 15]]);
               }));
               return _putUser.apply(this, arguments);
             };
@@ -5439,13 +5415,13 @@ function _xdua() {
               _addUser = _asyncToGenerator(
               /*#__PURE__*/
               regeneratorRuntime.mark(function _callee12(_ref6) {
-                var by, extra, ustr, pwd, vfcode, incode, shop, role, _ref6$api_action, api_action, API_PATH, url, localToken, headers, extra_str, res, data;
+                var by, extra, ustr, pwd, vfcode, shop, role, name, sex, bday, avatar, tabx, _ref6$api_action, api_action, api_token, API_PATH, url, headers, extra_str, post_body, res, data;
 
                 return regeneratorRuntime.wrap(function _callee12$(_context12) {
                   while (1) {
                     switch (_context12.prev = _context12.next) {
                       case 0:
-                        by = _ref6.by, extra = _ref6.extra, ustr = _ref6.ustr, pwd = _ref6.pwd, vfcode = _ref6.vfcode, incode = _ref6.incode, shop = _ref6.shop, role = _ref6.role, _ref6$api_action = _ref6.api_action, api_action = _ref6$api_action === void 0 ? "adduser" : _ref6$api_action;
+                        by = _ref6.by, extra = _ref6.extra, ustr = _ref6.ustr, pwd = _ref6.pwd, vfcode = _ref6.vfcode, shop = _ref6.shop, role = _ref6.role, name = _ref6.name, sex = _ref6.sex, bday = _ref6.bday, avatar = _ref6.avatar, tabx = _ref6.tabx, _ref6$api_action = _ref6.api_action, api_action = _ref6$api_action === void 0 ? "adduser" : _ref6$api_action;
                         _context12.prev = 1;
 
                         if (!(api_action != "adduser" && api_action != 'signup')) {
@@ -5456,108 +5432,124 @@ function _xdua() {
                         throw new ArgumentError('Invalid Api Action');
 
                       case 4:
+                        api_token = null;
+
+                        if (api_action == "adduser") {
+                          api_token = getLocalUsrToken(); //这个地方尤其注意,因为是自主登录，所以需要用本地AppToken,而不是用usrToken
+                        } else {
+                          api_token = getLocalAppToken(); //这个地方尤其注意,因为是自主登录，所以需要用本地AppToken,而不是用usrToken
+                        }
+
                         API_PATH = '/user?action=' + api_action;
                         url = API_END_POINT + API_PATH; // Add '+86-' to the username, since we currently only support registration from China mainland
 
-                        localToken = getLocalToken();
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
-
+                          Authorization: api_token
                         };
 
                         if (!(_.isNil(by) || typeof by !== 'string')) {
-                          _context12.next = 10;
+                          _context12.next = 11;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: by is required as string');
 
-                      case 10:
-                        /**
-                         * 如果注册接口不设置incode,那么系统自动补充成字符串incode.
-                         * 它是默认的邀请码.
-                         * */
-                        if (_.isNil(incode)) {
-                          incode = 'incode';
-                        }
-
-                        if (incode == '') {
-                          incode = 'incode';
-                        }
-
+                      case 11:
                         if (!(_.isNil(ustr) || typeof ustr !== 'string')) {
-                          _context12.next = 14;
+                          _context12.next = 13;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: ustr is required as string');
 
-                      case 14:
+                      case 13:
                         if (!(_.isNil(pwd) || typeof pwd !== 'string')) {
-                          _context12.next = 16;
+                          _context12.next = 15;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field: pwd is required as string');
 
-                      case 16:
+                      case 15:
                         if (!(_.isNil(vfcode) || typeof vfcode !== 'string')) {
-                          _context12.next = 18;
+                          _context12.next = 17;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field:vfcode is required as string');
 
-                      case 18:
+                      case 17:
                         if (!(_.isNil(shop) || typeof shop !== 'string')) {
-                          _context12.next = 20;
+                          _context12.next = 19;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field:shop is required as string');
 
-                      case 20:
+                      case 19:
                         if (!(_.isNil(role) || typeof role !== 'string')) {
-                          _context12.next = 22;
+                          _context12.next = 21;
                           break;
                         }
 
                         throw new ArgumentError('String Type Field:role is required as string');
 
-                      case 22:
+                      case 21:
                         extra_str = "";
 
                         if (!_.isNil(extra)) {
                           extra_str = JSON.stringify(extra);
                         }
 
-                        _context12.next = 26;
+                        if (_.isNil(name)) {
+                          name = "";
+                        }
+
+                        if (_.isNil(bday)) {
+                          bday = "";
+                        }
+
+                        if (_.isNil(sex)) {
+                          sex = "u";
+                        }
+
+                        if (_.isNil(avatar)) {
+                          avatar = "";
+                        }
+
+                        post_body = {
+                          by: by,
+                          ustr: ustr,
+                          vfcode: vfcode,
+                          pwd: pwd,
+                          shop: shop,
+                          tabx: tabx,
+                          role: role,
+                          bday: bday,
+                          sex: sex,
+                          avatar: avatar,
+                          name: name,
+                          extra: extra_str
+                        };
+                        _context12.next = 30;
                         return aliYunClient.post({
                           url: url,
                           headers: headers,
                           signHeaders: {
                             'X-Ca-Stage': 'RELEASE'
                           },
-                          params: {
-                            by: by,
-                            ustr: ustr,
-                            vfcode: vfcode,
-                            pwd: pwd,
-                            shop: shop,
-                            role: role,
-                            extra: extra_str
-                          }
+                          params: post_body
                         });
 
-                      case 26:
+                      case 30:
                         res = _context12.sent;
                         data = res.data;
                         return _context12.abrupt("return", data);
 
-                      case 31:
-                        _context12.prev = 31;
+                      case 35:
+                        _context12.prev = 35;
                         _context12.t0 = _context12["catch"](1);
                         return _context12.abrupt("return", {
                           error: 1,
@@ -5565,12 +5557,12 @@ function _xdua() {
                           debug: _context12.t0
                         });
 
-                      case 34:
+                      case 38:
                       case "end":
                         return _context12.stop();
                     }
                   }
-                }, _callee12, this, [[1, 31]]);
+                }, _callee12, this, [[1, 35]]);
               }));
               return _addUser.apply(this, arguments);
             };
@@ -5597,7 +5589,8 @@ function _xdua() {
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: getLocalToken() //'apiv': APIV // Use md5 to hash the password
+                          Authorization: getLocalAppToken() //这个地方尤其注意,因为是自主登录，所以需要用本地AppToken,而不是用usrToken
+                          //'apiv': APIV // Use md5 to hash the password
 
                         };
 
@@ -6107,7 +6100,7 @@ function _xdua() {
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: global_app_token
+                          Authorization: getLocalToken()
                         };
                         _context6.next = 16;
                         return aliYunClient.post({
@@ -6131,7 +6124,7 @@ function _xdua() {
 
                         if (data.error === 0) {
                           token = data.result.token;
-                          setLocalToken(token);
+                          setLocalUsrToken(token);
                         } else {
                           console.log(data);
                         }
@@ -6232,7 +6225,7 @@ function _xdua() {
                         headers = {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          Authorization: global_app_token
+                          Authorization: getLocalToken()
                         };
                         _context4.next = 10;
                         return aliYunClient.get({
@@ -6326,7 +6319,7 @@ function _xdua() {
                           accept: APPLICATION_JSON,
                           'content-type': APPLICATION_X_WWW_FORM_URLENCODED,
                           //Authorization: sign,
-                          Authorization: global_app_token
+                          Authorization: getLocalToken()
                         };
                         _context3.next = 5;
                         return aliYunClient.get({
@@ -6403,8 +6396,7 @@ function _xdua() {
                         };
                         headers = {
                           'Content-Type': APPLICATION_X_WWW_FORM_URLENCODED,
-                          //'Authorization': sign
-                          'Authorization': global_app_token
+                          'Authorization': getLocalToken()
                         };
                         _context2.next = 7;
                         return aliYunClient.post({
@@ -6419,7 +6411,7 @@ function _xdua() {
 
                         if (data.error === 0) {
                           token = data.result.token;
-                          setLocalToken(token);
+                          setLocalAppToken(token);
                         } else {
                           console.log("addToken:失败");
                           console.log(data);
@@ -6463,11 +6455,11 @@ function _xdua() {
                     switch (_context.prev = _context.next) {
                       case 0:
                         try {
-                          localUserToken = getLocalToken(); //--对付网页刷新-开始
+                          localUserToken = store.get('usr_token'); //--对付网页刷新-开始
 
                           if (_.isNil(localUserToken)) {
                             console.log("Missing Local User Token");
-                          } //--对付网页刷新-结束
+                          } else {} //--对付网页刷新-结束
 
                         } catch (e) {
                           console.log("Exception at initialize:" + String(e));
@@ -6490,10 +6482,7 @@ function _xdua() {
             };
 
             APP_TOKEN = _ref.APP_TOKEN;
-            //setAppKey(APP_KEY)
-            //setAppSecret(APP_SECRET)
-            global_app_token = APP_TOKEN;
-            setLocalToken(APP_TOKEN);
+            setLocalAppToken(APP_TOKEN);
             /**
              * 如果本地已经有一个token了,那么要判断这个匿名token是否过期了，
              * 地球号机制给所有的匿名token统一的24小时有效期。
@@ -6511,10 +6500,10 @@ function _xdua() {
              * 改版：因为前端网页登录后会刷网页覆盖token,导致用这个token是个匿名token,没有什么权限,导致前端api拿不到真正的权限。
              * */
 
-            _context89.next = 181;
+            _context89.next = 180;
             return initialize();
 
-          case 181:
+          case 180:
             return _context89.abrupt("return", {
               initialize: initialize,
               addToken: addToken,
@@ -6605,7 +6594,7 @@ function _xdua() {
               addIotpass: addIotpass
             });
 
-          case 182:
+          case 181:
           case "end":
             return _context89.stop();
         }
